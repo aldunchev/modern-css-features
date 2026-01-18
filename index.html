@@ -108,24 +108,240 @@
                 </div>
 
                 <div class="demo-container">
-                    <h3>Demo Area</h3>
-                    <!-- Demo content will be added in Phase 3 -->
+                    <h3>Demo 1: Form Validation with Parent Styling</h3>
+                    <p class="demo-description">As you type, the form group changes color based on input validity. No JavaScript required!</p>
+
+                    <form class="has-form-demo">
+                        <div class="form-group">
+                            <label for="email-input">Email Address</label>
+                            <input
+                                type="email"
+                                id="email-input"
+                                name="email"
+                                placeholder="Enter your email"
+                                required
+                            >
+                            <span class="error-text">Please enter a valid email address</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password-input">Password (min 8 characters)</label>
+                            <input
+                                type="password"
+                                id="password-input"
+                                name="password"
+                                placeholder="Enter password"
+                                minlength="8"
+                                required
+                            >
+                            <span class="error-text">Password must be at least 8 characters</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone-input">Phone Number</label>
+                            <input
+                                type="tel"
+                                id="phone-input"
+                                name="phone"
+                                placeholder="(555) 123-4567"
+                                pattern="[0-9\(\)\-\s]+"
+                                required
+                            >
+                            <span class="error-text">Please enter a valid phone number</span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo 2: Card Hover Effects</h3>
+                    <p class="demo-description">Hover over the image inside the card to see the entire card change appearance.</p>
+
+                    <div class="has-cards-demo">
+                        <article class="product-card">
+                            <div class="card-image">
+                                <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='sans-serif'%3EProduct 1%3C/text%3E%3C/svg%3E" alt="Product 1">
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">Modern Headphones</h4>
+                                <p class="card-description">Premium wireless audio experience</p>
+                                <p class="card-price">$199.99</p>
+                                <button class="card-button">Add to Cart</button>
+                            </div>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="card-image">
+                                <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='sans-serif'%3EProduct 2%3C/text%3E%3C/svg%3E" alt="Product 2">
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">Smart Watch</h4>
+                                <p class="card-description">Track your fitness goals</p>
+                                <p class="card-price">$299.99</p>
+                                <button class="card-button">Add to Cart</button>
+                            </div>
+                        </article>
+
+                        <article class="product-card">
+                            <div class="card-image">
+                                <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='sans-serif'%3EProduct 3%3C/text%3E%3C/svg%3E" alt="Product 3">
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">Laptop Stand</h4>
+                                <p class="card-description">Ergonomic workspace solution</p>
+                                <p class="card-price">$79.99</p>
+                                <button class="card-button">Add to Cart</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo 3: Sibling Fade-Out Gallery</h3>
+                    <p class="demo-description">Hover over any photo to fade out the others. Pure CSS, no JavaScript!</p>
+
+                    <div class="has-gallery-demo">
+                        <div class="gallery-item">
+                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%23ef4444'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 1%3C/text%3E%3C/svg%3E" alt="Gallery Photo 1">
+                            <div class="gallery-label">Mountain Sunset</div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 2%3C/text%3E%3C/svg%3E" alt="Gallery Photo 2">
+                            <div class="gallery-label">Ocean Waves</div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 3%3C/text%3E%3C/svg%3E" alt="Gallery Photo 3">
+                            <div class="gallery-label">Forest Path</div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%23f59e0b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 4%3C/text%3E%3C/svg%3E" alt="Gallery Photo 4">
+                            <div class="gallery-label">Desert Dunes</div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 5%3C/text%3E%3C/svg%3E" alt="Gallery Photo 5">
+                            <div class="gallery-label">City Lights</div>
+                        </div>
+
+                        <div class="gallery-item">
+                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%23ec4899'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 6%3C/text%3E%3C/svg%3E" alt="Gallery Photo 6">
+                            <div class="gallery-label">Northern Lights</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="code-example">
-                    <h3>Code Example</h3>
-                    <pre><code class="language-css">/* Style parent based on child */
-.card:has(img) {
-    display: grid;
-    grid-template-columns: 200px 1fr;
+                    <h3>Code Example: Form Validation</h3>
+                    <pre><code class="language-css">/* Style container when input is invalid and not empty */
+.form-group:has(input:invalid:not(:placeholder-shown)) {
+    border: 2px solid #ef4444;
+    background-color: #fee2e2;
+}
+
+/* Style container when input is valid */
+.form-group:has(input:valid:not(:placeholder-shown)) {
+    border: 2px solid #10b981;
+    background-color: #f0fdf4;
+}
+
+/* Style label based on input state */
+.form-group:has(input:invalid) label {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+/* Show error message only when invalid */
+.form-group:has(input:invalid:not(:placeholder-shown)) .error-text {
+    display: block;
 }</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example: Card Hover</h3>
+                    <pre><code class="language-css">/* Highlight card when image is hovered */
+.product-card:has(.card-image:hover) {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+}
+
+/* Enlarge title on image hover */
+.product-card:has(.card-image:hover) .card-title {
+    font-size: 1.5rem;
+    color: #3b82f6;
+}
+
+/* Show hidden button on image hover */
+.product-card:has(.card-image:hover) .card-button {
+    opacity: 1;
+    pointer-events: auto;
+}</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example: Sibling Fade-Out</h3>
+                    <pre><code class="language-css">/* Fade out all siblings when one is hovered */
+.has-gallery-demo:has(.gallery-item:hover) .gallery-item:not(:hover) {
+    opacity: 0.4;
+    filter: grayscale(100%);
+}
+
+/* Scale up the hovered item */
+.gallery-item:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}</code></pre>
+                </div>
+
+                <div class="comparison-container">
+                    <h3>JavaScript Comparison</h3>
+                    <p><strong>Old approach (with JavaScript):</strong></p>
+                    <pre><code class="language-javascript">// Form validation - needed event listeners
+document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('input', function() {
+        const formGroup = this.closest('.form-group');
+        if (this.checkValidity()) {
+            formGroup.classList.add('valid');
+            formGroup.classList.remove('invalid');
+        } else {
+            formGroup.classList.add('invalid');
+            formGroup.classList.remove('valid');
+        }
+    });
+});
+
+// Card hover - needed mouseenter/leave listeners
+document.querySelectorAll('.card-image').forEach(image => {
+    image.addEventListener('mouseenter', () => {
+        image.closest('.product-card').classList.add('hovered');
+    });
+    image.addEventListener('mouseleave', () => {
+        image.closest('.product-card').classList.remove('hovered');
+    });
+});</code></pre>
+
+                    <p><strong>New approach (pure CSS with :has()):</strong></p>
+                    <p>Zero JavaScript required! All interactions are handled by CSS :has() selector.</p>
+
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>✅ No JavaScript event listeners needed</li>
+                        <li>✅ Better performance (no DOM manipulation)</li>
+                        <li>✅ Cleaner HTML (no validation classes)</li>
+                        <li>✅ Easier to maintain (CSS-only changes)</li>
+                        <li>✅ Works with native HTML5 validation API</li>
+                        <li>✅ GPU-accelerated CSS transitions</li>
+                    </ul>
                 </div>
 
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:has" target="_blank">MDN Documentation</a></li>
-                        <li><a href="https://caniuse.com/css-has" target="_blank">Browser Support</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:has" target="_blank">MDN: :has() Documentation</a></li>
+                        <li><a href="https://caniuse.com/css-has" target="_blank">Can I Use: Browser Support</a></li>
+                        <li><a href="https://ishadeed.com/article/css-has-parent-selector/" target="_blank">CSS :has() Parent Selector Guide</a></li>
+                        <li><a href="https://css-tricks.com/the-css-has-selector/" target="_blank">CSS-Tricks: The :has() Selector</a></li>
                     </ul>
                 </div>
             </section>

@@ -1,0 +1,324 @@
+/* ========================================
+   :has() Selector Feature Demos
+   ======================================== */
+
+/* Demo Description Styling */
+.demo-description {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+    font-style: italic;
+}
+
+/* ========================================
+   Demo 1: Form Validation with Parent Styling
+   ======================================== */
+
+.has-form-demo {
+    max-width: 600px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: var(--space-6);
+    padding: var(--space-5);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: white;
+    transition: all var(--transition-base);
+}
+
+.form-group label {
+    display: block;
+    font-weight: var(--font-semibold);
+    margin-bottom: var(--space-2);
+    color: var(--color-text);
+    transition: color var(--transition-base);
+}
+
+.form-group input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border: 2px solid var(--color-gray-300);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-base);
+    transition: border-color var(--transition-base);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.error-text {
+    display: none;
+    color: var(--color-danger);
+    font-size: var(--text-sm);
+    margin-top: var(--space-2);
+    font-weight: var(--font-medium);
+}
+
+/* :has() Magic: Style container when input is invalid and not empty */
+.form-group:has(input:invalid:not(:placeholder-shown)) {
+    border-color: var(--color-danger);
+    background-color: #fee2e2;
+}
+
+/* :has() Magic: Style container when input is valid */
+.form-group:has(input:valid:not(:placeholder-shown)) {
+    border-color: var(--color-success);
+    background-color: #f0fdf4;
+}
+
+/* :has() Magic: Style label based on input state */
+.form-group:has(input:invalid:not(:placeholder-shown)) label {
+    color: var(--color-danger);
+    font-weight: var(--font-bold);
+}
+
+.form-group:has(input:valid:not(:placeholder-shown)) label {
+    color: var(--color-success);
+    font-weight: var(--font-bold);
+}
+
+/* :has() Magic: Show error message only when invalid */
+.form-group:has(input:invalid:not(:placeholder-shown)) .error-text {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+/* :has() Magic: Change input border color */
+.form-group:has(input:invalid:not(:placeholder-shown)) input {
+    border-color: var(--color-danger);
+}
+
+.form-group:has(input:valid:not(:placeholder-shown)) input {
+    border-color: var(--color-success);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   Demo 2: Card Hover Effects
+   ======================================== */
+
+.has-cards-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-6);
+}
+
+.product-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 2px solid var(--color-border);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-image {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-gray-100);
+    cursor: pointer;
+}
+
+.card-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform var(--transition-base);
+}
+
+.card-content {
+    padding: var(--space-5);
+}
+
+.card-title {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-2);
+    color: var(--color-text);
+    transition: all var(--transition-base);
+}
+
+.card-description {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-sm);
+}
+
+.card-price {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+}
+
+.card-button {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-md);
+    font-weight: var(--font-semibold);
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--transition-base);
+}
+
+/* :has() Magic: Highlight card when image is hovered */
+.product-card:has(.card-image:hover) {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    border-color: var(--color-primary);
+}
+
+/* :has() Magic: Scale up image on hover */
+.product-card:has(.card-image:hover) .card-image img {
+    transform: scale(1.1);
+}
+
+/* :has() Magic: Enlarge and color title on image hover */
+.product-card:has(.card-image:hover) .card-title {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+}
+
+/* :has() Magic: Show hidden button on image hover */
+.product-card:has(.card-image:hover) .card-button {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.card-button:hover {
+    background: var(--color-primary-dark);
+    transform: scale(1.02);
+}
+
+/* ========================================
+   Demo 3: Sibling Fade-Out Gallery
+   ======================================== */
+
+.has-gallery-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    padding: var(--space-4) var(--space-3);
+    font-weight: var(--font-semibold);
+    font-size: var(--text-sm);
+    transition: padding var(--transition-base);
+}
+
+/* :has() Magic: Fade out all siblings when one is hovered */
+.has-gallery-demo:has(.gallery-item:hover) .gallery-item:not(:hover) {
+    opacity: 0.4;
+    filter: grayscale(100%);
+    transform: scale(0.95);
+}
+
+/* :has() Magic: Scale up the hovered item */
+.gallery-item:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: var(--shadow-xl);
+}
+
+.gallery-item:hover .gallery-label {
+    padding: var(--space-5) var(--space-4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .has-cards-demo {
+        grid-template-columns: 1fr;
+    }
+
+    .has-gallery-demo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .has-gallery-demo {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   Comparison Container Styling
+   ======================================== */
+
+.comparison-container {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-8);
+    border-left: 4px solid var(--color-primary);
+}
+
+.comparison-container h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+}
+
+.comparison-container h4 {
+    color: var(--color-text);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+    font-size: var(--text-lg);
+}
+
+.comparison-container p {
+    margin-bottom: var(--space-4);
+}
+
+.comparison-container ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.comparison-container li {
+    padding: var(--space-2) 0;
+    color: var(--color-text);
+    font-size: var(--text-base);
+}
+
+.comparison-container pre {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-6);
+}
