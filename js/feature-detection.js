@@ -1,8 +1,6 @@
 /**
  * Feature Detection
  * Detects browser support for modern CSS features and displays appropriate badges
- *
- * This is a skeleton - full implementation will be added in Phase 2
  */
 
 (function() {
@@ -16,24 +14,21 @@
     }
 
     function initFeatureDetection() {
-        console.log('Feature detection initialized (skeleton)');
+        console.log('Feature detection initializing...');
 
-        // Placeholder: Feature detection will be implemented in Phase 2
-        // This will include:
-        // - @supports queries for CSS features
-        // - Browser support badge updates
-        // - Fallback message display for unsupported features
-        // - Progressive enhancement framework
+        // Run detection for all features
+        detectAllFeatures();
+
+        console.log('Feature detection complete');
     }
 
     /**
-     * Check if a CSS feature is supported
+     * Check if a CSS feature is supported using @supports
      * @param {string} property - CSS property to check
      * @param {string} value - CSS value to check
      * @returns {boolean} - Whether the feature is supported
      */
     function supportsCSS(property, value) {
-        // Placeholder implementation
         if (typeof CSS !== 'undefined' && CSS.supports) {
             return CSS.supports(property, value);
         }
@@ -41,104 +36,199 @@
     }
 
     /**
+     * Check if a selector is supported using @supports selector()
+     * @param {string} selector - CSS selector to check
+     * @returns {boolean} - Whether the selector is supported
+     */
+    function supportsSelector(selector) {
+        if (typeof CSS !== 'undefined' && CSS.supports) {
+            return CSS.supports('selector(' + selector + ')');
+        }
+        return false;
+    }
+
+    /**
      * Feature detection map
-     * Will be populated in Phase 2
+     * Maps feature IDs to section IDs and detection methods
      */
     const features = {
-        hasSelector: {
+        'has-selector': {
             name: ':has() Selector',
+            sectionId: 'has-selector',
             detect: () => {
-                // TODO: Implement in Phase 2
-                return supportsCSS('selector(:has(*))', '');
+                // Use :has(+ *) for robust detection with relative selectors
+                return supportsSelector(':has(+ *)');
             }
         },
-        containerQueries: {
+        'container-queries': {
             name: 'Container Queries',
+            sectionId: 'container-queries',
             detect: () => {
-                // TODO: Implement in Phase 2
                 return supportsCSS('container-type', 'inline-size');
             }
         },
-        scrollSnap: {
+        'carousel': {
             name: 'Scroll Snap',
+            sectionId: 'carousel',
             detect: () => {
-                // TODO: Implement in Phase 2
-                return supportsCSS('scroll-snap-type', 'x mandatory');
+                // Check for scroll-snap-align which is newer spec
+                return supportsCSS('scroll-snap-align', 'start');
             }
         },
-        popoverAPI: {
+        'modals': {
             name: 'Popover API',
+            sectionId: 'modals',
             detect: () => {
-                // TODO: Implement in Phase 2
-                return typeof HTMLElement.prototype.popover !== 'undefined';
+                // Check for :popover-open pseudo-class
+                return supportsSelector(':popover-open');
             }
         },
-        startingStyle: {
-            name: '@starting-style',
+        'animations': {
+            name: '@starting-style & allow-discrete',
+            sectionId: 'animations',
             detect: () => {
-                // TODO: Implement in Phase 2
-                return supportsCSS('@starting-style', '');
+                // Check for transition-behavior: allow-discrete
+                // This is a good proxy for the whole animation suite
+                return supportsCSS('transition-behavior', 'allow-discrete');
             }
         },
-        anchorPositioning: {
+        'anchor-positioning': {
             name: 'Anchor Positioning',
+            sectionId: 'anchor-positioning',
             detect: () => {
-                // TODO: Implement in Phase 2
                 return supportsCSS('anchor-name', '--test');
             }
         },
-        popoverTarget: {
+        'modal-trigger': {
             name: 'Popover Target',
+            sectionId: 'modal-trigger',
             detect: () => {
-                // TODO: Implement in Phase 2
+                // Check if popovertarget attribute is supported
                 return 'popoverTargetElement' in HTMLButtonElement.prototype;
             }
         },
-        intersectionObserver: {
-            name: 'IntersectionObserver',
+        'observers': {
+            name: 'Observer APIs',
+            sectionId: 'observers',
             detect: () => {
-                // TODO: Implement in Phase 2
-                return typeof IntersectionObserver !== 'undefined';
+                // Check for all three Observer APIs
+                return typeof IntersectionObserver !== 'undefined' &&
+                       typeof ResizeObserver !== 'undefined' &&
+                       typeof MutationObserver !== 'undefined';
             }
         },
-        scrollState: {
+        'scroll-state': {
             name: 'scroll-state()',
+            sectionId: 'scroll-state',
             detect: () => {
-                // TODO: Implement in Phase 2
-                return supportsCSS('scroll-state', 'stuck');
+                // Check for container-type: scroll-state support
+                return supportsCSS('container-type', 'scroll-state');
             }
         },
-        styleableSelect: {
+        'styleable-select': {
             name: 'Styleable Select',
+            sectionId: 'styleable-select',
             detect: () => {
-                // TODO: Implement in Phase 2
                 return supportsCSS('appearance', 'base-select');
             }
         }
     };
 
     /**
-     * Update support badge based on feature detection
-     * Will be implemented in Phase 2
+     * Detect all features and update UI
      */
-    function updateSupportBadge(featureId, isSupported) {
-        // TODO: Implement in Phase 2
-        console.log(`Feature ${featureId}: ${isSupported ? 'supported' : 'not supported'}`);
+    function detectAllFeatures() {
+        const results = {};
+
+        Object.keys(features).forEach(featureId => {
+            const feature = features[featureId];
+            const isSupported = feature.detect();
+            results[featureId] = isSupported;
+
+            // Update badge and show fallback if needed
+            updateSupportBadge(feature.sectionId, isSupported);
+
+            if (!isSupported) {
+                showFallbackMessage(feature.sectionId);
+            }
+
+            console.log(`${feature.name}: ${isSupported ? '✓ Supported' : '✗ Not Supported'}`);
+        });
+
+        return results;
+    }
+
+    /**
+     * Update support badge based on actual browser support
+     * Changes the badge class and text if needed
+     */
+    function updateSupportBadge(sectionId, isSupported) {
+        const section = document.getElementById(sectionId);
+        if (!section) return;
+
+        const badge = section.querySelector('.support-badge');
+        if (!badge) return;
+
+        // If not supported, update the badge
+        if (!isSupported) {
+            // Remove all support classes
+            badge.classList.remove('widely-supported', 'good-support', 'emerging');
+            badge.classList.add('not-supported');
+            badge.textContent = 'Not Supported';
+        }
+        // Otherwise keep the default badge from HTML
     }
 
     /**
      * Display fallback message for unsupported features
-     * Will be implemented in Phase 2
      */
-    function showFallbackMessage(featureId) {
-        // TODO: Implement in Phase 2
-        console.log(`Showing fallback for ${featureId}`);
+    function showFallbackMessage(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (!section) return;
+
+        const demoContainer = section.querySelector('.demo-container');
+        if (!demoContainer) return;
+
+        // Check if fallback message already exists
+        if (demoContainer.querySelector('.fallback-message')) return;
+
+        // Create fallback message
+        const fallback = document.createElement('div');
+        fallback.className = 'fallback-message';
+        fallback.innerHTML = `
+            <p><strong>⚠️ Browser Support Notice:</strong></p>
+            <p>Your browser does not support this feature. Please use a modern browser
+            (Chrome, Firefox, Safari, or Edge) to see this demonstration.</p>
+            <p>You can still read the code examples and documentation below.</p>
+        `;
+
+        // Insert at the top of demo container
+        demoContainer.insertBefore(fallback, demoContainer.firstChild);
+    }
+
+    /**
+     * Get detection results for all features
+     * Useful for debugging
+     */
+    function getDetectionResults() {
+        const results = {};
+        Object.keys(features).forEach(featureId => {
+            const feature = features[featureId];
+            results[featureId] = {
+                name: feature.name,
+                supported: feature.detect()
+            };
+        });
+        return results;
     }
 
     // Expose API for external use
     window.FeatureDetection = {
         features: features,
-        supportsCSS: supportsCSS
+        supportsCSS: supportsCSS,
+        supportsSelector: supportsSelector,
+        detectAllFeatures: detectAllFeatures,
+        getDetectionResults: getDetectionResults
     };
 
 })();
