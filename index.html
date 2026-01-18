@@ -638,29 +638,111 @@ document.querySelectorAll('.card-image').forEach(image => {
                 </div>
 
                 <div class="demo-container">
-                    <h3>Demo Area</h3>
-                    <!-- Demo content will be added in Phase 3 -->
+                    <h3>Demo: Image Carousel with Scroll-Snap</h3>
+                    <p class="demo-description">Scroll through images. Notice how each image snaps into place. Zero JavaScript!</p>
+
+                    <div class="carousel-wrapper">
+                        <div class="carousel">
+                            <div class="carousel-item">
+                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%23ef4444'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 1%3C/text%3E%3C/svg%3E" alt="Slide 1">
+                                <div class="carousel-caption">Mountain Vista</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 2%3C/text%3E%3C/svg%3E" alt="Slide 2">
+                                <div class="carousel-caption">Ocean Waves</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 3%3C/text%3E%3C/svg%3E" alt="Slide 3">
+                                <div class="carousel-caption">Forest Trail</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%23f59e0b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 4%3C/text%3E%3C/svg%3E" alt="Slide 4">
+                                <div class="carousel-caption">Desert Sunset</div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 5%3C/text%3E%3C/svg%3E" alt="Slide 5">
+                                <div class="carousel-caption">City Lights</div>
+                            </div>
+                        </div>
+                        <div class="carousel-dots">
+                            <span class="carousel-dot"></span>
+                            <span class="carousel-dot"></span>
+                            <span class="carousel-dot"></span>
+                            <span class="carousel-dot"></span>
+                            <span class="carousel-dot"></span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example</h3>
-                    <pre><code class="language-css">/* Scroll-snap carousel */
+                    <pre><code class="language-css">/* Scroll-snap carousel - No JavaScript! */
 .carousel {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
 .carousel-item {
+    flex: 0 0 100%;
     scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+/* Hide scrollbar but keep functionality */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel {
+    scrollbar-width: none;
 }</code></pre>
+                </div>
+
+                <div class="comparison-container">
+                    <h3>JavaScript Comparison</h3>
+                    <p><strong>Old approach (with JavaScript):</strong></p>
+                    <pre><code class="language-javascript">// Carousel required complex JavaScript
+let currentSlide = 0;
+
+function showSlide(index) {
+    const slides = document.querySelectorAll('.carousel-item');
+    slides.forEach((slide, i) => {
+        slide.style.transform = `translateX(-${index * 100}%)`;
+    });
+}
+
+document.querySelector('.next-btn').addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % slideCount;
+    showSlide(currentSlide);
+});
+
+// Plus: touch event handling, drag detection,
+// momentum scrolling, snap calculations...</code></pre>
+
+                    <p><strong>New approach (pure CSS with scroll-snap):</strong></p>
+                    <p>Zero JavaScript! Browser handles scrolling, snapping, touch gestures, and momentum automatically.</p>
+
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>✅ No JavaScript required</li>
+                        <li>✅ Native scroll performance</li>
+                        <li>✅ Touch and trackpad support built-in</li>
+                        <li>✅ Keyboard accessible (arrow keys work)</li>
+                        <li>✅ Smooth momentum scrolling</li>
+                        <li>✅ Works on all devices automatically</li>
+                    </ul>
                 </div>
 
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type" target="_blank">MDN Documentation</a></li>
-                        <li><a href="https://caniuse.com/css-snappoints" target="_blank">Browser Support</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type" target="_blank">MDN: scroll-snap-type</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap" target="_blank">MDN: CSS Scroll Snap</a></li>
+                        <li><a href="https://caniuse.com/css-snappoints" target="_blank">Can I Use: Browser Support</a></li>
+                        <li><a href="https://css-tricks.com/practical-css-scroll-snapping/" target="_blank">CSS-Tricks: Scroll Snapping Guide</a></li>
                     </ul>
                 </div>
             </section>
