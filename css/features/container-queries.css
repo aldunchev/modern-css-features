@@ -1,0 +1,305 @@
+/* ========================================
+   Container Queries Feature Demos
+   ======================================== */
+
+/* Container Labels */
+.container-label {
+    text-align: center;
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--color-primary);
+    margin-top: var(--space-4);
+    padding: var(--space-2);
+    background: var(--color-gray-100);
+    border-radius: var(--radius-sm);
+}
+
+/* ========================================
+   Demo 1: Adaptive Profile Card
+   ======================================== */
+
+.cq-demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-6);
+}
+
+.cq-container {
+    border: 2px dashed var(--color-border);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--color-gray-50);
+}
+
+.cq-narrow {
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.cq-medium {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.cq-wide {
+    max-width: 100%;
+}
+
+/* Profile Card - Container Query Enabled */
+.profile-card {
+    container-type: inline-size;
+    container-name: profile-card;
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto var(--space-4);
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-content {
+    text-align: center;
+}
+
+.profile-name {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+}
+
+.profile-title {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+}
+
+.profile-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+}
+
+/* Container Query: Medium width - Horizontal layout */
+@container (min-width: 20rem) {
+    .profile-card {
+        display: flex;
+        gap: var(--space-4);
+        align-items: center;
+    }
+
+    .profile-image {
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .profile-content {
+        text-align: left;
+        flex: 1;
+    }
+
+    .profile-meta {
+        flex-direction: row;
+        gap: var(--space-4);
+    }
+}
+
+/* Container Query: Wide width - Enhanced layout */
+@container (min-width: 30rem) {
+    .profile-card {
+        padding: var(--space-6);
+    }
+
+    .profile-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-name {
+        font-size: 1.5rem;
+    }
+
+    .profile-title {
+        font-size: var(--text-base);
+    }
+
+    .profile-meta {
+        gap: 2rem;
+    }
+}
+
+/* ========================================
+   Demo 2: Product Card Grid
+   ======================================== */
+
+.cq-product-demo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    margin-top: var(--space-6);
+}
+
+.product-grid-narrow {
+    border: 2px dashed var(--color-border);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--color-gray-50);
+}
+
+.product-grid-medium {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    border: 2px dashed var(--color-border);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--color-gray-50);
+}
+
+.product-grid-medium .container-label {
+    grid-column: 1 / -1;
+}
+
+.product-grid-wide {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    border: 2px dashed var(--color-border);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    background: var(--color-gray-50);
+}
+
+.product-grid-wide .container-label {
+    grid-column: 1 / -1;
+}
+
+/* Product Container - Container Query Enabled */
+.product-container {
+    container-type: inline-size;
+    container-name: product;
+}
+
+/* Product Card - Base Styles */
+.cq-product-card {
+    background: white;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+}
+
+.cq-product-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.cq-card-body {
+    padding: var(--space-4);
+}
+
+.cq-card-title {
+    font-size: var(--text-base);
+    font-weight: var(--font-bold);
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+}
+
+.cq-card-description {
+    display: none;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+}
+
+.cq-card-price {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--color-primary);
+    margin-bottom: var(--space-3);
+}
+
+.cq-card-button {
+    display: none;
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--radius-sm);
+    font-weight: var(--font-semibold);
+    transition: background var(--transition-base);
+}
+
+.cq-card-button:hover {
+    background: var(--color-primary-dark);
+}
+
+/* Container Query: Standard width - Show description and button */
+@container (min-width: 12rem) {
+    .cq-product-card img {
+        height: 180px;
+    }
+
+    .cq-card-description {
+        display: block;
+    }
+
+    .cq-card-button {
+        display: inline-block;
+    }
+}
+
+/* Container Query: Featured width - Enhanced layout */
+@container (min-width: 18rem) {
+    .cq-product-card img {
+        height: 200px;
+    }
+
+    .cq-card-body {
+        padding: var(--space-5);
+    }
+
+    .cq-card-title {
+        font-size: 1.25rem;
+    }
+
+    .cq-card-description {
+        font-size: var(--text-base);
+        line-height: var(--leading-relaxed);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .cq-demo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cq-narrow,
+    .cq-medium,
+    .cq-wide {
+        max-width: 100%;
+    }
+
+    .product-grid-medium,
+    .product-grid-wide {
+        grid-template-columns: 1fr;
+    }
+}

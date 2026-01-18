@@ -358,29 +358,270 @@ document.querySelectorAll('.card-image').forEach(image => {
                 </div>
 
                 <div class="demo-container">
-                    <h3>Demo Area</h3>
-                    <!-- Demo content will be added in Phase 3 -->
+                    <h3>Demo 1: Adaptive Profile Card</h3>
+                    <p class="demo-description">Resize the containers to see cards adapt from vertical to horizontal layouts. Same component, different widths!</p>
+
+                    <div class="cq-demo-grid">
+                        <div class="cq-container cq-narrow">
+                            <div class="profile-card">
+                                <div class="profile-image">
+                                    <img src="data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='50' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EJS%3C/text%3E%3C/svg%3E" alt="Profile">
+                                </div>
+                                <div class="profile-content">
+                                    <h4 class="profile-name">Jane Smith</h4>
+                                    <p class="profile-title">Senior Developer</p>
+                                    <div class="profile-meta">
+                                        <span>📍 San Francisco</span>
+                                        <span>💼 5 years</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="container-label">Narrow Container (Vertical)</p>
+                        </div>
+
+                        <div class="cq-container cq-medium">
+                            <div class="profile-card">
+                                <div class="profile-image">
+                                    <img src="data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EAK%3C/text%3E%3C/svg%3E" alt="Profile">
+                                </div>
+                                <div class="profile-content">
+                                    <h4 class="profile-name">Alex Kim</h4>
+                                    <p class="profile-title">Lead Designer</p>
+                                    <div class="profile-meta">
+                                        <span>📍 New York</span>
+                                        <span>💼 8 years</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="container-label">Medium Container (Horizontal)</p>
+                        </div>
+
+                        <div class="cq-container cq-wide">
+                            <div class="profile-card">
+                                <div class="profile-image">
+                                    <img src="data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='50' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EMR%3C/text%3E%3C/svg%3E" alt="Profile">
+                                </div>
+                                <div class="profile-content">
+                                    <h4 class="profile-name">Maria Rodriguez</h4>
+                                    <p class="profile-title">Product Manager</p>
+                                    <div class="profile-meta">
+                                        <span>📍 Austin</span>
+                                        <span>💼 6 years</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="container-label">Wide Container (Enhanced)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo 2: Product Card Grid</h3>
+                    <p class="demo-description">Same product card in different grid layouts. Cards automatically adapt to their container width!</p>
+
+                    <div class="cq-product-demo">
+                        <div class="product-grid-narrow">
+                            <div class="product-container">
+                                <article class="cq-product-card">
+                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%23ef4444'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E" alt="Product">
+                                    <div class="cq-card-body">
+                                        <h4 class="cq-card-title">Wireless Headphones</h4>
+                                        <p class="cq-card-description">Premium noise-canceling audio</p>
+                                        <p class="cq-card-price">$299</p>
+                                        <button class="cq-card-button">Add to Cart</button>
+                                    </div>
+                                </article>
+                            </div>
+                            <p class="container-label">1-Column Grid (Minimal)</p>
+                        </div>
+
+                        <div class="product-grid-medium">
+                            <div class="product-container">
+                                <article class="cq-product-card">
+                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E" alt="Product">
+                                    <div class="cq-card-body">
+                                        <h4 class="cq-card-title">Smart Watch</h4>
+                                        <p class="cq-card-description">Track fitness and notifications</p>
+                                        <p class="cq-card-price">$399</p>
+                                        <button class="cq-card-button">Add to Cart</button>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="product-container">
+                                <article class="cq-product-card">
+                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E" alt="Product">
+                                    <div class="cq-card-body">
+                                        <h4 class="cq-card-title">Laptop Stand</h4>
+                                        <p class="cq-card-description">Ergonomic workspace upgrade</p>
+                                        <p class="cq-card-price">$79</p>
+                                        <button class="cq-card-button">Add to Cart</button>
+                                    </div>
+                                </article>
+                            </div>
+                            <p class="container-label">2-Column Grid (Standard)</p>
+                        </div>
+
+                        <div class="product-grid-wide">
+                            <div class="product-container">
+                                <article class="cq-product-card">
+                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E" alt="Product">
+                                    <div class="cq-card-body">
+                                        <h4 class="cq-card-title">Mechanical Keyboard</h4>
+                                        <p class="cq-card-description">RGB backlit, premium switches</p>
+                                        <p class="cq-card-price">$159</p>
+                                        <button class="cq-card-button">Add to Cart</button>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="product-container">
+                                <article class="cq-product-card">
+                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%23f59e0b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E" alt="Product">
+                                    <div class="cq-card-body">
+                                        <h4 class="cq-card-title">USB-C Hub</h4>
+                                        <p class="cq-card-description">7-in-1 connectivity solution</p>
+                                        <p class="cq-card-price">$49</p>
+                                        <button class="cq-card-button">Add to Cart</button>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="product-container">
+                                <article class="cq-product-card">
+                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%23ec4899'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E" alt="Product">
+                                    <div class="cq-card-body">
+                                        <h4 class="cq-card-title">Webcam 4K</h4>
+                                        <p class="cq-card-description">Crystal clear video calls</p>
+                                        <p class="cq-card-price">$129</p>
+                                        <button class="cq-card-button">Add to Cart</button>
+                                    </div>
+                                </article>
+                            </div>
+                            <p class="container-label">3-Column Grid (Featured)</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="code-example">
-                    <h3>Code Example</h3>
-                    <pre><code class="language-css">/* Container query */
-.container {
+                    <h3>Code Example: Profile Card</h3>
+                    <pre><code class="language-css">/* Enable container queries */
+.profile-card {
     container-type: inline-size;
 }
 
-@container (min-width: 400px) {
-    .card {
-        display: grid;
+/* Default: Vertical layout */
+.profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Medium: Horizontal layout */
+@container (min-width: 20rem) {
+    .profile-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .profile-image {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* Wide: Enhanced layout */
+@container (min-width: 30rem) {
+    .profile-name {
+        font-size: 1.5rem;
+    }
+
+    .profile-meta {
+        flex-direction: row;
+        gap: 2rem;
     }
 }</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example: Product Card Grid</h3>
+                    <pre><code class="language-css">/* Enable container queries on each card */
+.product-container {
+    container-type: inline-size;
+}
+
+/* Minimal: Compact layout */
+.cq-product-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.cq-card-description {
+    display: none;
+}
+
+/* Standard: Show description */
+@container (min-width: 12rem) {
+    .cq-card-description {
+        display: block;
+    }
+
+    .cq-card-button {
+        display: inline-block;
+    }
+}
+
+/* Featured: Full details */
+@container (min-width: 18rem) {
+    .cq-card-title {
+        font-size: 1.25rem;
+    }
+
+    .cq-card-body {
+        padding: 1.5rem;
+    }
+}</code></pre>
+                </div>
+
+                <div class="comparison-container">
+                    <h3>Why Container Queries Beat Media Queries</h3>
+                    <p><strong>Media queries respond to viewport width:</strong></p>
+                    <pre><code class="language-css">/* Media query - viewport-based */
+@media (min-width: 768px) {
+    .card {
+        flex-direction: row;
+    }
+}
+
+/* Problem: All cards change at same viewport width
+   regardless of their actual container size */</code></pre>
+
+                    <p><strong>Container queries respond to container width:</strong></p>
+                    <pre><code class="language-css">/* Container query - container-based */
+@container (min-width: 20rem) {
+    .card {
+        flex-direction: row;
+    }
+}
+
+/* Solution: Each card responds to its actual width
+   Same component works in sidebar, grid, or main content */</code></pre>
+
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>✅ Component responds to container, not viewport</li>
+                        <li>✅ True component reusability across contexts</li>
+                        <li>✅ Works with flexible grids and dynamic layouts</li>
+                        <li>✅ No need for context-specific CSS classes</li>
+                        <li>✅ Components are self-aware of available space</li>
+                        <li>✅ Perfect for component-based frameworks (React, Vue)</li>
+                    </ul>
                 </div>
 
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries" target="_blank">MDN Documentation</a></li>
-                        <li><a href="https://caniuse.com/css-container-queries" target="_blank">Browser Support</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries" target="_blank">MDN: Container Queries</a></li>
+                        <li><a href="https://caniuse.com/css-container-queries" target="_blank">Can I Use: Browser Support</a></li>
+                        <li><a href="https://www.joshwcomeau.com/css/container-queries-introduction/" target="_blank">Josh Comeau: Container Queries Guide</a></li>
+                        <li><a href="https://css-tricks.com/css-container-queries/" target="_blank">CSS-Tricks: Container Queries</a></li>
                     </ul>
                 </div>
             </section>
