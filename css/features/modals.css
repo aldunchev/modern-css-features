@@ -1,0 +1,244 @@
+/* ========================================
+   Popover API (Modals) Feature
+   ======================================== */
+
+/* Demo Containers */
+.popover-demo-simple,
+.popover-demo-modal,
+.popover-demo-multiple {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-8);
+}
+
+/* Button Styles */
+.popover-trigger,
+.popover-trigger-primary,
+.popover-btn {
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-semibold);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.popover-trigger {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+}
+
+.popover-trigger:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.popover-trigger-primary {
+    background: var(--color-success);
+    color: white;
+    border: none;
+    font-size: var(--text-lg);
+    padding: var(--space-4) var(--space-8);
+}
+
+.popover-trigger-primary:hover {
+    background: #059669;
+    transform: scale(1.05);
+}
+
+.popover-btn {
+    background: var(--color-gray-100);
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+}
+
+.popover-btn:hover {
+    background: var(--color-gray-200);
+    border-color: var(--color-primary);
+}
+
+/* Base Popover Styles */
+[popover] {
+    padding: 0;
+    border: none;
+    background: transparent;
+    margin: auto;
+}
+
+/* Simple Popover */
+.simple-popover {
+    padding: var(--space-5);
+    background: white;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    max-width: 400px;
+}
+
+.simple-popover h4 {
+    margin: 0 0 var(--space-3) 0;
+    color: var(--color-primary);
+}
+
+.simple-popover p {
+    margin-bottom: var(--space-2);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+}
+
+.simple-popover p:last-child {
+    margin-bottom: 0;
+}
+
+/* Modal Popover */
+.modal-popover {
+    background: white;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    max-width: 500px;
+    width: 90vw;
+    max-height: 80vh;
+    overflow: hidden;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-6);
+    border-bottom: 2px solid var(--color-border);
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--color-text);
+}
+
+.modal-close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: var(--color-gray-100);
+    border-radius: 50%;
+    font-size: var(--text-2xl);
+    line-height: 1;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    color: var(--color-text-muted);
+}
+
+.modal-close:hover {
+    background: var(--color-danger);
+    color: white;
+    transform: rotate(90deg);
+}
+
+.modal-body {
+    padding: var(--space-6);
+}
+
+.modal-body p {
+    margin-bottom: var(--space-4);
+}
+
+.modal-body p:last-child {
+    margin-bottom: 0;
+}
+
+.modal-footer {
+    display: flex;
+    gap: var(--space-3);
+    justify-content: flex-end;
+    padding: var(--space-6);
+    border-top: 2px solid var(--color-border);
+}
+
+.btn-secondary,
+.btn-primary {
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-semibold);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--color-text);
+    border: 2px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+    background: var(--color-gray-100);
+}
+
+.btn-primary {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: var(--color-primary-dark);
+    box-shadow: var(--shadow-md);
+}
+
+/* Info Popovers (Multiple) */
+.info-popover {
+    padding: var(--space-4);
+    background: white;
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    max-width: 250px;
+}
+
+.info-popover strong {
+    display: block;
+    margin-bottom: var(--space-2);
+    color: var(--color-primary);
+    font-size: var(--text-lg);
+}
+
+.info-popover p {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+}
+
+/* Backdrop Styling */
+[popover]::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+/* Popover Open State */
+[popover]:popover-open {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .modal-popover {
+        width: 95vw;
+        max-height: 90vh;
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: var(--space-4);
+    }
+
+    .modal-footer {
+        flex-direction: column;
+    }
+
+    .btn-secondary,
+    .btn-primary {
+        width: 100%;
+    }
+}

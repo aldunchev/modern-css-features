@@ -759,23 +759,167 @@ document.querySelector('.next-btn').addEventListener('click', () => {
                 </div>
 
                 <div class="demo-container">
-                    <h3>Demo Area</h3>
-                    <!-- Demo content will be added in Phase 3 -->
+                    <h3>Demo 1: Simple Popover</h3>
+                    <p class="demo-description">Click the button to open a popover. Click outside or press Escape to close. Zero JavaScript!</p>
+
+                    <div class="popover-demo-simple">
+                        <button popovertarget="simple-popover" class="popover-trigger">Show Info</button>
+                        <div popover id="simple-popover" class="simple-popover">
+                            <h4>Popover Title</h4>
+                            <p>This is a simple popover created with the HTML popover attribute. No JavaScript needed!</p>
+                            <p>Features: automatic focus management, backdrop, Escape key closes it.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo 2: Modal Dialog</h3>
+                    <p class="demo-description">Opens as a centered modal with backdrop. Light dismiss (click outside to close).</p>
+
+                    <div class="popover-demo-modal">
+                        <button popovertarget="modal-popover" class="popover-trigger-primary">Open Modal</button>
+                        <div popover id="modal-popover" class="modal-popover">
+                            <div class="modal-header">
+                                <h3>Confirm Action</h3>
+                                <button popovertarget="modal-popover" popovertargetaction="hide" class="modal-close">×</button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to proceed with this action?</p>
+                                <p>This modal was created using the Popover API with automatic backdrop and focus trapping.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button popovertarget="modal-popover" popovertargetaction="hide" class="btn-secondary">Cancel</button>
+                                <button class="btn-primary">Confirm</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo 3: Multiple Popovers</h3>
+                    <p class="demo-description">Multiple popovers can be triggered independently. Try opening them!</p>
+
+                    <div class="popover-demo-multiple">
+                        <button popovertarget="popover-1" class="popover-btn">Popover 1</button>
+                        <button popovertarget="popover-2" class="popover-btn">Popover 2</button>
+                        <button popovertarget="popover-3" class="popover-btn">Popover 3</button>
+
+                        <div popover id="popover-1" class="info-popover">
+                            <strong>Popover 1</strong>
+                            <p>First popover with useful information.</p>
+                        </div>
+
+                        <div popover id="popover-2" class="info-popover">
+                            <strong>Popover 2</strong>
+                            <p>Second popover with different content.</p>
+                        </div>
+
+                        <div popover id="popover-3" class="info-popover">
+                            <strong>Popover 3</strong>
+                            <p>Third popover demonstrates multiple instances.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="code-example">
-                    <h3>Code Example</h3>
+                    <h3>Code Example: Basic Popover</h3>
                     <pre><code class="language-html">&lt;button popovertarget="my-popover"&gt;Open&lt;/button&gt;
 &lt;div popover id="my-popover"&gt;
     Popover content
 &lt;/div&gt;</code></pre>
                 </div>
 
+                <div class="code-example">
+                    <h3>Code Example: Modal with Close Button</h3>
+                    <pre><code class="language-html">&lt;button popovertarget="modal"&gt;Open Modal&lt;/button&gt;
+
+&lt;div popover id="modal" class="modal"&gt;
+    &lt;button popovertarget="modal" popovertargetaction="hide"&gt;
+        Close
+    &lt;/button&gt;
+    &lt;h3&gt;Modal Content&lt;/h3&gt;
+    &lt;p&gt;Modal text here&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <h3>CSS Styling</h3>
+                    <pre><code class="language-css">/* Style the popover */
+[popover] {
+    padding: 1.5rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Backdrop (automatically created) */
+[popover]::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+/* Open state */
+[popover]:popover-open {
+    opacity: 1;
+}</code></pre>
+                </div>
+
+                <div class="comparison-container">
+                    <h3>JavaScript Comparison</h3>
+                    <p><strong>Old approach (with JavaScript):</strong></p>
+                    <pre><code class="language-javascript">// Modal required extensive JavaScript
+const modal = document.querySelector('.modal');
+const openBtn = document.querySelector('.open-btn');
+const closeBtn = document.querySelector('.close-btn');
+
+openBtn.addEventListener('click', () => {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    modal.focus(); // Manual focus management
+});
+
+closeBtn.addEventListener('click', () => {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+});
+
+// Escape key handler
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+        modal.classList.remove('open');
+    }
+});
+
+// Click outside to close
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.remove('open');
+    }
+});</code></pre>
+
+                    <p><strong>New approach (Popover API):</strong></p>
+                    <p>Zero JavaScript! The browser handles opening, closing, focus, Escape key, and backdrop automatically.</p>
+
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>✅ No JavaScript required</li>
+                        <li>✅ Automatic focus management</li>
+                        <li>✅ Built-in backdrop</li>
+                        <li>✅ Escape key closes automatically</li>
+                        <li>✅ Light dismiss (click outside)</li>
+                        <li>✅ Accessibility features built-in</li>
+                        <li>✅ Top-layer rendering (no z-index conflicts)</li>
+                    </ul>
+                </div>
+
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API" target="_blank">MDN Documentation</a></li>
-                        <li><a href="https://caniuse.com/mdn-api_htmlelement_popover" target="_blank">Browser Support</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API" target="_blank">MDN: Popover API</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using" target="_blank">MDN: Using the Popover API</a></li>
+                        <li><a href="https://caniuse.com/mdn-api_htmlelement_popover" target="_blank">Can I Use: Browser Support</a></li>
+                        <li><a href="https://developer.chrome.com/blog/introducing-popover-api" target="_blank">Chrome: Introducing Popover API</a></li>
                     </ul>
                 </div>
             </section>
@@ -792,29 +936,142 @@ document.querySelector('.next-btn').addEventListener('click', () => {
                 </div>
 
                 <div class="demo-container">
-                    <h3>Demo Area</h3>
-                    <!-- Demo content will be added in Phase 3 -->
+                    <h3>Demo 1: Animating display Property</h3>
+                    <p class="demo-description">Toggle visibility with smooth fade. Notice the element animates from display:none to display:block!</p>
+
+                    <div class="anim-demo-display">
+                        <button class="anim-toggle-btn" onclick="document.getElementById('anim-box').classList.toggle('hidden')">
+                            Toggle Box
+                        </button>
+                        <div id="anim-box" class="anim-box">
+                            <p>✨ This box smoothly fades in/out!</p>
+                            <p>Previously impossible: animating display:none required JavaScript.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo 2: Smooth Accordion</h3>
+                    <p class="demo-description">Click to expand. Height animates smoothly from 0 to auto!</p>
+
+                    <div class="anim-accordion">
+                        <details class="anim-details">
+                            <summary>What is @starting-style?</summary>
+                            <div class="anim-details-content">
+                                <p>@starting-style defines the initial state for entry animations. It works with display transitions to create smooth fade-in effects.</p>
+                                <p>This enables animations that were previously impossible with pure CSS.</p>
+                            </div>
+                        </details>
+
+                        <details class="anim-details">
+                            <summary>What is allow-discrete?</summary>
+                            <div class="anim-details-content">
+                                <p>The transition-behavior: allow-discrete property enables transitions for discrete properties like display.</p>
+                                <p>It makes the property wait until the end of the transition to change, making the animation visible.</p>
+                            </div>
+                        </details>
+
+                        <details class="anim-details">
+                            <summary>Why is this useful?</summary>
+                            <div class="anim-details-content">
+                                <p>Before these features, you couldn't animate elements appearing/disappearing with display:none.</p>
+                                <p>You had to use visibility:hidden or opacity with workarounds. Now it's native CSS!</p>
+                            </div>
+                        </details>
+                    </div>
                 </div>
 
                 <div class="code-example">
-                    <h3>Code Example</h3>
-                    <pre><code class="language-css">/* Animate display */
-.element {
-    transition: opacity 0.3s, display 0.3s allow-discrete;
+                    <h3>Code Example: Animating display</h3>
+                    <pre><code class="language-css">/* Element with display animation */
+.box {
+    display: block;
+    opacity: 1;
+    transition:
+        opacity 0.4s ease-out,
+        display 0.4s allow-discrete;
 }
 
+/* Hidden state */
+.box.hidden {
+    display: none;
+    opacity: 0;
+}
+
+/* Starting state for entry animation */
 @starting-style {
-    .element {
+    .box {
         opacity: 0;
     }
 }</code></pre>
                 </div>
 
+                <div class="code-example">
+                    <h3>Code Example: Smooth Accordion</h3>
+                    <pre><code class="language-css">/* Details/Summary accordion */
+details {
+    transition: height 0.3s ease-out;
+}
+
+details[open] {
+    height: auto;
+}
+
+/* Smooth content reveal */
+details[open] > .content {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}</code></pre>
+                </div>
+
+                <div class="comparison-container">
+                    <h3>Why This Matters</h3>
+                    <p><strong>The old problem:</strong></p>
+                    <p>You couldn't animate <code>display: none</code> to <code>display: block</code> because CSS transitions don't work with discrete properties. Elements would just pop in/out.</p>
+
+                    <p><strong>The old workaround (with JavaScript):</strong></p>
+                    <pre><code class="language-javascript">// Had to use setTimeout and remove display manually
+function fadeOut(element) {
+    element.style.opacity = '0';
+    setTimeout(() => {
+        element.style.display = 'none';
+    }, 300); // Match transition duration
+}
+
+function fadeIn(element) {
+    element.style.display = 'block';
+    element.style.opacity = '0';
+    setTimeout(() => {
+        element.style.opacity = '1';
+    }, 10); // Force reflow
+}</code></pre>
+
+                    <p><strong>The new solution (pure CSS):</strong></p>
+                    <ul>
+                        <li>✅ <code>@starting-style</code> defines entry animation state</li>
+                        <li>✅ <code>allow-discrete</code> enables display transitions</li>
+                        <li>✅ No JavaScript timing hacks needed</li>
+                        <li>✅ Smooth, declarative animations</li>
+                    </ul>
+                </div>
+
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style" target="_blank">MDN Documentation</a></li>
-                        <li><a href="https://caniuse.com/mdn-css_at-rules_starting-style" target="_blank">Browser Support</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style" target="_blank">MDN: @starting-style</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-behavior" target="_blank">MDN: transition-behavior</a></li>
+                        <li><a href="https://caniuse.com/mdn-css_at-rules_starting-style" target="_blank">Can I Use: @starting-style</a></li>
+                        <li><a href="https://developer.chrome.com/blog/entry-exit-animations" target="_blank">Chrome: Entry/Exit Animations</a></li>
                     </ul>
                 </div>
             </section>
