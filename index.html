@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A showcase of 10 modern CSS features that replace JavaScript">
+    <title>Modern CSS Features Showcase</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/features/has-selector.css">
+    <link rel="stylesheet" href="css/features/container-queries.css">
+    <link rel="stylesheet" href="css/features/carousel.css">
+    <link rel="stylesheet" href="css/features/modals.css">
+    <link rel="stylesheet" href="css/features/animations.css">
+    <link rel="stylesheet" href="css/features/anchor-positioning.css">
+    <link rel="stylesheet" href="css/features/modal-trigger.css">
+    <link rel="stylesheet" href="css/features/observers.css">
+    <link rel="stylesheet" href="css/features/scroll-state.css">
+    <link rel="stylesheet" href="css/features/styleable-select.css">
+
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <h1>Modern CSS Features Showcase</h1>
+            <p class="subtitle">10 CSS features that replace JavaScript</p>
+            <a href="https://github.com/yourusername/new-css-features" class="github-link" target="_blank" rel="noopener noreferrer">
+                View on GitHub
+            </a>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="feature-navigation" role="navigation" aria-label="Feature navigation">
+        <div class="container">
+            <ul class="nav-tabs" role="tablist">
+                <li role="presentation">
+                    <button class="nav-tab active" role="tab" aria-selected="true" aria-controls="has-selector" data-tab="has-selector">
+                        :has() Selector
+                    </button>
+                </li>
+                <li role="presentation">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="container-queries" data-tab="container-queries">
+                        Container Queries
+                    </button>
+                </li>
+                <li role="presentation">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="carousel" data-tab="carousel">
+                        CSS Carousel
+                    </button>
+                </li>
+                <li role="presentation">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="modals" data-tab="modals">
+                        Popover API
+                    </button>
+                </li>
+                <li role="presentation">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="animations" data-tab="animations">
+                        Animations
+                    </button>
+                </li>
+                <li role="presentation">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="anchor-positioning" data-tab="anchor-positioning">
+                        Anchor Positioning
+                    </button>
+                </li>
+                <li role="presentation">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="modal-trigger" data-tab="modal-trigger">
+                        Modal Triggers
+                    </button>
+                </li>
+                <li role="presentation">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="observers" data-tab="observers">
+                        Observer APIs
+                    </button>
+                </li>
+                <li role="presentation">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="scroll-state" data-tab="scroll-state">
+                        scroll-state()
+                    </button>
+                </li>
+                <li role="presentation">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="styleable-select" data-tab="styleable-select">
+                        Styleable Select
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Feature 1: :has() Selector -->
+            <section id="has-selector" class="feature-section active" role="tabpanel" aria-labelledby="has-selector-tab">
+                <header class="feature-header">
+                    <h2>:has() Selector</h2>
+                    <div class="support-badge widely-supported">Widely Supported</div>
+                </header>
+
+                <div class="feature-description">
+                    <p>The <code>:has()</code> pseudo-class allows you to style parent elements based on their children, eliminating the need for JavaScript.</p>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo Area</h3>
+                    <!-- Demo content will be added in Phase 3 -->
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example</h3>
+                    <pre><code class="language-css">/* Style parent based on child */
+.card:has(img) {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}</code></pre>
+                </div>
+
+                <div class="resources">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:has" target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://caniuse.com/css-has" target="_blank">Browser Support</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Feature 2: Container Queries -->
+            <section id="container-queries" class="feature-section" role="tabpanel" aria-labelledby="container-queries-tab">
+                <header class="feature-header">
+                    <h2>Container Queries</h2>
+                    <div class="support-badge widely-supported">Widely Supported</div>
+                </header>
+
+                <div class="feature-description">
+                    <p>Container queries enable responsive design based on container size rather than viewport, perfect for component-based layouts.</p>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo Area</h3>
+                    <!-- Demo content will be added in Phase 3 -->
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example</h3>
+                    <pre><code class="language-css">/* Container query */
+.container {
+    container-type: inline-size;
+}
+
+@container (min-width: 400px) {
+    .card {
+        display: grid;
+    }
+}</code></pre>
+                </div>
+
+                <div class="resources">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries" target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://caniuse.com/css-container-queries" target="_blank">Browser Support</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Feature 3: CSS Carousel -->
+            <section id="carousel" class="feature-section" role="tabpanel" aria-labelledby="carousel-tab">
+                <header class="feature-header">
+                    <h2>CSS Carousel with scroll-snap</h2>
+                    <div class="support-badge widely-supported">Widely Supported</div>
+                </header>
+
+                <div class="feature-description">
+                    <p>Create smooth, accessible carousels using CSS scroll-snap without any JavaScript.</p>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo Area</h3>
+                    <!-- Demo content will be added in Phase 3 -->
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example</h3>
+                    <pre><code class="language-css">/* Scroll-snap carousel */
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel-item {
+    scroll-snap-align: start;
+}</code></pre>
+                </div>
+
+                <div class="resources">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type" target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://caniuse.com/css-snappoints" target="_blank">Browser Support</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Feature 4: Popover API -->
+            <section id="modals" class="feature-section" role="tabpanel" aria-labelledby="modals-tab">
+                <header class="feature-header">
+                    <h2>Popover API (Modals)</h2>
+                    <div class="support-badge widely-supported">Widely Supported</div>
+                </header>
+
+                <div class="feature-description">
+                    <p>Native modals and popovers with automatic backdrop, focus management, and accessibility features.</p>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo Area</h3>
+                    <!-- Demo content will be added in Phase 3 -->
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example</h3>
+                    <pre><code class="language-html">&lt;button popovertarget="my-popover"&gt;Open&lt;/button&gt;
+&lt;div popover id="my-popover"&gt;
+    Popover content
+&lt;/div&gt;</code></pre>
+                </div>
+
+                <div class="resources">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API" target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://caniuse.com/mdn-api_htmlelement_popover" target="_blank">Browser Support</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Feature 5: Animations -->
+            <section id="animations" class="feature-section" role="tabpanel" aria-labelledby="animations-tab">
+                <header class="feature-header">
+                    <h2>Modern CSS Animations</h2>
+                    <div class="support-badge widely-supported">Widely Supported</div>
+                </header>
+
+                <div class="feature-description">
+                    <p>Animate display:none and height:auto using @starting-style, transition-behavior, and calc-size().</p>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo Area</h3>
+                    <!-- Demo content will be added in Phase 3 -->
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example</h3>
+                    <pre><code class="language-css">/* Animate display */
+.element {
+    transition: opacity 0.3s, display 0.3s allow-discrete;
+}
+
+@starting-style {
+    .element {
+        opacity: 0;
+    }
+}</code></pre>
+                </div>
+
+                <div class="resources">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style" target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://caniuse.com/mdn-css_at-rules_starting-style" target="_blank">Browser Support</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Feature 6: Anchor Positioning -->
+            <section id="anchor-positioning" class="feature-section" role="tabpanel" aria-labelledby="anchor-positioning-tab">
+                <header class="feature-header">
+                    <h2>CSS Anchor Positioning</h2>
+                    <div class="support-badge good-support">Good Support</div>
+                </header>
+
+                <div class="feature-description">
+                    <p>Position elements relative to other elements without JavaScript, perfect for tooltips and dropdowns.</p>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo Area</h3>
+                    <!-- Demo content will be added in Phase 4 -->
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example</h3>
+                    <pre><code class="language-css">/* Anchor positioning */
+.anchor {
+    anchor-name: --my-anchor;
+}
+
+.tooltip {
+    position: absolute;
+    position-anchor: --my-anchor;
+    top: anchor(bottom);
+}</code></pre>
+                </div>
+
+                <div class="resources">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning" target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://caniuse.com/css-anchor-positioning" target="_blank">Browser Support</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Feature 7: Modal Trigger Commands -->
+            <section id="modal-trigger" class="feature-section" role="tabpanel" aria-labelledby="modal-trigger-tab">
+                <header class="feature-header">
+                    <h2>Modal Trigger Commands</h2>
+                    <div class="support-badge good-support">Good Support</div>
+                </header>
+
+                <div class="feature-description">
+                    <p>Trigger modals and popovers using HTML attributes, no JavaScript required.</p>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo Area</h3>
+                    <!-- Demo content will be added in Phase 4 -->
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example</h3>
+                    <pre><code class="language-html">&lt;button popovertarget="menu" popovertargetaction="toggle"&gt;
+    Toggle Menu
+&lt;/button&gt;
+&lt;div popover id="menu"&gt;Menu content&lt;/div&gt;</code></pre>
+                </div>
+
+                <div class="resources">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#popovertarget" target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://caniuse.com/mdn-api_htmlelement_popover" target="_blank">Browser Support</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Feature 8: Observer APIs -->
+            <section id="observers" class="feature-section" role="tabpanel" aria-labelledby="observers-tab">
+                <header class="feature-header">
+                    <h2>Modern Observer APIs</h2>
+                    <div class="support-badge emerging">Emerging</div>
+                </header>
+
+                <div class="feature-description">
+                    <p>IntersectionObserver, ResizeObserver, and MutationObserver provide efficient ways to observe DOM changes.</p>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo Area</h3>
+                    <!-- Demo content will be added in Phase 4 -->
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example</h3>
+                    <pre><code class="language-javascript">// Intersection Observer
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+});
+
+observer.observe(element);</code></pre>
+                </div>
+
+                <div class="resources">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API" target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://caniuse.com/intersectionobserver" target="_blank">Browser Support</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Feature 9: scroll-state() -->
+            <section id="scroll-state" class="feature-section" role="tabpanel" aria-labelledby="scroll-state-tab">
+                <header class="feature-header">
+                    <h2>scroll-state() Function</h2>
+                    <div class="support-badge emerging">Emerging</div>
+                </header>
+
+                <div class="feature-description">
+                    <p>Style elements based on scroll position using pure CSS.</p>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo Area</h3>
+                    <!-- Demo content will be added in Phase 4 -->
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example</h3>
+                    <pre><code class="language-css">/* Scroll-aware styles */
+.header {
+    background: scroll-state(stuck) ? #fff : transparent;
+    box-shadow: scroll-state(stuck) ? 0 2px 4px rgba(0,0,0,0.1) : none;
+}</code></pre>
+                </div>
+
+                <div class="resources">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-state" target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://caniuse.com/?search=scroll-state" target="_blank">Browser Support</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Feature 10: Styleable Select -->
+            <section id="styleable-select" class="feature-section" role="tabpanel" aria-labelledby="styleable-select-tab">
+                <header class="feature-header">
+                    <h2>Styleable Select Elements</h2>
+                    <div class="support-badge emerging">Emerging</div>
+                </header>
+
+                <div class="feature-description">
+                    <p>Fully style native select elements using appearance: base-select.</p>
+                </div>
+
+                <div class="demo-container">
+                    <h3>Demo Area</h3>
+                    <!-- Demo content will be added in Phase 4 -->
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example</h3>
+                    <pre><code class="language-css">/* Styleable select */
+select {
+    appearance: base-select;
+    background: white;
+    border: 2px solid #ccc;
+    padding: 0.5rem;
+    border-radius: 8px;
+}</code></pre>
+                </div>
+
+                <div class="resources">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/appearance" target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://caniuse.com/mdn-css_properties_appearance_base-select" target="_blank">Browser Support</a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Modern CSS Features Showcase</p>
+            <p>Built with Claude Code | <a href="docs/AI_WORKFLOW.md">See AI Workflow Documentation</a></p>
+            <p>
+                <a href="docs/FEATURES.md">Technical Reference</a> |
+                <a href="docs/BROWSER_SUPPORT.md">Browser Support</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/feature-detection.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/features/observers.js"></script>
+
+    <!-- Prism.js for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+</body>
+</html>
