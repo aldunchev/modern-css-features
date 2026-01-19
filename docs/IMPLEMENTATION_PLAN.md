@@ -169,7 +169,7 @@ Claude Code Workflow:
 - Use WebFetch to pull MDN documentation
 - Use WebSearch for browser support verification
 - Use TodoWrite to track each feature (5 features × 9 subtasks, grouped by feature)
-- Use /commit skill after each feature
+- Use Bash tool with heredoc to commit after each feature
 
 Example Explore Agent Prompt:
 "Research creative demo ideas for CSS :has() selector. Find 3-5 real-world use cases that show how it replaces
@@ -240,7 +240,7 @@ Content Structure:
 
 ### 1. Skills
 
-- `/commit` - Structured git commits with co-authorship
+**Note:** Claude Code has a built-in `/commit` skill. However, all commits in this project were created using the `Bash` tool with heredoc syntax for structured commit messages and manual co-authorship attribution.
 
 ### 2. Sub-agents
 
@@ -359,7 +359,7 @@ MIT
 **Claude Code Workflow:**
 - Use `Grep` to find TODO comments or incomplete sections
 - Use `Read` to verify all documentation
-- Use `/commit` skill: "docs: add README and final polish"
+- Use `Bash` with heredoc: "docs: add README and final polish"
 - Use `Bash` to set up GitHub Pages deployment
 
 **Critical Files:**
@@ -371,11 +371,11 @@ MIT
 ## Claude Code Features: Strategic Usage Guide
 
 > **📝 Important Clarification:**
-> - **Claude Code does NOT have a built-in `/commit` skill** (this was an error in initial planning)
+> - **Claude Code DOES have a built-in `/commit` skill**
+> - However, **all commits in this project** were created using the **Bash tool** with heredoc syntax
 > - **Sub-agents** (Explore, Plan, Bash, general-purpose) are **built-in to Claude Code** (not custom)
-> - **Git commits** are handled via the **Bash tool** with structured commit messages
 > - **No custom skills or sub-agents need to be created for Phase 1 (core implementation)**
-> - **Phase 2 (future)**: We CAN create a custom `/commit` command or skill to leverage this repo's knowledge
+> - **Phase 2**: We created a custom skill (`modern-css-features`) to package this project's CSS knowledge for use in other repositories
 
 ### Git Commit Strategy (Using Bash Tool)
 - **Bash tool** with `git commit`: Used after each feature, documentation, or milestone (15-20 commits total)

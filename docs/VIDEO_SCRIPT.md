@@ -248,7 +248,7 @@ git log --oneline c5d2506..2d156b7
 > 1. Explore Agent researches creative demos
 > 2. Claude generates code with explanations
 > 3. I review and test
-> 4. Commit with /commit skill
+> 4. Commit using Bash with heredoc
 >
 > Let me show you one more example - the carousel."
 

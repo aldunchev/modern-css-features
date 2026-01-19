@@ -48,7 +48,7 @@
 
 ### Documentation Phase
 - **AI wrote its own workflow docs** → 800+ lines of AI_WORKFLOW.md
-- **Git integration** → Custom /commit skill for structured commits
+- **Git integration** → Bash tool with heredoc for structured commits
 
 ---
 
@@ -59,7 +59,7 @@
 2. **Explore Agent** - Found better examples than manual Google searches
 3. **Immediate documentation** - AI wrote while building (no backlog)
 4. **Progressive enhancement** - AI added @supports detection automatically
-5. **Clean git history** - Custom /commit skill created consistent commits
+5. **Clean git history** - Bash tool with heredoc created structured commits
 
 ### ⚠️ Lessons Learned
 1. **Review everything** - AI is 95% accurate, not 100%
@@ -105,7 +105,7 @@ Prompt: "Create css/features/scroll-state.css with:
 Use @supports for progressive enhancement."
 
 Step 3 (2 min): Commit
-Use /commit skill to create structured commit
+Use Bash tool with heredoc to create structured commit
 ```
 
 **Why live demo?**
@@ -128,7 +128,7 @@ Multi-step task with 3+ steps?
   → TodoWrite
 
 Creating git commits?
-  → Custom /commit skill
+  → Bash tool with heredoc
 
 File operations?
   → Read/Write/Edit tools
@@ -217,7 +217,7 @@ Phase 1: Setup (Bash, Write tools)
 Phase 2: Research (Explore Agent, WebSearch)
 Phase 3: Implement (Write/Edit, TodoWrite)
 Phase 4: Document (AI writes docs)
-Phase 5: Commit (custom /commit)
+Phase 5: Commit (Bash with heredoc)
 ```
 
 **Slide 6: Decision Tree**
@@ -344,7 +344,7 @@ Total: 2.75 hours active development
 
 **External:**
 - Claude Code documentation: [URL]
-- Custom /commit skill: `~/.claude/commands/commit.md`
+- Modern CSS Features Skill: `~/.claude/skills/modern-css-features/`
 - MDN CSS Reference: https://developer.mozilla.org/en-US/docs/Web/CSS
 
 ---

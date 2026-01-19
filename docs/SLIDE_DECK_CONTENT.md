@@ -90,7 +90,7 @@ Claude Code: AI Pair Programmer
    AI Documents → Writes while you build
 
 5️⃣ VERSION CONTROL
-   /commit Skill → Structured git commits
+   Bash + heredoc → Structured git commits
 ```
 
 ### Visual Suggestion
@@ -164,7 +164,7 @@ Tools: AI writes its own docs
 → AI_WORKFLOW.md, FEATURES.md, README.md
 
 PHASE 5: Commit (ongoing)
-Tools: /commit skill
+Tools: Bash with heredoc
 → Clean git history with co-authorship
 ```
 
@@ -200,7 +200,7 @@ Quick Reference: Which Tool for Which Task?
    Tracks progress across implementation phases
 
 ❓ Creating git commits?
-   → /commit skill
+   → Bash with heredoc
    Structured commits with co-authorship
 
 ❓ File operations (read, write, edit)?
@@ -221,7 +221,7 @@ TASK                          →  TOOL
 Research examples             →  Explore Agent
 Check browser support         →  WebSearch (parallel)
 Track multi-step tasks        →  TodoWrite
-Create commits                →  /commit
+Create commits                →  Bash + heredoc
 Read/write files              →  Read/Write/Edit
 ```
 
