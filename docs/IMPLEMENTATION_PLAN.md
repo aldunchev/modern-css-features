@@ -102,7 +102,7 @@ Claude Code Workflow:
 - Use Bash for git init and folder creation
 - Use Write tool for creating initial files
 - Copy plan from .claude/plans/ to project docs/ folder
-- Use /commit skill: "feat: initialize project structure"
+- Use Bash tool with git commit: "feat: initialize project structure"
 
 Critical Files:
 
@@ -130,7 +130,7 @@ Claude Code Workflow:
 
 - Use WebSearch to verify current @supports syntax for each feature (parallel searches)
 - Use TodoWrite to track implementation
-- Use /commit skill: "feat: add feature detection and browser support system"
+- Use Bash tool with git commit: "feat: add feature detection and browser support system"
 
 Critical Files:
 
@@ -283,7 +283,7 @@ Claude Code Workflow:
 - Use Read to review implemented code
 - Use Bash with git log --oneline to review commit history
 - Reflect on actual workflow used
-- Use /commit skill: "docs: add comprehensive AI workflow documentation"
+- Use Bash tool with git commit: "docs: add comprehensive AI workflow documentation"
 
 Critical Files:
 
@@ -371,16 +371,18 @@ MIT
 ## Claude Code Features: Strategic Usage Guide
 
 > **📝 Important Clarification:**
-> - **`/commit`** is a **built-in Claude Code skill** (not custom)
+> - **Claude Code does NOT have a built-in `/commit` skill** (this was an error in initial planning)
 > - **Sub-agents** (Explore, Plan, Bash, general-purpose) are **built-in to Claude Code** (not custom)
+> - **Git commits** are handled via the **Bash tool** with structured commit messages
 > - **No custom skills or sub-agents need to be created for Phase 1 (core implementation)**
-> - **Phase 2 (future)**: We CAN create a custom Claude Code skill to leverage this repo's knowledge
+> - **Phase 2 (future)**: We CAN create a custom `/commit` command or skill to leverage this repo's knowledge
 
-### Skills (Built-in)
-- **`/commit`**: After each feature, documentation, or milestone (15-20 commits total)
-  - This is Anthropic's official skill for structured git commits
-  - Automatically adds "Co-Authored-By: Claude Sonnet 4.5" to commit messages
-  - No setup required - just use `/commit` when ready to commit
+### Git Commit Strategy (Using Bash Tool)
+- **Bash tool** with `git commit`: Used after each feature, documentation, or milestone (15-20 commits total)
+  - Structured commit messages following Conventional Commits format
+  - Manually add "Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>" to all commits
+  - Use heredoc syntax for multi-line commit messages
+  - Example: `git commit -m "$(cat <<'EOF'\nfeat: add feature\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)"`
 
 ### Sub-agents (Built-in)
 - **Explore (Phases 3-4)**: Research demo ideas, find creative examples, discover patterns

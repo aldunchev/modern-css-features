@@ -204,7 +204,7 @@ a0fb27c - feat: add :has() selector demonstration
 | **TodoWrite** | 30+ updates | Medium - Progress tracking |
 | **Write/Edit Tools** | 50+ operations | High - Code generation |
 | **Read Tool** | 40+ reads | Medium - Context gathering |
-| **/commit Skill** | 7 commits | High - Structured git history |
+| **Bash Tool (git commits)** | 9 commits | High - Structured git history with co-authorship |
 | **Parallel Execution** | 5+ instances | Medium - Efficiency boost |
 
 ---

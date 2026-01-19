@@ -40,12 +40,8 @@ Claude Code is Anthropic's official command-line interface (CLI) that provides:
 **Skills Used:**
 - **Git Commits**: Used `Bash` tool with heredoc for structured commits with co-authorship
 
-**Not Used (But Available):**
-- `/commit` skill: Anthropic's official skill for git commits
-- `/review-pr` skill: For pull request reviews
-
-**Why Bash Instead of /commit Skill:**
-During this project, we used the `Bash` tool with heredoc syntax for commits to have full control over commit message formatting. The `/commit` skill is recommended for typical workflows as it automatically adds co-authorship.
+**Note on Git Commits:**
+Claude Code does NOT have a built-in `/commit` skill (this was an error in initial planning). All git commits in this project were created using the `Bash` tool with heredoc syntax for structured commit messages and manual co-authorship attribution.
 
 ### 2. Sub-agents (Built-in)
 
