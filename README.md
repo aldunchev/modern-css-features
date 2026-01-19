@@ -16,7 +16,7 @@ This project showcases **10 modern CSS features** that eliminate the need for Ja
 
 ## 🚀 Live Demo
 
-[View Live Demo](https://yourusername.github.io/new-css-features/) *(Deploy to GitHub Pages)*
+[View Live Demo](https://aldunchev.github.io/modern-css-features/) *(Enable GitHub Pages after deployment)*
 
 ## ✨ Features Demonstrated
 
@@ -103,7 +103,7 @@ Comprehensive guide showing how Claude Code built this project:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/new-css-features.git
+git clone https://github.com/aldunchev/modern-css-features.git
 cd new-css-features
 
 # Option 1: Python simple server
@@ -229,6 +229,65 @@ This project was built in **~3 hours** using Claude Code (Anthropic's AI CLI), c
 
 **Learn More**: See [AI_WORKFLOW.md](docs/AI_WORKFLOW.md) for the complete workflow documentation.
 
+## 🔧 Use This Knowledge in Your Projects
+
+This project includes a **custom Claude Code Skill** that packages all the CSS knowledge for use in ANY repository.
+
+### What is a Claude Code Skill?
+
+A skill is a reusable knowledge package that Claude automatically activates when relevant. Install this skill once, and Claude will provide expert CSS guidance whenever you:
+- Ask about modals, carousels, galleries, or forms
+- Mention "without JavaScript" or "pure CSS"
+- Need browser support information for modern CSS
+- Want to replace JavaScript with CSS
+
+### Installation
+
+**Copy the skill to your Claude directory:**
+
+```bash
+# Clone this repository
+git clone https://github.com/aldunchev/modern-css-features.git
+cd modern-css-features
+
+# Copy skill to your Claude directory
+cp -r claude-skill ~/.claude/skills/modern-css-features
+```
+
+**That's it!** The skill will automatically activate in any project when you ask CSS-related questions.
+
+### What You Get
+
+Once installed, Claude will automatically:
+- ✅ Reference this project's code examples
+- ✅ Provide browser support information
+- ✅ Show progressive enhancement patterns
+- ✅ Offer before/after code comparisons (JavaScript → CSS)
+- ✅ Link to live demos and documentation
+
+### Example Usage
+
+```bash
+# In ANY project, ask Claude Code:
+"How do I implement a modal without JavaScript?"
+
+# Claude will automatically:
+→ Activate the modern-css-features skill
+→ Show Popover API examples from this project
+→ Provide browser support info
+→ Link to live demos
+```
+
+### Skill Contents
+
+The `claude-skill/` directory contains:
+- **SKILL.md** (600+ lines) - Main skill file with auto-activation triggers
+- **BROWSER_SUPPORT.md** (400+ lines) - Compatibility matrix and detection patterns
+- **EXAMPLES.md** (500+ lines) - Working code examples
+- **PATTERNS.md** (500+ lines) - Implementation patterns and best practices
+
+**For more details**, see the [claude-skill/](claude-skill/) directory in this repository.
+
 ## 🎓 Learning Resources
 
 ### CSS Features
@@ -328,9 +387,8 @@ MIT License - feel free to use this project for learning and reference.
 
 ## 📞 Contact
 
-- **GitHub**: [@yourusername](https://github.com/yourusername)
-- **Email**: your.email@example.com
-- **Project**: [Modern CSS Features Showcase](https://github.com/yourusername/new-css-features)
+- **GitHub**: [@aldunchev](https://github.com/aldunchev)
+- **Project**: [Modern CSS Features Showcase](https://github.com/aldunchev/modern-css-features)
 
 ---
 
