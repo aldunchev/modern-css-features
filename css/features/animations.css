@@ -5,182 +5,179 @@
 
 /* Demo Containers */
 .anim-demo-display {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-6);
-    padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: var(--space-8);
 }
 
 .anim-toggle-btn {
-    padding: var(--space-4) var(--space-8);
-    background: var(--color-primary);
-    color: white;
-    border: none;
-    border-radius: var(--radius-md);
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
-    cursor: pointer;
-    transition: all var(--transition-base);
+  padding: var(--space-4) var(--space-8);
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  cursor: pointer;
+  transition: all var(--transition-base);
 }
 
 .anim-toggle-btn:hover {
-    background: var(--color-primary-dark);
-    transform: scale(1.05);
-    box-shadow: var(--shadow-md);
+  background: var(--color-primary-dark);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-md);
 }
 
 /* Animated Box with display transition */
 .anim-box {
-    padding: var(--space-8);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl);
-    max-width: 500px;
-    text-align: center;
+  padding: var(--space-8);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  max-width: 500px;
+  text-align: center;
 
-    /* Enable display animation */
-    display: block;
-    opacity: 1;
-    transform: scale(1);
-    transition:
-        opacity 0.4s ease-out,
-        transform 0.4s ease-out,
-        display 0.4s allow-discrete;
+  /* Enable display animation */
+  transition-property: opacity, transform, display;
+  transition-duration: 0.5s;
+  transition-behavior: allow-discrete;
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+
+  /* Starting state for entry animation (nested) */
+  @starting-style {
+    opacity: 0;
+    transform: scale(0.9);
+  }
 }
 
 /* Hidden state */
 .anim-box.hidden {
-    display: none;
-    opacity: 0;
-    transform: scale(0.9);
-}
-
-/* Starting state for entry animation */
-@starting-style {
-    .anim-box {
-        opacity: 0;
-        transform: scale(0.9);
-    }
+  display: none;
+  opacity: 0;
+  transform: scale(0.9);
 }
 
 .anim-box p {
-    margin-bottom: var(--space-3);
-    font-size: var(--text-lg);
+  margin-bottom: var(--space-3);
+  font-size: var(--text-lg);
 }
 
 .anim-box p:last-child {
-    margin-bottom: 0;
-    font-size: var(--text-base);
-    opacity: 0.9;
+  margin-bottom: 0;
+  font-size: var(--text-base);
+  opacity: 0.9;
 }
 
 /* Accordion Styles */
 .anim-accordion {
-    max-width: 700px;
-    margin: 0 auto;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 .anim-details {
-    background: white;
-    border: 2px solid var(--color-border);
-    border-radius: var(--radius-md);
-    margin-bottom: var(--space-4);
-    overflow: hidden;
-    transition: all var(--transition-base);
+  background: white;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+  overflow: hidden;
+  transition: all var(--transition-base);
 }
 
 .anim-details:hover {
-    border-color: var(--color-primary);
-    box-shadow: var(--shadow-sm);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
 }
 
 .anim-details summary {
-    padding: var(--space-5);
-    font-size: var(--text-lg);
-    font-weight: var(--font-semibold);
-    color: var(--color-text);
-    cursor: pointer;
-    list-style: none;
-    user-select: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all var(--transition-base);
+  padding: var(--space-5);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  color: var(--color-text);
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all var(--transition-base);
 }
 
 .anim-details summary::-webkit-details-marker {
-    display: none;
+  display: none;
 }
 
 /* Custom arrow icon */
 .anim-details summary::after {
-    content: '▼';
-    font-size: var(--text-sm);
-    transition: transform var(--transition-base);
-    color: var(--color-primary);
+  content: '▼';
+  font-size: var(--text-sm);
+  transition: transform var(--transition-base);
+  color: var(--color-primary);
 }
 
 .anim-details[open] summary::after {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .anim-details summary:hover {
-    background: var(--color-gray-50);
-    color: var(--color-primary);
+  background: var(--color-gray-50);
+  color: var(--color-primary);
 }
 
 /* Content area with smooth animation */
 .anim-details-content {
-    padding: 0 var(--space-5) var(--space-5);
-    color: var(--color-text-muted);
+  padding: 0 var(--space-5) var(--space-5);
+  color: var(--color-text-muted);
 
-    /* Animate appearance */
-    opacity: 0;
-    transform: translateY(-10px);
+  /* Animate appearance */
+  opacity: 0;
+  transform: translateY(-10px);
 }
 
 .anim-details[open] .anim-details-content {
-    animation: slideDownFade 0.3s ease-out forwards;
+  animation: slideDownFade 0.3s ease-out forwards;
 }
 
 @keyframes slideDownFade {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .anim-details-content p {
-    margin-bottom: var(--space-3);
-    line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-3);
+  line-height: var(--leading-relaxed);
 }
 
 .anim-details-content p:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* Responsive */
 @media (max-width: 640px) {
-    .anim-box {
-        padding: var(--space-6);
-    }
+  .anim-box {
+    padding: var(--space-6);
+  }
 
-    .anim-box p {
-        font-size: var(--text-base);
-    }
+  .anim-box p {
+    font-size: var(--text-base);
+  }
 
-    .anim-details summary {
-        padding: var(--space-4);
-        font-size: var(--text-base);
-    }
+  .anim-details summary {
+    padding: var(--space-4);
+    font-size: var(--text-base);
+  }
 
-    .anim-details-content {
-        padding: 0 var(--space-4) var(--space-4);
-    }
+  .anim-details-content {
+    padding: 0 var(--space-4) var(--space-4);
+  }
 }
