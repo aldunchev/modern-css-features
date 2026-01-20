@@ -1,200 +1,201 @@
-Modern CSS Features Showcase - Implementation Plan
+# Modern CSS Features Showcase - Implementation Plan
 
-Project Overview
+## Project Overview
 
-Build a vanilla HTML/CSS/JS showcase demonstrating 10 modern CSS features that replace JavaScript, while documenting the
-Claude Code AI workflow used to build it. Target audience: mid/senior front-end developers and back-end developers from
-the team.
+Build a vanilla HTML/CSS/JS showcase demonstrating 10 modern CSS features that replace JavaScript, while documenting the Claude Code AI workflow used to build it. Target audience: mid/senior front-end developers and back-end developers from the team.
 
-Dual Purpose:
+### Dual Purpose
 
-1.  Teach modern CSS features that eliminate JavaScript
-2.  Demonstrate effective Claude Code workflow for front-end development
+1. Teach modern CSS features that eliminate JavaScript
+2. Demonstrate effective Claude Code workflow for front-end development
 
-Project Structure
+---
 
+## Project Structure
+
+```
 /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/
-├── index.html # Single-page app entry
+├── index.html                    # Single-page app entry
 ├── css/
-│ ├── base.css # Variables, reset, typography
-│ ├── layout.css # Navigation, page layout
-│ └── features/ # One CSS file per feature
-│ ├── has-selector.css
-│ ├── carousel.css
-│ ├── anchor-positioning.css
-│ ├── modals.css
-│ ├── container-queries.css
-│ ├── observers.css
-│ ├── animations.css
-│ ├── styleable-select.css
-│ ├── modal-trigger.css
-│ └── scroll-state.css
+│   ├── base.css                  # Variables, reset, typography
+│   ├── layout.css                # Navigation, page layout
+│   └── features/                 # One CSS file per feature
+│       ├── has-selector.css
+│       ├── carousel.css
+│       ├── anchor-positioning.css
+│       ├── modals.css
+│       ├── container-queries.css
+│       ├── observers.css
+│       ├── animations.css
+│       ├── styleable-select.css
+│       ├── modal-trigger.css
+│       └── scroll-state.css
 ├── js/
-│ ├── navigation.js # Tab switching
-│ ├── feature-detection.js # Browser support detection
-│ └── features/
-│ └── observers.js # Modern Observer APIs demo
-├── assets/images/ # Demo images for carousel
+│   ├── navigation.js             # Tab switching
+│   ├── feature-detection.js      # Browser support detection
+│   └── features/
+│       └── observers.js          # Modern Observer APIs demo
+├── assets/images/                # Demo images for carousel
 ├── docs/
-│ ├── AI_WORKFLOW.md # How Claude Code was used ⭐
-│ ├── FEATURES.md # Technical documentation
-│ └── BROWSER_SUPPORT.md # Browser compatibility matrix
+│   ├── AI_WORKFLOW.md            # How Claude Code was used ⭐
+│   ├── FEATURES.md               # Technical documentation
+│   └── BROWSER_SUPPORT.md        # Browser compatibility matrix
 ├── .gitignore
 └── README.md
+```
 
-Features to Implement (Browser Support Order)
+---
 
-Tier 1: Widely Supported (Production Ready)
+## Features to Implement (Browser Support Order)
 
-1.  :has() selector - Parent selection, form validation states
-2.  Container queries - Component-based responsive design
-3.  CSS carousel - scroll-snap without JS
-4.  Popover API (modals) - Native modals with backdrop
-5.  @starting-style/allow-discrete - Animate display:none & height:auto
+### Tier 1: Widely Supported (Production Ready)
 
-Tier 2: Good Support
+1. `:has()` selector - Parent selection, form validation states
+2. Container queries - Component-based responsive design
+3. CSS carousel - scroll-snap without JS
+4. Popover API (modals) - Native modals with backdrop
+5. `@starting-style`/allow-discrete - Animate display:none & height:auto
 
-6.  Anchor positioning - Tooltip/popover positioning (Chrome 125+, Firefox 145+)
-7.  Modal trigger commands - popovertarget attribute (no JS)
+### Tier 2: Good Support
 
-Tier 3: Emerging Features
+6. Anchor positioning - Tooltip/popover positioning (Chrome 125+, Firefox 145+)
+7. Modal trigger commands - popovertarget attribute (no JS)
 
-8.  Modern Observer APIs - IntersectionObserver, ResizeObserver, MutationObserver
-9.  scroll-state() - Scroll-aware UI (Chrome 133+, Safari stable)
+### Tier 3: Emerging Features
+
+8. Modern Observer APIs - IntersectionObserver, ResizeObserver, MutationObserver
+9. `scroll-state()` - Scroll-aware UI (Chrome 133+, Safari stable)
 10. Styleable select - appearance: base-select (Chrome 135+)
 
-Implementation Phases
+---
 
-Phase 1: Foundation & Git Setup
+## Implementation Phases
 
-Goal: Initialize project structure and git repository
+### Phase 1: Foundation & Git Setup
 
-Tasks:
+**Goal:** Initialize project structure and git repository
 
-1.  Initialize git repository with .gitignore
-2.  Create complete folder structure (css/, js/, assets/, docs/)
-3.  Copy this implementation plan to docs/IMPLEMENTATION_PLAN.md for showcasing the planning process
-4.  Create index.html with semantic HTML5 structure
+**Tasks:**
 
-- Header with project title and GitHub link
-- Tab navigation container
-- Main content area for feature demos
-- Footer with credits
+1. Initialize git repository with .gitignore
+2. Create complete folder structure (css/, js/, assets/, docs/)
+3. Copy this implementation plan to docs/IMPLEMENTATION_PLAN.md for showcasing the planning process
+4. Create index.html with semantic HTML5 structure:
+   - Header with project title and GitHub link
+   - Tab navigation container
+   - Main content area for feature demos
+   - Footer with credits
 
-5.  Create css/base.css with:
+5. Create css/base.css with:
+   - CSS variables (colors, spacing scale, typography)
+   - CSS reset/normalize
+   - Base typography styles
 
-- CSS variables (colors, spacing scale, typography)
-- CSS reset/normalize
-- Base typography styles
+6. Create css/layout.css with:
+   - Responsive container system (max-width: 1200px)
+   - Tab navigation layout (horizontal on desktop, scroll-snap on mobile)
+   - Content area layout
 
-6.  Create css/layout.css with:
+7. Create js/navigation.js for tab switching logic
+8. Create js/feature-detection.js skeleton
 
-- Responsive container system (max-width: 1200px)
-- Tab navigation layout (horizontal on desktop, scroll-snap on mobile)
-- Content area layout
-
-7.  Create js/navigation.js for tab switching logic
-8.  Create js/feature-detection.js skeleton
-
-Claude Code Workflow:
-
+**Claude Code Workflow:**
 - Use TodoWrite to track 8 subtasks
 - Use Bash for git init and folder creation
 - Use Write tool for creating initial files
 - Copy plan from .claude/plans/ to project docs/ folder
 - Use Bash tool with git commit: "feat: initialize project structure"
 
-Critical Files:
-
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/index.html
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/base.css
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/js/navigation.js
+**Critical Files:**
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/index.html`
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/base.css`
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/js/navigation.js`
 
 ---
 
-Phase 2: Feature Detection System
+### Phase 2: Feature Detection System
 
-Goal: Build reusable browser support detection and display system
+**Goal:** Build reusable browser support detection and display system
 
-Tasks:
+**Tasks:**
 
-1.  Implement @supports feature detection for each CSS feature
-2.  Create browser support badge component (HTML template + CSS)
-3.  Add visual badges: "Widely Supported" (green), "Good Support" (yellow), "Emerging" (orange)
-4.  Add fallback messages for unsupported features
-5.  Create progressive enhancement framework
-6.  Test detection in Chrome, Firefox, Safari
-7.  Document detection patterns in docs/BROWSER_SUPPORT.md
+1. Implement @supports feature detection for each CSS feature
+2. Create browser support badge component (HTML template + CSS)
+3. Add visual badges: "Widely Supported" (green), "Good Support" (yellow), "Emerging" (orange)
+4. Add fallback messages for unsupported features
+5. Create progressive enhancement framework
+6. Test detection in Chrome, Firefox, Safari
+7. Document detection patterns in docs/BROWSER_SUPPORT.md
 
-Claude Code Workflow:
-
+**Claude Code Workflow:**
 - Use WebSearch to verify current @supports syntax for each feature (parallel searches)
 - Use TodoWrite to track implementation
 - Use Bash tool with git commit: "feat: add feature detection and browser support system"
 
-Critical Files:
-
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/js/feature-detection.js
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/docs/BROWSER_SUPPORT.md
+**Critical Files:**
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/js/feature-detection.js`
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/docs/BROWSER_SUPPORT.md`
 
 ---
 
-Phase 3: Implement Tier 1 Features (Widely Supported)
+### Phase 3: Implement Tier 1 Features (Widely Supported)
 
-Goal: Build first 5 feature demonstrations with full documentation
+**Goal:** Build first 5 feature demonstrations with full documentation
 
-Features:
+**Features:**
 
-1.  :has() selector - Parent selection demos (form validation, card hover)
-2.  Container queries - Responsive cards based on container size
-3.  CSS carousel - Image carousel with scroll-snap, no JS
-4.  Popover API - Modal/dialog with backdrop
-5.  Animations - @starting-style, allow-discrete, calc-size for display & height
+1. `:has()` selector - Parent selection demos (form validation, card hover)
+2. Container queries - Responsive cards based on container size
+3. CSS carousel - Image carousel with scroll-snap, no JS
+4. Popover API - Modal/dialog with backdrop
+5. Animations - `@starting-style`, allow-discrete, calc-size for display & height
 
-Per-Feature Tasks:
+**Per-Feature Tasks:**
 
-1.  Research best demo examples (use Sub-agent: Explore)
-2.  Create HTML structure in index.html for feature section
-3.  Create dedicated CSS file in css/features/
-4.  Build 2-3 interactive demos per feature
-5.  Add code examples with Prism.js syntax highlighting
-6.  Add "Try it yourself" interactive area
-7.  Link to MDN, Can I Use, and other resources
-8.  Test in Chrome, Firefox, Safari
-9.  Commit: "feat: add [feature-name] demonstration"
+1. Research best demo examples (use Sub-agent: Explore)
+2. Create HTML structure in index.html for feature section
+3. Create dedicated CSS file in css/features/
+4. Build 2-3 interactive demos per feature
+5. Add code examples with Prism.js syntax highlighting
+6. Add "Try it yourself" interactive area
+7. Link to MDN, Can I Use, and other resources
+8. Test in Chrome, Firefox, Safari
+9. Commit: "feat: add [feature-name] demonstration"
 
-Claude Code Workflow:
-
+**Claude Code Workflow:**
 - Use Sub-agent (Explore) to research creative demo ideas for each feature
 - Use WebFetch to pull MDN documentation
 - Use WebSearch for browser support verification
 - Use TodoWrite to track each feature (5 features × 9 subtasks, grouped by feature)
 - Use Bash tool with heredoc to commit after each feature
 
-Example Explore Agent Prompt:
-"Research creative demo ideas for CSS :has() selector. Find 3-5 real-world use cases that show how it replaces
-JavaScript. Look for examples like form validation states, parent hover effects, and sibling selection."
+**Example Explore Agent Prompt:**
+> "Research creative demo ideas for CSS :has() selector. Find 3-5 real-world use cases that show how it replaces JavaScript. Look for examples like form validation states, parent hover effects, and sibling selection."
 
-Critical Files (per feature):
-
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/has-selector.css
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/container-queries.css
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/carousel.css
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/modals.css
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/animations.css
+**Critical Files (per feature):**
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/has-selector.css`
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/container-queries.css`
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/carousel.css`
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/modals.css`
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/animations.css`
 
 ---
 
-Phase 4: Implement Tier 2 & 3 Features
+### Phase 4: Implement Tier 2 & 3 Features
 
-Goal: Complete remaining 5 features with progressive enhancement
+**Goal:** Complete remaining 5 features with progressive enhancement
 
-Features: 6. Anchor positioning - Tooltip/popover positioning 7. Modal trigger commands - popovertarget without JS 8. Modern Observer APIs - IntersectionObserver, ResizeObserver, MutationObserver 9. scroll-state() - Scroll-aware UI states 10. Styleable select - Custom select styling
+**Features:**
 
-Per-Feature Tasks: (Same as Phase 3)
+6. Anchor positioning - Tooltip/popover positioning
+7. Modal trigger commands - popovertarget without JS
+8. Modern Observer APIs - IntersectionObserver, ResizeObserver, MutationObserver
+9. `scroll-state()` - Scroll-aware UI states
+10. Styleable select - Custom select styling
 
-Claude Code Workflow:
+**Per-Feature Tasks:** (Same as Phase 3)
 
+**Claude Code Workflow:**
 - Same as Phase 3
 - Important: For Features 9 & 10 (limited browser support), emphasize:
   - Progressive enhancement patterns
@@ -202,30 +203,29 @@ Claude Code Workflow:
   - Fallback demonstrations
   - Browser requirement notices
 
-Critical Files:
-
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/anchor-positioning.css
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/modal-trigger.css
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/js/features/observers.js
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/scroll-state.css
-- /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/styleable-select.css
+**Critical Files:**
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/anchor-positioning.css`
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/modal-trigger.css`
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/js/features/observers.js`
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/scroll-state.css`
+- `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/styleable-select.css`
 
 ---
 
-Phase 5: AI Workflow Documentation ⭐
+### Phase 5: AI Workflow Documentation ⭐
 
-Goal: Document the Claude Code workflow used throughout the project
+**Goal:** Document the Claude Code workflow used throughout the project
 
-Tasks:
+**Tasks:**
 
-1.  Create docs/AI_WORKFLOW.md with comprehensive documentation
-2.  Document each phase's Claude Code usage (Skills, Sub-agents, Tools)
-3.  Include example prompts that worked well
-4.  Add "When to use which feature" decision tree
-5.  Document parallel execution patterns used
-6.  Add best practices for front-end AI workflow
-7.  Include lessons learned and recommendations
-8.  Add visual workflow diagram (ASCII art)
+1. Create docs/AI_WORKFLOW.md with comprehensive documentation
+2. Document each phase's Claude Code usage (Skills, Sub-agents, Tools)
+3. Include example prompts that worked well
+4. Add "When to use which feature" decision tree
+5. Document parallel execution patterns used
+6. Add best practices for front-end AI workflow
+7. Include lessons learned and recommendations
+8. Add visual workflow diagram (ASCII art)
 
 Content Structure:
 
@@ -291,70 +291,22 @@ Critical Files:
 
 ---
 
-Phase 6: Polish, README & Deployment
+### Phase 6: Polish, README & Deployment
 
-Goal: Final polish, comprehensive README, prepare for GitHub Pages
+**Goal:** Final polish, comprehensive README, prepare for GitHub Pages
 
-Tasks:
+**Tasks:**
 
-1.  Review all features for consistency
-2.  Test all interactive demos in Chrome, Firefox, Safari
-3.  Verify browser support badges are accurate
-4.  Add Prism.js for syntax highlighting (via CDN)
-5.  Create comprehensive README.md
-6.  Add keyboard navigation support (Tab, Enter, Arrows)
-7.  Add ARIA labels for accessibility
-8.  Optimize CSS (remove duplicates, consolidate variables)
-9.  Create docs/FEATURES.md with technical reference
+1. Review all features for consistency
+2. Test all interactive demos in Chrome, Firefox, Safari
+3. Verify browser support badges are accurate
+4. Add Prism.js for syntax highlighting (via CDN)
+5. Create comprehensive README.md
+6. Add keyboard navigation support (Tab, Enter, Arrows)
+7. Add ARIA labels for accessibility
+8. Optimize CSS (remove duplicates, consolidate variables)
+9. Create docs/FEATURES.md with technical reference
 10. Prepare for GitHub Pages deployment (gh-pages branch or /docs folder)
-
-README Structure:
-
-# Modern CSS Features Showcase
-
-## Overview
-
-Demonstration of 10 modern CSS features that replace JavaScript
-
-## Live Demo
-
-[GitHub Pages URL]
-
-## Features Demonstrated
-
-1.  :has() selector (Widely Supported)
-2.  Container queries (Widely Supported)
-    ... [all 10 features with support badges]
-
-## Why This Project?
-
-- Learn modern CSS that eliminates JavaScript
-- See effective AI-assisted development with Claude Code
-
-## Browser Support
-
-See [BROWSER_SUPPORT.md](docs/BROWSER_SUPPORT.md)
-
-## Local Development
-
-````bash
-git clone [repo-url]
-cd new-css-features
-# Serve with any static server
-python3 -m http.server 8000
-# Or use VS Code Live Server
-
-AI Workflow
-
-See docs/AI_WORKFLOW.md to learn how Claude Code built this
-
-Resources
-
-Links to MDN, Can I Use, articles for each feature
-
-License
-
-MIT
 
 **Claude Code Workflow:**
 - Use `Grep` to find TODO comments or incomplete sections

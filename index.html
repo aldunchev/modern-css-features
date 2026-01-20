@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,13 +24,15 @@
     <!-- Prism.js for syntax highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 </head>
+
 <body>
     <!-- Header -->
     <header class="site-header">
         <div class="container">
             <h1>Modern CSS Features Showcase</h1>
             <p class="subtitle">10 CSS features that replace JavaScript</p>
-            <a href="https://github.com/yourusername/new-css-features" class="github-link" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/aldunchev/modern-css-features.git" class="github-link" target="_blank"
+                rel="noopener noreferrer">
                 View on GitHub
             </a>
         </div>
@@ -40,17 +43,20 @@
         <div class="container">
             <ul class="nav-tabs" role="tablist">
                 <li role="presentation">
-                    <button class="nav-tab active" role="tab" aria-selected="true" aria-controls="has-selector" data-tab="has-selector">
+                    <button class="nav-tab active" role="tab" aria-selected="true" aria-controls="has-selector"
+                        data-tab="has-selector">
                         :has() Selector
                     </button>
                 </li>
                 <li role="presentation">
-                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="container-queries" data-tab="container-queries">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="container-queries"
+                        data-tab="container-queries">
                         Container Queries
                     </button>
                 </li>
                 <li role="presentation">
-                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="carousel" data-tab="carousel">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="carousel"
+                        data-tab="carousel">
                         CSS Carousel
                     </button>
                 </li>
@@ -60,32 +66,38 @@
                     </button>
                 </li>
                 <li role="presentation">
-                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="animations" data-tab="animations">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="animations"
+                        data-tab="animations">
                         Animations
                     </button>
                 </li>
                 <li role="presentation">
-                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="anchor-positioning" data-tab="anchor-positioning">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="anchor-positioning"
+                        data-tab="anchor-positioning">
                         Anchor Positioning
                     </button>
                 </li>
                 <li role="presentation">
-                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="modal-trigger" data-tab="modal-trigger">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="modal-trigger"
+                        data-tab="modal-trigger">
                         Modal Triggers
                     </button>
                 </li>
                 <li role="presentation">
-                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="observers" data-tab="observers">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="observers"
+                        data-tab="observers">
                         Observer APIs
                     </button>
                 </li>
                 <li role="presentation">
-                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="scroll-state" data-tab="scroll-state">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="scroll-state"
+                        data-tab="scroll-state">
                         scroll-state()
                     </button>
                 </li>
                 <li role="presentation">
-                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="styleable-select" data-tab="styleable-select">
+                    <button class="nav-tab" role="tab" aria-selected="false" aria-controls="styleable-select"
+                        data-tab="styleable-select">
                         Styleable Select
                     </button>
                 </li>
@@ -97,56 +109,41 @@
     <main class="main-content">
         <div class="container">
             <!-- Feature 1: :has() Selector -->
-            <section id="has-selector" class="feature-section active" role="tabpanel" aria-labelledby="has-selector-tab">
+            <section id="has-selector" class="feature-section active" role="tabpanel"
+                aria-labelledby="has-selector-tab">
                 <header class="feature-header">
                     <h2>:has() Selector</h2>
                     <div class="support-badge widely-supported">Widely Supported</div>
                 </header>
 
                 <div class="feature-description">
-                    <p>The <code>:has()</code> pseudo-class allows you to style parent elements based on their children, eliminating the need for JavaScript.</p>
+                    <p>The <code>:has()</code> pseudo-class allows you to style parent elements based on their children,
+                        eliminating the need for JavaScript.</p>
                 </div>
 
                 <div class="demo-container">
                     <h3>Demo 1: Form Validation with Parent Styling</h3>
-                    <p class="demo-description">As you type, the form group changes color based on input validity. No JavaScript required!</p>
+                    <p class="demo-description">As you type, the form group changes color based on input validity. No
+                        JavaScript required!</p>
 
                     <form class="has-form-demo">
                         <div class="form-group">
                             <label for="email-input">Email Address</label>
-                            <input
-                                type="email"
-                                id="email-input"
-                                name="email"
-                                placeholder="Enter your email"
-                                required
-                            >
+                            <input type="email" id="email-input" name="email" placeholder="Enter your email" required>
                             <span class="error-text">Please enter a valid email address</span>
                         </div>
 
                         <div class="form-group">
                             <label for="password-input">Password (min 8 characters)</label>
-                            <input
-                                type="password"
-                                id="password-input"
-                                name="password"
-                                placeholder="Enter password"
-                                minlength="8"
-                                required
-                            >
+                            <input type="password" id="password-input" name="password" placeholder="Enter password"
+                                minlength="8" required>
                             <span class="error-text">Password must be at least 8 characters</span>
                         </div>
 
                         <div class="form-group">
                             <label for="phone-input">Phone Number</label>
-                            <input
-                                type="tel"
-                                id="phone-input"
-                                name="phone"
-                                placeholder="(555) 123-4567"
-                                pattern="[0-9\(\)\-\s]+"
-                                required
-                            >
+                            <input type="tel" id="phone-input" name="phone" placeholder="(555) 123-4567"
+                                pattern="[0-9\(\)\-\s]+" required>
                             <span class="error-text">Please enter a valid phone number</span>
                         </div>
                     </form>
@@ -154,12 +151,14 @@
 
                 <div class="demo-container">
                     <h3>Demo 2: Card Hover Effects</h3>
-                    <p class="demo-description">Hover over the image inside the card to see the entire card change appearance.</p>
+                    <p class="demo-description">Hover over the image inside the card to see the entire card change
+                        appearance.</p>
 
                     <div class="has-cards-demo">
                         <article class="product-card">
                             <div class="card-image">
-                                <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='sans-serif'%3EProduct 1%3C/text%3E%3C/svg%3E" alt="Product 1">
+                                <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='sans-serif'%3EProduct 1%3C/text%3E%3C/svg%3E"
+                                    alt="Product 1">
                             </div>
                             <div class="card-content">
                                 <h4 class="card-title">Modern Headphones</h4>
@@ -171,7 +170,8 @@
 
                         <article class="product-card">
                             <div class="card-image">
-                                <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='sans-serif'%3EProduct 2%3C/text%3E%3C/svg%3E" alt="Product 2">
+                                <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='sans-serif'%3EProduct 2%3C/text%3E%3C/svg%3E"
+                                    alt="Product 2">
                             </div>
                             <div class="card-content">
                                 <h4 class="card-title">Smart Watch</h4>
@@ -183,7 +183,8 @@
 
                         <article class="product-card">
                             <div class="card-image">
-                                <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='sans-serif'%3EProduct 3%3C/text%3E%3C/svg%3E" alt="Product 3">
+                                <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='24' font-family='sans-serif'%3EProduct 3%3C/text%3E%3C/svg%3E"
+                                    alt="Product 3">
                             </div>
                             <div class="card-content">
                                 <h4 class="card-title">Laptop Stand</h4>
@@ -197,36 +198,43 @@
 
                 <div class="demo-container">
                     <h3>Demo 3: Sibling Fade-Out Gallery</h3>
-                    <p class="demo-description">Hover over any photo to fade out the others. Pure CSS, no JavaScript!</p>
+                    <p class="demo-description">Hover over any photo to fade out the others. Pure CSS, no JavaScript!
+                    </p>
 
                     <div class="has-gallery-demo">
                         <div class="gallery-item">
-                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%23ef4444'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 1%3C/text%3E%3C/svg%3E" alt="Gallery Photo 1">
+                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%23ef4444'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 1%3C/text%3E%3C/svg%3E"
+                                alt="Gallery Photo 1">
                             <div class="gallery-label">Mountain Sunset</div>
                         </div>
 
                         <div class="gallery-item">
-                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 2%3C/text%3E%3C/svg%3E" alt="Gallery Photo 2">
+                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 2%3C/text%3E%3C/svg%3E"
+                                alt="Gallery Photo 2">
                             <div class="gallery-label">Ocean Waves</div>
                         </div>
 
                         <div class="gallery-item">
-                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 3%3C/text%3E%3C/svg%3E" alt="Gallery Photo 3">
+                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 3%3C/text%3E%3C/svg%3E"
+                                alt="Gallery Photo 3">
                             <div class="gallery-label">Forest Path</div>
                         </div>
 
                         <div class="gallery-item">
-                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%23f59e0b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 4%3C/text%3E%3C/svg%3E" alt="Gallery Photo 4">
+                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%23f59e0b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 4%3C/text%3E%3C/svg%3E"
+                                alt="Gallery Photo 4">
                             <div class="gallery-label">Desert Dunes</div>
                         </div>
 
                         <div class="gallery-item">
-                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 5%3C/text%3E%3C/svg%3E" alt="Gallery Photo 5">
+                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 5%3C/text%3E%3C/svg%3E"
+                                alt="Gallery Photo 5">
                             <div class="gallery-label">City Lights</div>
                         </div>
 
                         <div class="gallery-item">
-                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%23ec4899'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 6%3C/text%3E%3C/svg%3E" alt="Gallery Photo 6">
+                            <img src="data:image/svg+xml,%3Csvg width='300' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='300' height='300' fill='%23ec4899'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EPhoto 6%3C/text%3E%3C/svg%3E"
+                                alt="Gallery Photo 6">
                             <div class="gallery-label">Northern Lights</div>
                         </div>
                     </div>
@@ -235,91 +243,91 @@
                 <div class="code-example">
                     <h3>Code Example: Form Validation</h3>
                     <pre><code class="language-css">/* Style container when input is invalid and not empty */
-.form-group:has(input:invalid:not(:placeholder-shown)) {
-    border: 2px solid #ef4444;
-    background-color: #fee2e2;
-}
+                            .form-group:has(input:invalid:not(:placeholder-shown)) {
+                            border: 2px solid #ef4444;
+                            background-color: #fee2e2;
+                            }
 
-/* Style container when input is valid */
-.form-group:has(input:valid:not(:placeholder-shown)) {
-    border: 2px solid #10b981;
-    background-color: #f0fdf4;
-}
+                            /* Style container when input is valid */
+                            .form-group:has(input:valid:not(:placeholder-shown)) {
+                            border: 2px solid #10b981;
+                            background-color: #f0fdf4;
+                            }
 
-/* Style label based on input state */
-.form-group:has(input:invalid) label {
-    color: #ef4444;
-    font-weight: 600;
-}
+                            /* Style label based on input state */
+                            .form-group:has(input:invalid) label {
+                            color: #ef4444;
+                            font-weight: 600;
+                            }
 
-/* Show error message only when invalid */
-.form-group:has(input:invalid:not(:placeholder-shown)) .error-text {
-    display: block;
-}</code></pre>
+                            /* Show error message only when invalid */
+                            .form-group:has(input:invalid:not(:placeholder-shown)) .error-text {
+                            display: block;
+                            }</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example: Card Hover</h3>
                     <pre><code class="language-css">/* Highlight card when image is hovered */
-.product-card:has(.card-image:hover) {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    transform: translateY(-8px);
-}
+                            .product-card:has(.card-image:hover) {
+                            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                            transform: translateY(-8px);
+                            }
 
-/* Enlarge title on image hover */
-.product-card:has(.card-image:hover) .card-title {
-    font-size: 1.5rem;
-    color: #3b82f6;
-}
+                            /* Enlarge title on image hover */
+                            .product-card:has(.card-image:hover) .card-title {
+                            font-size: 1.5rem;
+                            color: #3b82f6;
+                            }
 
-/* Show hidden button on image hover */
-.product-card:has(.card-image:hover) .card-button {
-    opacity: 1;
-    pointer-events: auto;
-}</code></pre>
+                            /* Show hidden button on image hover */
+                            .product-card:has(.card-image:hover) .card-button {
+                            opacity: 1;
+                            pointer-events: auto;
+                            }</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example: Sibling Fade-Out</h3>
                     <pre><code class="language-css">/* Fade out all siblings when one is hovered */
-.has-gallery-demo:has(.gallery-item:hover) .gallery-item:not(:hover) {
-    opacity: 0.4;
-    filter: grayscale(100%);
-}
+                            .has-gallery-demo:has(.gallery-item:hover) .gallery-item:not(:hover) {
+                            opacity: 0.4;
+                            filter: grayscale(100%);
+                            }
 
-/* Scale up the hovered item */
-.gallery-item:hover {
-    transform: scale(1.05);
-    z-index: 10;
-}</code></pre>
+                            /* Scale up the hovered item */
+                            .gallery-item:hover {
+                            transform: scale(1.05);
+                            z-index: 10;
+                            }</code></pre>
                 </div>
 
                 <div class="comparison-container">
                     <h3>JavaScript Comparison</h3>
                     <p><strong>Old approach (with JavaScript):</strong></p>
                     <pre><code class="language-javascript">// Form validation - needed event listeners
-document.querySelectorAll('input').forEach(input => {
-    input.addEventListener('input', function() {
-        const formGroup = this.closest('.form-group');
-        if (this.checkValidity()) {
-            formGroup.classList.add('valid');
-            formGroup.classList.remove('invalid');
-        } else {
-            formGroup.classList.add('invalid');
-            formGroup.classList.remove('valid');
-        }
-    });
-});
+                            document.querySelectorAll('input').forEach(input => {
+                            input.addEventListener('input', function() {
+                            const formGroup = this.closest('.form-group');
+                            if (this.checkValidity()) {
+                            formGroup.classList.add('valid');
+                            formGroup.classList.remove('invalid');
+                            } else {
+                            formGroup.classList.add('invalid');
+                            formGroup.classList.remove('valid');
+                            }
+                            });
+                            });
 
-// Card hover - needed mouseenter/leave listeners
-document.querySelectorAll('.card-image').forEach(image => {
-    image.addEventListener('mouseenter', () => {
-        image.closest('.product-card').classList.add('hovered');
-    });
-    image.addEventListener('mouseleave', () => {
-        image.closest('.product-card').classList.remove('hovered');
-    });
-});</code></pre>
+                            // Card hover - needed mouseenter/leave listeners
+                            document.querySelectorAll('.card-image').forEach(image => {
+                            image.addEventListener('mouseenter', () => {
+                            image.closest('.product-card').classList.add('hovered');
+                            });
+                            image.addEventListener('mouseleave', () => {
+                            image.closest('.product-card').classList.remove('hovered');
+                            });
+                            });</code></pre>
 
                     <p><strong>New approach (pure CSS with :has()):</strong></p>
                     <p>Zero JavaScript required! All interactions are handled by CSS :has() selector.</p>
@@ -338,34 +346,41 @@ document.querySelectorAll('.card-image').forEach(image => {
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:has" target="_blank">MDN: :has() Documentation</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:has" target="_blank">MDN: :has()
+                                Documentation</a></li>
                         <li><a href="https://caniuse.com/css-has" target="_blank">Can I Use: Browser Support</a></li>
-                        <li><a href="https://ishadeed.com/article/css-has-parent-selector/" target="_blank">CSS :has() Parent Selector Guide</a></li>
-                        <li><a href="https://css-tricks.com/the-css-has-selector/" target="_blank">CSS-Tricks: The :has() Selector</a></li>
+                        <li><a href="https://ishadeed.com/article/css-has-parent-selector/" target="_blank">CSS :has()
+                                Parent Selector Guide</a></li>
+                        <li><a href="https://css-tricks.com/the-css-has-selector/" target="_blank">CSS-Tricks: The
+                                :has() Selector</a></li>
                     </ul>
                 </div>
             </section>
 
             <!-- Feature 2: Container Queries -->
-            <section id="container-queries" class="feature-section" role="tabpanel" aria-labelledby="container-queries-tab">
+            <section id="container-queries" class="feature-section" role="tabpanel"
+                aria-labelledby="container-queries-tab">
                 <header class="feature-header">
                     <h2>Container Queries</h2>
                     <div class="support-badge widely-supported">Widely Supported</div>
                 </header>
 
                 <div class="feature-description">
-                    <p>Container queries enable responsive design based on container size rather than viewport, perfect for component-based layouts.</p>
+                    <p>Container queries enable responsive design based on container size rather than viewport, perfect
+                        for component-based layouts.</p>
                 </div>
 
                 <div class="demo-container">
                     <h3>Demo 1: Adaptive Profile Card</h3>
-                    <p class="demo-description">Resize the containers to see cards adapt from vertical to horizontal layouts. Same component, different widths!</p>
+                    <p class="demo-description">Resize the containers to see cards adapt from vertical to horizontal
+                        layouts. Same component, different widths!</p>
 
                     <div class="cq-demo-grid">
                         <div class="cq-container cq-narrow">
                             <div class="profile-card">
                                 <div class="profile-image">
-                                    <img src="data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='50' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EJS%3C/text%3E%3C/svg%3E" alt="Profile">
+                                    <img src="data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='50' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EJS%3C/text%3E%3C/svg%3E"
+                                        alt="Profile">
                                 </div>
                                 <div class="profile-content">
                                     <h4 class="profile-name">Jane Smith</h4>
@@ -382,7 +397,8 @@ document.querySelectorAll('.card-image').forEach(image => {
                         <div class="cq-container cq-medium">
                             <div class="profile-card">
                                 <div class="profile-image">
-                                    <img src="data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EAK%3C/text%3E%3C/svg%3E" alt="Profile">
+                                    <img src="data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EAK%3C/text%3E%3C/svg%3E"
+                                        alt="Profile">
                                 </div>
                                 <div class="profile-content">
                                     <h4 class="profile-name">Alex Kim</h4>
@@ -399,7 +415,8 @@ document.querySelectorAll('.card-image').forEach(image => {
                         <div class="cq-container cq-wide">
                             <div class="profile-card">
                                 <div class="profile-image">
-                                    <img src="data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='50' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EMR%3C/text%3E%3C/svg%3E" alt="Profile">
+                                    <img src="data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='50' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='32' font-family='sans-serif'%3EMR%3C/text%3E%3C/svg%3E"
+                                        alt="Profile">
                                 </div>
                                 <div class="profile-content">
                                     <h4 class="profile-name">Maria Rodriguez</h4>
@@ -417,13 +434,15 @@ document.querySelectorAll('.card-image').forEach(image => {
 
                 <div class="demo-container">
                     <h3>Demo 2: Product Card Grid</h3>
-                    <p class="demo-description">Same product card in different grid layouts. Cards automatically adapt to their container width!</p>
+                    <p class="demo-description">Same product card in different grid layouts. Cards automatically adapt
+                        to their container width!</p>
 
                     <div class="cq-product-demo">
                         <div class="product-grid-narrow">
                             <div class="product-container">
                                 <article class="cq-product-card">
-                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%23ef4444'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E" alt="Product">
+                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%23ef4444'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E"
+                                        alt="Product">
                                     <div class="cq-card-body">
                                         <h4 class="cq-card-title">Wireless Headphones</h4>
                                         <p class="cq-card-description">Premium noise-canceling audio</p>
@@ -438,7 +457,8 @@ document.querySelectorAll('.card-image').forEach(image => {
                         <div class="product-grid-medium">
                             <div class="product-container">
                                 <article class="cq-product-card">
-                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E" alt="Product">
+                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E"
+                                        alt="Product">
                                     <div class="cq-card-body">
                                         <h4 class="cq-card-title">Smart Watch</h4>
                                         <p class="cq-card-description">Track fitness and notifications</p>
@@ -449,7 +469,8 @@ document.querySelectorAll('.card-image').forEach(image => {
                             </div>
                             <div class="product-container">
                                 <article class="cq-product-card">
-                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E" alt="Product">
+                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E"
+                                        alt="Product">
                                     <div class="cq-card-body">
                                         <h4 class="cq-card-title">Laptop Stand</h4>
                                         <p class="cq-card-description">Ergonomic workspace upgrade</p>
@@ -464,7 +485,8 @@ document.querySelectorAll('.card-image').forEach(image => {
                         <div class="product-grid-wide">
                             <div class="product-container">
                                 <article class="cq-product-card">
-                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E" alt="Product">
+                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E"
+                                        alt="Product">
                                     <div class="cq-card-body">
                                         <h4 class="cq-card-title">Mechanical Keyboard</h4>
                                         <p class="cq-card-description">RGB backlit, premium switches</p>
@@ -475,7 +497,8 @@ document.querySelectorAll('.card-image').forEach(image => {
                             </div>
                             <div class="product-container">
                                 <article class="cq-product-card">
-                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%23f59e0b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E" alt="Product">
+                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%23f59e0b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E"
+                                        alt="Product">
                                     <div class="cq-card-body">
                                         <h4 class="cq-card-title">USB-C Hub</h4>
                                         <p class="cq-card-description">7-in-1 connectivity solution</p>
@@ -486,7 +509,8 @@ document.querySelectorAll('.card-image').forEach(image => {
                             </div>
                             <div class="product-container">
                                 <article class="cq-product-card">
-                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%23ec4899'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E" alt="Product">
+                                    <img src="data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='200' height='200' fill='%23ec4899'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='20' font-family='sans-serif'%3EProduct%3C/text%3E%3C/svg%3E"
+                                        alt="Product">
                                     <div class="cq-card-body">
                                         <h4 class="cq-card-title">Webcam 4K</h4>
                                         <p class="cq-card-description">Crystal clear video calls</p>
@@ -503,106 +527,106 @@ document.querySelectorAll('.card-image').forEach(image => {
                 <div class="code-example">
                     <h3>Code Example: Profile Card</h3>
                     <pre><code class="language-css">/* Enable container queries */
-.profile-card {
-    container-type: inline-size;
-}
+                            .profile-card {
+                            container-type: inline-size;
+                            }
 
-/* Default: Vertical layout */
-.profile-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+                            /* Default: Vertical layout */
+                            .profile-content {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1rem;
+                            }
 
-/* Medium: Horizontal layout */
-@container (min-width: 20rem) {
-    .profile-content {
-        flex-direction: row;
-        align-items: center;
-    }
+                            /* Medium: Horizontal layout */
+                            @container (min-width: 20rem) {
+                            .profile-content {
+                            flex-direction: row;
+                            align-items: center;
+                            }
 
-    .profile-image {
-        width: 80px;
-        height: 80px;
-    }
-}
+                            .profile-image {
+                            width: 80px;
+                            height: 80px;
+                            }
+                            }
 
-/* Wide: Enhanced layout */
-@container (min-width: 30rem) {
-    .profile-name {
-        font-size: 1.5rem;
-    }
+                            /* Wide: Enhanced layout */
+                            @container (min-width: 30rem) {
+                            .profile-name {
+                            font-size: 1.5rem;
+                            }
 
-    .profile-meta {
-        flex-direction: row;
-        gap: 2rem;
-    }
-}</code></pre>
+                            .profile-meta {
+                            flex-direction: row;
+                            gap: 2rem;
+                            }
+                            }</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example: Product Card Grid</h3>
                     <pre><code class="language-css">/* Enable container queries on each card */
-.product-container {
-    container-type: inline-size;
-}
+                            .product-container {
+                            container-type: inline-size;
+                            }
 
-/* Minimal: Compact layout */
-.cq-product-card {
-    display: flex;
-    flex-direction: column;
-}
+                            /* Minimal: Compact layout */
+                            .cq-product-card {
+                            display: flex;
+                            flex-direction: column;
+                            }
 
-.cq-card-description {
-    display: none;
-}
+                            .cq-card-description {
+                            display: none;
+                            }
 
-/* Standard: Show description */
-@container (min-width: 12rem) {
-    .cq-card-description {
-        display: block;
-    }
+                            /* Standard: Show description */
+                            @container (min-width: 12rem) {
+                            .cq-card-description {
+                            display: block;
+                            }
 
-    .cq-card-button {
-        display: inline-block;
-    }
-}
+                            .cq-card-button {
+                            display: inline-block;
+                            }
+                            }
 
-/* Featured: Full details */
-@container (min-width: 18rem) {
-    .cq-card-title {
-        font-size: 1.25rem;
-    }
+                            /* Featured: Full details */
+                            @container (min-width: 18rem) {
+                            .cq-card-title {
+                            font-size: 1.25rem;
+                            }
 
-    .cq-card-body {
-        padding: 1.5rem;
-    }
-}</code></pre>
+                            .cq-card-body {
+                            padding: 1.5rem;
+                            }
+                            }</code></pre>
                 </div>
 
                 <div class="comparison-container">
                     <h3>Why Container Queries Beat Media Queries</h3>
                     <p><strong>Media queries respond to viewport width:</strong></p>
                     <pre><code class="language-css">/* Media query - viewport-based */
-@media (min-width: 768px) {
-    .card {
-        flex-direction: row;
-    }
-}
+                            @media (min-width: 768px) {
+                            .card {
+                            flex-direction: row;
+                            }
+                            }
 
-/* Problem: All cards change at same viewport width
-   regardless of their actual container size */</code></pre>
+                            /* Problem: All cards change at same viewport width
+                            regardless of their actual container size */</code></pre>
 
                     <p><strong>Container queries respond to container width:</strong></p>
                     <pre><code class="language-css">/* Container query - container-based */
-@container (min-width: 20rem) {
-    .card {
-        flex-direction: row;
-    }
-}
+                            @container (min-width: 20rem) {
+                            .card {
+                            flex-direction: row;
+                            }
+                            }
 
-/* Solution: Each card responds to its actual width
-   Same component works in sidebar, grid, or main content */</code></pre>
+                            /* Solution: Each card responds to its actual width
+                            Same component works in sidebar, grid, or main content */</code></pre>
 
                     <h4>Benefits:</h4>
                     <ul>
@@ -618,10 +642,14 @@ document.querySelectorAll('.card-image').forEach(image => {
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries" target="_blank">MDN: Container Queries</a></li>
-                        <li><a href="https://caniuse.com/css-container-queries" target="_blank">Can I Use: Browser Support</a></li>
-                        <li><a href="https://www.joshwcomeau.com/css/container-queries-introduction/" target="_blank">Josh Comeau: Container Queries Guide</a></li>
-                        <li><a href="https://css-tricks.com/css-container-queries/" target="_blank">CSS-Tricks: Container Queries</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries"
+                                target="_blank">MDN: Container Queries</a></li>
+                        <li><a href="https://caniuse.com/css-container-queries" target="_blank">Can I Use: Browser
+                                Support</a></li>
+                        <li><a href="https://www.joshwcomeau.com/css/container-queries-introduction/"
+                                target="_blank">Josh Comeau: Container Queries Guide</a></li>
+                        <li><a href="https://css-tricks.com/css-container-queries/" target="_blank">CSS-Tricks:
+                                Container Queries</a></li>
                     </ul>
                 </div>
             </section>
@@ -639,28 +667,34 @@ document.querySelectorAll('.card-image').forEach(image => {
 
                 <div class="demo-container">
                     <h3>Demo: Image Carousel with Scroll-Snap</h3>
-                    <p class="demo-description">Scroll through images. Notice how each image snaps into place. Zero JavaScript!</p>
+                    <p class="demo-description">Scroll through images. Notice how each image snaps into place. Zero
+                        JavaScript!</p>
 
                     <div class="carousel-wrapper">
                         <div class="carousel">
                             <div class="carousel-item">
-                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%23ef4444'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 1%3C/text%3E%3C/svg%3E" alt="Slide 1">
+                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%23ef4444'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 1%3C/text%3E%3C/svg%3E"
+                                    alt="Slide 1">
                                 <div class="carousel-caption">Mountain Vista</div>
                             </div>
                             <div class="carousel-item">
-                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 2%3C/text%3E%3C/svg%3E" alt="Slide 2">
+                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%233b82f6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 2%3C/text%3E%3C/svg%3E"
+                                    alt="Slide 2">
                                 <div class="carousel-caption">Ocean Waves</div>
                             </div>
                             <div class="carousel-item">
-                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 3%3C/text%3E%3C/svg%3E" alt="Slide 3">
+                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%2310b981'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 3%3C/text%3E%3C/svg%3E"
+                                    alt="Slide 3">
                                 <div class="carousel-caption">Forest Trail</div>
                             </div>
                             <div class="carousel-item">
-                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%23f59e0b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 4%3C/text%3E%3C/svg%3E" alt="Slide 4">
+                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%23f59e0b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 4%3C/text%3E%3C/svg%3E"
+                                    alt="Slide 4">
                                 <div class="carousel-caption">Desert Sunset</div>
                             </div>
                             <div class="carousel-item">
-                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 5%3C/text%3E%3C/svg%3E" alt="Slide 5">
+                                <img src="data:image/svg+xml,%3Csvg width='600' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='600' height='400' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='48' font-family='sans-serif'%3ESlide 5%3C/text%3E%3C/svg%3E"
+                                    alt="Slide 5">
                                 <div class="carousel-caption">City Lights</div>
                             </div>
                         </div>
@@ -677,53 +711,54 @@ document.querySelectorAll('.card-image').forEach(image => {
                 <div class="code-example">
                     <h3>Code Example</h3>
                     <pre><code class="language-css">/* Scroll-snap carousel - No JavaScript! */
-.carousel {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-}
+                            .carousel {
+                            display: flex;
+                            overflow-x: auto;
+                            scroll-snap-type: x mandatory;
+                            scroll-behavior: smooth;
+                            -webkit-overflow-scrolling: touch;
+                            }
 
-.carousel-item {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-}
+                            .carousel-item {
+                            flex: 0 0 100%;
+                            scroll-snap-align: start;
+                            scroll-snap-stop: always;
+                            }
 
-/* Hide scrollbar but keep functionality */
-.carousel::-webkit-scrollbar {
-    display: none;
-}
+                            /* Hide scrollbar but keep functionality */
+                            .carousel::-webkit-scrollbar {
+                            display: none;
+                            }
 
-.carousel {
-    scrollbar-width: none;
-}</code></pre>
+                            .carousel {
+                            scrollbar-width: none;
+                            }</code></pre>
                 </div>
 
                 <div class="comparison-container">
                     <h3>JavaScript Comparison</h3>
                     <p><strong>Old approach (with JavaScript):</strong></p>
                     <pre><code class="language-javascript">// Carousel required complex JavaScript
-let currentSlide = 0;
+                            let currentSlide = 0;
 
-function showSlide(index) {
-    const slides = document.querySelectorAll('.carousel-item');
-    slides.forEach((slide, i) => {
-        slide.style.transform = `translateX(-${index * 100}%)`;
-    });
-}
+                            function showSlide(index) {
+                            const slides = document.querySelectorAll('.carousel-item');
+                            slides.forEach((slide, i) => {
+                            slide.style.transform = `translateX(-${index * 100}%)`;
+                            });
+                            }
 
-document.querySelector('.next-btn').addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % slideCount;
-    showSlide(currentSlide);
-});
+                            document.querySelector('.next-btn').addEventListener('click', () => {
+                            currentSlide = (currentSlide + 1) % slideCount;
+                            showSlide(currentSlide);
+                            });
 
-// Plus: touch event handling, drag detection,
-// momentum scrolling, snap calculations...</code></pre>
+                            // Plus: touch event handling, drag detection,
+                            // momentum scrolling, snap calculations...</code></pre>
 
                     <p><strong>New approach (pure CSS with scroll-snap):</strong></p>
-                    <p>Zero JavaScript! Browser handles scrolling, snapping, touch gestures, and momentum automatically.</p>
+                    <p>Zero JavaScript! Browser handles scrolling, snapping, touch gestures, and momentum automatically.
+                    </p>
 
                     <h4>Benefits:</h4>
                     <ul>
@@ -739,10 +774,14 @@ document.querySelector('.next-btn').addEventListener('click', () => {
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type" target="_blank">MDN: scroll-snap-type</a></li>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap" target="_blank">MDN: CSS Scroll Snap</a></li>
-                        <li><a href="https://caniuse.com/css-snappoints" target="_blank">Can I Use: Browser Support</a></li>
-                        <li><a href="https://css-tricks.com/practical-css-scroll-snapping/" target="_blank">CSS-Tricks: Scroll Snapping Guide</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type"
+                                target="_blank">MDN: scroll-snap-type</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap"
+                                target="_blank">MDN: CSS Scroll Snap</a></li>
+                        <li><a href="https://caniuse.com/css-snappoints" target="_blank">Can I Use: Browser Support</a>
+                        </li>
+                        <li><a href="https://css-tricks.com/practical-css-scroll-snapping/" target="_blank">CSS-Tricks:
+                                Scroll Snapping Guide</a></li>
                     </ul>
                 </div>
             </section>
@@ -755,18 +794,21 @@ document.querySelector('.next-btn').addEventListener('click', () => {
                 </header>
 
                 <div class="feature-description">
-                    <p>Native modals and popovers with automatic backdrop, focus management, and accessibility features.</p>
+                    <p>Native modals and popovers with automatic backdrop, focus management, and accessibility features.
+                    </p>
                 </div>
 
                 <div class="demo-container">
                     <h3>Demo 1: Simple Popover</h3>
-                    <p class="demo-description">Click the button to open a popover. Click outside or press Escape to close. Zero JavaScript!</p>
+                    <p class="demo-description">Click the button to open a popover. Click outside or press Escape to
+                        close. Zero JavaScript!</p>
 
                     <div class="popover-demo-simple">
                         <button popovertarget="simple-popover" class="popover-trigger">Show Info</button>
                         <div popover id="simple-popover" class="simple-popover">
                             <h4>Popover Title</h4>
-                            <p>This is a simple popover created with the HTML popover attribute. No JavaScript needed!</p>
+                            <p>This is a simple popover created with the HTML popover attribute. No JavaScript needed!
+                            </p>
                             <p>Features: automatic focus management, backdrop, Escape key closes it.</p>
                         </div>
                     </div>
@@ -774,21 +816,25 @@ document.querySelector('.next-btn').addEventListener('click', () => {
 
                 <div class="demo-container">
                     <h3>Demo 2: Modal Dialog</h3>
-                    <p class="demo-description">Opens as a centered modal with backdrop. Light dismiss (click outside to close).</p>
+                    <p class="demo-description">Opens as a centered modal with backdrop. Light dismiss (click outside to
+                        close).</p>
 
                     <div class="popover-demo-modal">
                         <button popovertarget="modal-popover" class="popover-trigger-primary">Open Modal</button>
                         <div popover id="modal-popover" class="modal-popover">
                             <div class="modal-header">
                                 <h3>Confirm Action</h3>
-                                <button popovertarget="modal-popover" popovertargetaction="hide" class="modal-close">×</button>
+                                <button popovertarget="modal-popover" popovertargetaction="hide"
+                                    class="modal-close">×</button>
                             </div>
                             <div class="modal-body">
                                 <p>Are you sure you want to proceed with this action?</p>
-                                <p>This modal was created using the Popover API with automatic backdrop and focus trapping.</p>
+                                <p>This modal was created using the Popover API with automatic backdrop and focus
+                                    trapping.</p>
                             </div>
                             <div class="modal-footer">
-                                <button popovertarget="modal-popover" popovertargetaction="hide" class="btn-secondary">Cancel</button>
+                                <button popovertarget="modal-popover" popovertargetaction="hide"
+                                    class="btn-secondary">Cancel</button>
                                 <button class="btn-primary">Confirm</button>
                             </div>
                         </div>
@@ -824,82 +870,83 @@ document.querySelector('.next-btn').addEventListener('click', () => {
                 <div class="code-example">
                     <h3>Code Example: Basic Popover</h3>
                     <pre><code class="language-html">&lt;button popovertarget="my-popover"&gt;Open&lt;/button&gt;
-&lt;div popover id="my-popover"&gt;
-    Popover content
-&lt;/div&gt;</code></pre>
+                            &lt;div popover id="my-popover"&gt;
+                            Popover content
+                            &lt;/div&gt;</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example: Modal with Close Button</h3>
                     <pre><code class="language-html">&lt;button popovertarget="modal"&gt;Open Modal&lt;/button&gt;
 
-&lt;div popover id="modal" class="modal"&gt;
-    &lt;button popovertarget="modal" popovertargetaction="hide"&gt;
-        Close
-    &lt;/button&gt;
-    &lt;h3&gt;Modal Content&lt;/h3&gt;
-    &lt;p&gt;Modal text here&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+                            &lt;div popover id="modal" class="modal"&gt;
+                            &lt;button popovertarget="modal" popovertargetaction="hide"&gt;
+                            Close
+                            &lt;/button&gt;
+                            &lt;h3&gt;Modal Content&lt;/h3&gt;
+                            &lt;p&gt;Modal text here&lt;/p&gt;
+                            &lt;/div&gt;</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>CSS Styling</h3>
                     <pre><code class="language-css">/* Style the popover */
-[popover] {
-    padding: 1.5rem;
-    border: 2px solid #e5e7eb;
-    border-radius: 8px;
-    background: white;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
+                            [popover] {
+                            padding: 1.5rem;
+                            border: 2px solid #e5e7eb;
+                            border-radius: 8px;
+                            background: white;
+                            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                            }
 
-/* Backdrop (automatically created) */
-[popover]::backdrop {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-}
+                            /* Backdrop (automatically created) */
+                            [popover]::backdrop {
+                            background: rgba(0, 0, 0, 0.5);
+                            backdrop-filter: blur(4px);
+                            }
 
-/* Open state */
-[popover]:popover-open {
-    opacity: 1;
-}</code></pre>
+                            /* Open state */
+                            [popover]:popover-open {
+                            opacity: 1;
+                            }</code></pre>
                 </div>
 
                 <div class="comparison-container">
                     <h3>JavaScript Comparison</h3>
                     <p><strong>Old approach (with JavaScript):</strong></p>
                     <pre><code class="language-javascript">// Modal required extensive JavaScript
-const modal = document.querySelector('.modal');
-const openBtn = document.querySelector('.open-btn');
-const closeBtn = document.querySelector('.close-btn');
+                            const modal = document.querySelector('.modal');
+                            const openBtn = document.querySelector('.open-btn');
+                            const closeBtn = document.querySelector('.close-btn');
 
-openBtn.addEventListener('click', () => {
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    modal.focus(); // Manual focus management
-});
+                            openBtn.addEventListener('click', () => {
+                            modal.classList.add('open');
+                            document.body.style.overflow = 'hidden';
+                            modal.focus(); // Manual focus management
+                            });
 
-closeBtn.addEventListener('click', () => {
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-});
+                            closeBtn.addEventListener('click', () => {
+                            modal.classList.remove('open');
+                            document.body.style.overflow = '';
+                            });
 
-// Escape key handler
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('open')) {
-        modal.classList.remove('open');
-    }
-});
+                            // Escape key handler
+                            document.addEventListener('keydown', (e) => {
+                            if (e.key === 'Escape' && modal.classList.contains('open')) {
+                            modal.classList.remove('open');
+                            }
+                            });
 
-// Click outside to close
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.classList.remove('open');
-    }
-});</code></pre>
+                            // Click outside to close
+                            modal.addEventListener('click', (e) => {
+                            if (e.target === modal) {
+                            modal.classList.remove('open');
+                            }
+                            });</code></pre>
 
                     <p><strong>New approach (Popover API):</strong></p>
-                    <p>Zero JavaScript! The browser handles opening, closing, focus, Escape key, and backdrop automatically.</p>
+                    <p>Zero JavaScript! The browser handles opening, closing, focus, Escape key, and backdrop
+                        automatically.</p>
 
                     <h4>Benefits:</h4>
                     <ul>
@@ -916,10 +963,14 @@ modal.addEventListener('click', (e) => {
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API" target="_blank">MDN: Popover API</a></li>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using" target="_blank">MDN: Using the Popover API</a></li>
-                        <li><a href="https://caniuse.com/mdn-api_htmlelement_popover" target="_blank">Can I Use: Browser Support</a></li>
-                        <li><a href="https://developer.chrome.com/blog/introducing-popover-api" target="_blank">Chrome: Introducing Popover API</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API" target="_blank">MDN:
+                                Popover API</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using"
+                                target="_blank">MDN: Using the Popover API</a></li>
+                        <li><a href="https://caniuse.com/mdn-api_htmlelement_popover" target="_blank">Can I Use: Browser
+                                Support</a></li>
+                        <li><a href="https://developer.chrome.com/blog/introducing-popover-api" target="_blank">Chrome:
+                                Introducing Popover API</a></li>
                     </ul>
                 </div>
             </section>
@@ -932,15 +983,18 @@ modal.addEventListener('click', (e) => {
                 </header>
 
                 <div class="feature-description">
-                    <p>Animate display:none and height:auto using @starting-style, transition-behavior, and calc-size().</p>
+                    <p>Animate display:none and height:auto using @starting-style, transition-behavior, and calc-size().
+                    </p>
                 </div>
 
                 <div class="demo-container">
                     <h3>Demo 1: Animating display Property</h3>
-                    <p class="demo-description">Toggle visibility with smooth fade. Notice the element animates from display:none to display:block!</p>
+                    <p class="demo-description">Toggle visibility with smooth fade. Notice the element animates from
+                        display:none to display:block!</p>
 
                     <div class="anim-demo-display">
-                        <button class="anim-toggle-btn" onclick="document.getElementById('anim-box').classList.toggle('hidden')">
+                        <button class="anim-toggle-btn"
+                            onclick="document.getElementById('anim-box').classList.toggle('hidden')">
                             Toggle Box
                         </button>
                         <div id="anim-box" class="anim-box hidden">
@@ -958,7 +1012,8 @@ modal.addEventListener('click', (e) => {
                         <details class="anim-details">
                             <summary>What is @starting-style?</summary>
                             <div class="anim-details-content">
-                                <p>@starting-style defines the initial state for entry animations. It works with display transitions to create smooth fade-in effects.</p>
+                                <p>@starting-style defines the initial state for entry animations. It works with display
+                                    transitions to create smooth fade-in effects.</p>
                                 <p>This enables animations that were previously impossible with pure CSS.</p>
                             </div>
                         </details>
@@ -966,16 +1021,20 @@ modal.addEventListener('click', (e) => {
                         <details class="anim-details">
                             <summary>What is allow-discrete?</summary>
                             <div class="anim-details-content">
-                                <p>The transition-behavior: allow-discrete property enables transitions for discrete properties like display.</p>
-                                <p>It makes the property wait until the end of the transition to change, making the animation visible.</p>
+                                <p>The transition-behavior: allow-discrete property enables transitions for discrete
+                                    properties like display.</p>
+                                <p>It makes the property wait until the end of the transition to change, making the
+                                    animation visible.</p>
                             </div>
                         </details>
 
                         <details class="anim-details">
                             <summary>Why is this useful?</summary>
                             <div class="anim-details-content">
-                                <p>Before these features, you couldn't animate elements appearing/disappearing with display:none.</p>
-                                <p>You had to use visibility:hidden or opacity with workarounds. Now it's native CSS!</p>
+                                <p>Before these features, you couldn't animate elements appearing/disappearing with
+                                    display:none.</p>
+                                <p>You had to use visibility:hidden or opacity with workarounds. Now it's native CSS!
+                                </p>
                             </div>
                         </details>
                     </div>
@@ -984,77 +1043,78 @@ modal.addEventListener('click', (e) => {
                 <div class="code-example">
                     <h3>Code Example: Animating display</h3>
                     <pre><code class="language-css">/* Element with display animation */
-.box {
-    display: block;
-    opacity: 1;
-    transition:
-        opacity 0.4s ease-out,
-        display 0.4s allow-discrete;
-}
+                            .box {
+                            display: block;
+                            opacity: 1;
+                            transition:
+                            opacity 0.4s ease-out,
+                            display 0.4s allow-discrete;
+                            }
 
-/* Hidden state */
-.box.hidden {
-    display: none;
-    opacity: 0;
-}
+                            /* Hidden state */
+                            .box.hidden {
+                            display: none;
+                            opacity: 0;
+                            }
 
-/* Starting state for entry animation */
-@starting-style {
-    .box {
-        opacity: 0;
-    }
-}</code></pre>
+                            /* Starting state for entry animation */
+                            @starting-style {
+                            .box {
+                            opacity: 0;
+                            }
+                            }</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example: Smooth Accordion</h3>
                     <pre><code class="language-css">/* Details/Summary accordion */
-details {
-    transition: height 0.3s ease-out;
-}
+                            details {
+                            transition: height 0.3s ease-out;
+                            }
 
-details[open] {
-    height: auto;
-}
+                            details[open] {
+                            height: auto;
+                            }
 
-/* Smooth content reveal */
-details[open] > .content {
-    animation: slideDown 0.3s ease-out;
-}
+                            /* Smooth content reveal */
+                            details[open] > .content {
+                            animation: slideDown 0.3s ease-out;
+                            }
 
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}</code></pre>
+                            @keyframes slideDown {
+                            from {
+                            opacity: 0;
+                            transform: translateY(-10px);
+                            }
+                            to {
+                            opacity: 1;
+                            transform: translateY(0);
+                            }
+                            }</code></pre>
                 </div>
 
                 <div class="comparison-container">
                     <h3>Why This Matters</h3>
                     <p><strong>The old problem:</strong></p>
-                    <p>You couldn't animate <code>display: none</code> to <code>display: block</code> because CSS transitions don't work with discrete properties. Elements would just pop in/out.</p>
+                    <p>You couldn't animate <code>display: none</code> to <code>display: block</code> because CSS
+                        transitions don't work with discrete properties. Elements would just pop in/out.</p>
 
                     <p><strong>The old workaround (with JavaScript):</strong></p>
                     <pre><code class="language-javascript">// Had to use setTimeout and remove display manually
-function fadeOut(element) {
-    element.style.opacity = '0';
-    setTimeout(() => {
-        element.style.display = 'none';
-    }, 300); // Match transition duration
-}
+                            function fadeOut(element) {
+                            element.style.opacity = '0';
+                            setTimeout(() => {
+                            element.style.display = 'none';
+                            }, 300); // Match transition duration
+                            }
 
-function fadeIn(element) {
-    element.style.display = 'block';
-    element.style.opacity = '0';
-    setTimeout(() => {
-        element.style.opacity = '1';
-    }, 10); // Force reflow
-}</code></pre>
+                            function fadeIn(element) {
+                            element.style.display = 'block';
+                            element.style.opacity = '0';
+                            setTimeout(() => {
+                            element.style.opacity = '1';
+                            }, 10); // Force reflow
+                            }</code></pre>
 
                     <p><strong>The new solution (pure CSS):</strong></p>
                     <ul>
@@ -1068,23 +1128,29 @@ function fadeIn(element) {
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style" target="_blank">MDN: @starting-style</a></li>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-behavior" target="_blank">MDN: transition-behavior</a></li>
-                        <li><a href="https://caniuse.com/mdn-css_at-rules_starting-style" target="_blank">Can I Use: @starting-style</a></li>
-                        <li><a href="https://developer.chrome.com/blog/entry-exit-animations" target="_blank">Chrome: Entry/Exit Animations</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style"
+                                target="_blank">MDN: @starting-style</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transition-behavior"
+                                target="_blank">MDN: transition-behavior</a></li>
+                        <li><a href="https://caniuse.com/mdn-css_at-rules_starting-style" target="_blank">Can I Use:
+                                @starting-style</a></li>
+                        <li><a href="https://developer.chrome.com/blog/entry-exit-animations" target="_blank">Chrome:
+                                Entry/Exit Animations</a></li>
                     </ul>
                 </div>
             </section>
 
             <!-- Feature 6: Anchor Positioning -->
-            <section id="anchor-positioning" class="feature-section" role="tabpanel" aria-labelledby="anchor-positioning-tab">
+            <section id="anchor-positioning" class="feature-section" role="tabpanel"
+                aria-labelledby="anchor-positioning-tab">
                 <header class="feature-header">
                     <h2>CSS Anchor Positioning</h2>
                     <div class="support-badge good-support">Good Support</div>
                 </header>
 
                 <div class="feature-description">
-                    <p>Position elements relative to other elements without JavaScript, perfect for tooltips and dropdowns.</p>
+                    <p>Position elements relative to other elements without JavaScript, perfect for tooltips and
+                        dropdowns.</p>
                 </div>
 
                 <div class="demo-container">
@@ -1095,22 +1161,24 @@ function fadeIn(element) {
                 <div class="code-example">
                     <h3>Code Example</h3>
                     <pre><code class="language-css">/* Anchor positioning */
-.anchor {
-    anchor-name: --my-anchor;
-}
+                            .anchor {
+                            anchor-name: --my-anchor;
+                            }
 
-.tooltip {
-    position: absolute;
-    position-anchor: --my-anchor;
-    top: anchor(bottom);
-}</code></pre>
+                            .tooltip {
+                            position: absolute;
+                            position-anchor: --my-anchor;
+                            top: anchor(bottom);
+                            }</code></pre>
                 </div>
 
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning" target="_blank">MDN Documentation</a></li>
-                        <li><a href="https://caniuse.com/css-anchor-positioning" target="_blank">Browser Support</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning"
+                                target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://caniuse.com/css-anchor-positioning" target="_blank">Browser Support</a>
+                        </li>
                     </ul>
                 </div>
             </section>
@@ -1134,16 +1202,18 @@ function fadeIn(element) {
                 <div class="code-example">
                     <h3>Code Example</h3>
                     <pre><code class="language-html">&lt;button popovertarget="menu" popovertargetaction="toggle"&gt;
-    Toggle Menu
-&lt;/button&gt;
-&lt;div popover id="menu"&gt;Menu content&lt;/div&gt;</code></pre>
+                            Toggle Menu
+                            &lt;/button&gt;
+                            &lt;div popover id="menu"&gt;Menu content&lt;/div&gt;</code></pre>
                 </div>
 
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#popovertarget" target="_blank">MDN Documentation</a></li>
-                        <li><a href="https://caniuse.com/mdn-api_htmlelement_popover" target="_blank">Browser Support</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#popovertarget"
+                                target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://caniuse.com/mdn-api_htmlelement_popover" target="_blank">Browser
+                                Support</a></li>
                     </ul>
                 </div>
             </section>
@@ -1156,7 +1226,8 @@ function fadeIn(element) {
                 </header>
 
                 <div class="feature-description">
-                    <p>IntersectionObserver, ResizeObserver, and MutationObserver provide efficient ways to observe DOM changes.</p>
+                    <p>IntersectionObserver, ResizeObserver, and MutationObserver provide efficient ways to observe DOM
+                        changes.</p>
                 </div>
 
                 <div class="demo-container">
@@ -1167,21 +1238,22 @@ function fadeIn(element) {
                 <div class="code-example">
                     <h3>Code Example</h3>
                     <pre><code class="language-javascript">// Intersection Observer
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-});
+                            const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            }
+                            });
+                            });
 
-observer.observe(element);</code></pre>
+                            observer.observe(element);</code></pre>
                 </div>
 
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API" target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
+                                target="_blank">MDN Documentation</a></li>
                         <li><a href="https://caniuse.com/intersectionobserver" target="_blank">Browser Support</a></li>
                     </ul>
                 </div>
@@ -1206,23 +1278,25 @@ observer.observe(element);</code></pre>
                 <div class="code-example">
                     <h3>Code Example</h3>
                     <pre><code class="language-css">/* Scroll-aware styles */
-.header {
-    background: scroll-state(stuck) ? #fff : transparent;
-    box-shadow: scroll-state(stuck) ? 0 2px 4px rgba(0,0,0,0.1) : none;
-}</code></pre>
+                            .header {
+                            background: scroll-state(stuck) ? #fff : transparent;
+                            box-shadow: scroll-state(stuck) ? 0 2px 4px rgba(0,0,0,0.1) : none;
+                            }</code></pre>
                 </div>
 
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-state" target="_blank">MDN Documentation</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-state" target="_blank">MDN
+                                Documentation</a></li>
                         <li><a href="https://caniuse.com/?search=scroll-state" target="_blank">Browser Support</a></li>
                     </ul>
                 </div>
             </section>
 
             <!-- Feature 10: Styleable Select -->
-            <section id="styleable-select" class="feature-section" role="tabpanel" aria-labelledby="styleable-select-tab">
+            <section id="styleable-select" class="feature-section" role="tabpanel"
+                aria-labelledby="styleable-select-tab">
                 <header class="feature-header">
                     <h2>Styleable Select Elements</h2>
                     <div class="support-badge emerging">Emerging</div>
@@ -1240,20 +1314,22 @@ observer.observe(element);</code></pre>
                 <div class="code-example">
                     <h3>Code Example</h3>
                     <pre><code class="language-css">/* Styleable select */
-select {
-    appearance: base-select;
-    background: white;
-    border: 2px solid #ccc;
-    padding: 0.5rem;
-    border-radius: 8px;
-}</code></pre>
+                            select {
+                            appearance: base-select;
+                            background: white;
+                            border: 2px solid #ccc;
+                            padding: 0.5rem;
+                            border-radius: 8px;
+                            }</code></pre>
                 </div>
 
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/appearance" target="_blank">MDN Documentation</a></li>
-                        <li><a href="https://caniuse.com/mdn-css_properties_appearance_base-select" target="_blank">Browser Support</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/appearance" target="_blank">MDN
+                                Documentation</a></li>
+                        <li><a href="https://caniuse.com/mdn-css_properties_appearance_base-select"
+                                target="_blank">Browser Support</a></li>
                     </ul>
                 </div>
             </section>
@@ -1283,4 +1359,5 @@ select {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
 </body>
+
 </html>

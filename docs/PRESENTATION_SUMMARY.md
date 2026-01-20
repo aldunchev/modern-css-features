@@ -1,418 +1,450 @@
-# The 87% Story: Modern CSS with Claude Code
-## Presentation-Ready Summary
-
-> **Quick Stats:** 2.75 hours instead of 15-22 hours | 5 CSS features | 11 demos | 3,500+ lines of code | 87% time savings
+# Modern CSS with Claude Code: A Planning-First Approach
 
 ---
 
-## 1. What We Built
+## Agenda
+
+- AI planning phase
+- The end result
+- Live demo
+- AI Usage details
+- Key takeaways and Key Mindset Shifts
+
+## Quick Stats
+
+- **Time:** 2.75 hours instead of 15-22 hours
+- **Savings:** 87%
+- **Built:** 5 CSS features, 11 interactive demos, 3,500+ lines of code
+- **Approach:** Plan → Implement → Validate
+
+---
+
+## 1. The Planning Phase (5 min)
+
+### How It Started
+
+📄 **Show:** [INITIAL_PROMPT.md](./INITIAL_PROMPT.md)
+
+**Dual Purpose:**
+
+1. Teach modern CSS features that replace JavaScript
+2. Demonstrate effective AI workflow with Claude Code
+
+### Strategic Questions
+
+📄 **Show:** [PLANNING_PHASE.md](./PLANNING_PHASE.md)
+
+Claude asked:
+
+- Target audience? → Mixed (senior devs + back-end)
+- Tech stack? → Vanilla HTML/CSS/JS, single page
+- Which features? → 10 modern CSS features
+- Document AI workflow? → Yes!
+
+### Proactive Suggestions
+
+Claude **proactively suggested** Prism.js for syntax highlighting:
+
+- Lightweight library via CDN
+- Supports HTML, CSS, JavaScript
+- Professional code display
+
+**Result:** Used throughout the project - code examples look great!
+
+**Planning time:** 15-20 minutes
+**Key insight:** Good planning prevents wasted implementation effort
+
+---
+
+## 2. The Implementation Plan (2 min)
+
+📄 **Show:** [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md)
+
+**6 Phases Planned:**
+
+1. Foundation & Git Setup
+2. Feature Detection System
+3. Tier 1 Features (5 widely-supported)
+4. Tier 2 & 3 Features (5 emerging)
+5. AI Workflow Documentation ⭐
+6. Polish, README & Deployment
+
+**Claude Code tools identified:**
+
+- Explore agent → Research demos
+- WebSearch → Browser support (parallel)
+- TodoWrite → Track tasks
+- Write/Edit → Generate code
+- Bash → Git commits
+
+---
+
+## 3. What We Built (8 min)
 
 ### Completed Features (60%)
-✅ **:has() selector** - Parent/sibling selection without JS
-✅ **Container queries** - Component-based responsive design
-✅ **CSS carousel** - scroll-snap image galleries
-✅ **Popover API** - Native modals with backdrop
-✅ **Animations** - @starting-style for display:none transitions
 
-### Remaining Features (40%)
-⏳ Anchor positioning
-⏳ Modal trigger commands
-⏳ Modern Observer APIs
-⏳ scroll-state()
-⏳ Styleable select
+🎨 **Live Demo:** [index.html](http://127.0.0.1:8080/)
 
----
+1. **:has() selector**
+   - Parent/sibling selection without JS
+   - Form validation, card hover effects, gallery
 
-## 2. The Time Savings Breakdown
+2. **Container queries**
+   - Component-based responsive design
+   - Profile cards, product grids
 
-| Task | Manual Time | With Claude Code | Savings |
-|------|-------------|------------------|---------|
-| Research 5 features | 2-3 hours | 15 minutes | 88% |
-| Write 3,500+ lines code | 8-12 hours | 1.5 hours | 87% |
-| Create documentation | 3-5 hours | 45 minutes | 85% |
-| Browser testing | 2 hours | 30 minutes | 75% |
-| **TOTAL** | **15-22 hours** | **2.75 hours** | **87%** |
+3. **CSS carousel**
+   - scroll-snap image galleries
+   - No JavaScript needed
 
----
+4. **Popover API**
+   - Native modals with backdrop
+   - Light dismiss, focus management
 
-## 3. Claude Code Tools Used
+5. **Animations (@starting-style)**
+   - Animate display:none transitions
+   - Smooth accordions
 
-### Research Phase
-- **Explore Agent** → Found creative demo ideas in minutes (vs hours of googling)
+### How Claude Code Helped
+
+**Research Phase:**
+
+- **Explore Agent** → Found creative demo ideas in minutes
 - **WebSearch (parallel)** → Checked 5 browser supports simultaneously
 
-### Implementation Phase
-- **Write/Edit tools** → Generated code with explanations
+**Implementation Phase:**
+
+- **Write/Edit** → Generated code with explanations
 - **TodoWrite** → Tracked 20+ tasks across phases
-- **Read** → Analyzed existing patterns before editing
+- **Read** → Analyzed patterns before editing
 
-### Documentation Phase
-- **AI wrote its own workflow docs** → 800+ lines of AI_WORKFLOW.md
-- **Git integration** → Bash tool with heredoc for structured commits
+**Documentation Phase:**
 
----
-
-## 4. Key Findings: What Worked
-
-### ✅ Wins
-1. **Parallel execution** - Multiple WebSearch calls saved 10+ minutes
-2. **Explore Agent** - Found better examples than manual Google searches
-3. **Immediate documentation** - AI wrote while building (no backlog)
-4. **Progressive enhancement** - AI added @supports detection automatically
-5. **Clean git history** - Bash tool with heredoc created structured commits
-
-### ⚠️ Lessons Learned
-1. **Review everything** - AI is 95% accurate, not 100%
-2. **Be specific in prompts** - "Research 3 creative demos for :has()" > "Make it better"
-3. **Use right tool for job** - Explore Agent for research, not direct prompts
-4. **Browser testing still needed** - AI can't replace actual testing
-5. **You're still the architect** - AI handles research/boilerplate, you make decisions
+- **AI wrote its own workflow docs** → 800+ lines
+- **Bash tool** → Structured git commits with heredoc
 
 ---
 
-## 5. The Presentation Plan (30 min)
+## 4. The PIV Loop (5 min)
 
-### Part 1: Pre-recorded Git Walkthrough (12 min)
-**Show the real git history proving the timeline:**
+### Plan → Implement → Validate
 
-```bash
-git log --oneline --graph --all
-# Show 8 commits over 2.75 hours:
-# - Foundation setup
-# - Feature detection
-# - 5 CSS features
-# - Documentation phase
-```
+This methodology ensures quality AI-assisted development:
 
-**Narration focus:**
-- Phase 1: "Claude set up entire structure in 15 minutes"
-- Phase 2: "Parallel browser support checks - 5 features in 30 seconds"
-- Phase 3: "Explore Agent found demos I wouldn't have thought of"
-- Phase 5: "AI documented its own workflow - 800 lines in 45 minutes"
+#### **PLAN** (15-20 min)
 
-### Part 2: Live Claude Code Demo (8 min)
-**Implement scroll-state() feature from scratch:**
+- Ask strategic questions
+- Clarify requirements
+- Create implementation roadmap
+- Identify tools to use
 
-```
-Step 1 (3 min): Research
-Prompt: "Use Explore agent to research CSS scroll-state() function.
-Find 2-3 practical examples that replace JavaScript scroll listeners."
+**Example:** The planning conversation in [PLANNING_PHASE.md](./PLANNING_PHASE.md)
 
-Step 2 (3 min): Implement
-Prompt: "Create css/features/scroll-state.css with:
-1. Header that changes on scroll
-2. Back-to-top button
-Use @supports for progressive enhancement."
+#### **IMPLEMENT** (~2 hours with AI)
 
-Step 3 (2 min): Commit
-Use Bash tool with heredoc to create structured commit
-```
+- Use appropriate Claude Code tools
+- Generate code incrementally
+- Track progress with TodoWrite
+- Commit after each feature
 
-**Why live demo?**
-- Proves you can actually use it (not just pre-baked magic)
-- Shows real interaction and prompting
-- Demonstrates error handling if something goes wrong
-- Builds team confidence
+**Example:** 5 features built in 2.75 hours
 
-### Part 3: Discussion & Takeaways (10 min)
+#### **VALIDATE** (ongoing)
 
-**Decision Tree: When to Use What**
-```
-Need examples/patterns?
-  → Explore Agent
+- Review all generated code
+- Test in actual browsers
+- Verify browser support claims
+- Run demos and check accessibility
 
-Need browser support for multiple features?
-  → Parallel WebSearch
+**Example:** Found `@starting-style` animation issue, verified container query syntax
 
-Multi-step task with 3+ steps?
-  → TodoWrite
+### Why PIV Works
 
-Creating git commits?
-  → Bash tool with heredoc
+**Traditional approach:**
 
-File operations?
-  → Read/Write/Edit tools
-```
+- Jump to coding → Get stuck → Research → Rewrite → Repeat
+- Time wasted on false starts
 
-**Team Takeaways:**
-1. Start small (< 1 hour task)
-2. Use simple prompts (see examples below)
-3. Pair programming with AI
-4. Review all generated code
-5. Pair with [your name] for first try
+**PIV approach:**
+
+- Plan upfront → Implement efficiently → Catch issues early
+- 87% time savings
 
 ---
 
-## 6. Effective Prompts Cheat Sheet
+## 5. Key Mindset Shifts (5 min)
 
-### ✅ Good Prompts (Specific & Clear)
+📄 **Reference:** [CHEAT_SHEET.md](./CHEAT_SHEET.md) § Key Mindset Shifts
+
+### Claude Code is NOT:
+
+- ❌ A replacement for developers
+- ❌ An architecture decision maker
+- ❌ 100% accurate all the time
+- ❌ A browser testing tool
+
+### Claude Code IS:
+
+- ✅ A **research assistant** (reads docs faster than humans)
+- ✅ A **code generator** (handles boilerplate)
+- ✅ A **documentation writer** (documents while you build)
+- ✅ A **pair programmer** (you drive, it assists)
+
+### The Reality Check
+
+**You're still responsible for:**
+
+- Architecture decisions
+- Code review
+- Testing in browsers
+- Understanding what the code does
+
+**Claude Code accelerates:**
+
+- Research (88% faster)
+- Boilerplate code (87% faster)
+- Documentation (85% faster)
+
+### Effective Prompting
+
+**✅ Good (Specific):**
+
 ```
-"Research 3 creative demos for CSS :has() selector that replace JavaScript"
-"Search in parallel: browser support for container queries, :has(), popover API"
+"Research 3 creative demos for CSS :has() selector"
+"Search in parallel: browser support for :has(), container queries, Popover API"
 "Create css/features/carousel.css with scroll-snap. Add 3 examples with comments."
-"Explain why this CSS pattern works better than JavaScript"
 ```
 
-### ❌ Bad Prompts (Vague)
+**❌ Bad (Vague):**
+
 ```
 "Make it better"
 "Fix the CSS"
-"Do the thing"
 "Help me with this"
 ```
 
 ---
 
-## 7. Presentation Materials Checklist
+## 6. Exploration Tools Deep Dive (5 min)
 
-### Pre-Presentation Prep (1-2 hours)
-- [ ] Record 12-min git walkthrough video
-- [ ] Create 7-slide deck (template below)
-- [ ] Print cheat sheet handouts
-- [ ] Test live demo (scroll-state implementation)
-- [ ] Prepare backup video of live demo
-- [ ] Test screen sharing setup
+### How We Used Tools
 
-### Day Of Setup (5 min)
-- [ ] Open terminal with git log
-- [ ] Open browser with live demos
-- [ ] Have AI_WORKFLOW.md ready
-- [ ] Have slides ready
-- [ ] Test audio/video
-
----
-
-## 8. Slide Deck Template (7 slides)
-
-**Slide 1: Title**
-```
-87% Faster CSS Development with Claude Code
-Modern CSS Features + AI Workflow
-```
-
-**Slide 2: The Challenge**
-- 100+ new CSS features (2020-2026)
-- Documentation scattered across MDN, Can I Use, blogs
-- Trial-and-error takes hours per feature
-- JavaScript alternatives still dominant
-
-**Slide 3: The Solution**
-- Claude Code CLI as AI pair programmer
-- Explore Agent → Find examples
-- WebSearch → Browser support
-- Write/Edit → Generate code
-- Documentation → AI writes while you build
-
-**Slide 4: The Results**
-```
-5 CSS features → 2.75 hours
-11 interactive demos
-3,500+ lines of code + docs
-87% time savings
-```
-
-**Slide 5: How It Works**
-```
-Phase 1: Setup (Bash, Write tools)
-Phase 2: Research (Explore Agent, WebSearch)
-Phase 3: Implement (Write/Edit, TodoWrite)
-Phase 4: Document (AI writes docs)
-Phase 5: Commit (Bash with heredoc)
-```
-
-**Slide 6: Decision Tree**
-[Visual showing when to use each tool]
-
-**Slide 7: Get Started**
-- Install Claude Code CLI
-- Clone demo repo: [GitHub URL]
-- Read AI_WORKFLOW.md
-- Use cheat sheet
-- Pair with [your name]
-
----
-
-## 9. Success Metrics
-
-### Immediate (During Presentation)
-- [ ] Team understands 3-4 core tools
-- [ ] Team can explain when to use AI vs manual
-- [ ] At least 2 questions about use cases
-- [ ] No major technical failures
-
-### Follow-up (Within 1 Week)
-- [ ] At least 1 person tries Claude Code
-- [ ] At least 1 pairing request
-- [ ] AI tools discussed in standup
-- [ ] Someone shares their AI experience
-
-### Long-term (Within 1 Month)
-- [ ] Team adopts for research tasks
-- [ ] AI mentioned in code reviews
-- [ ] Documentation standards improve
-- [ ] Measurable velocity increase
-
----
-
-## 10. Risk Mitigation
-
-| Risk | Mitigation | Recovery |
-|------|------------|----------|
-| Live demo fails | Pre-recorded backup ready | "Let me show yesterday's session" → play video |
-| Team skeptical | Show mistakes/corrections | Emphasize "pair programmer" not replacement |
-| Too technical | Simple prompts, analogies | "Like junior dev researching for you" |
-| Questions derail | Defer to Q&A time | "Great question - let's discuss after demo" |
-
----
-
-## 11. Key Messages to Drive Home
-
-### 1. "87% is REAL"
-- Git timestamps prove it
-- Show what you did in 2.75 hours
-- Compare to 15-22 hour manual approach
-
-### 2. "You don't need to be an AI expert"
-- Simple prompts work
-- Mistakes happen (that's okay)
-- Claude Code guides you
-
-### 3. "It's for research and boilerplate, not architecture"
-- You make decisions
-- You review code
-- AI handles tedious parts
-
-### 4. "Start small, pair with me"
-- First task < 1 hour
-- Pairing reduces risk
-- Build confidence gradually
-
-### 5. "The docs ARE the training"
-- AI_WORKFLOW.md has everything
-- Real examples, not theory
-- Decision trees included
-
----
-
-## 12. Quick Reference: Git Timeline
+#### **Explore Agent** (Research)
 
 ```
-Jan 18, 19:01 → Foundation (folders, base files)
-Jan 18, 19:15 → Feature detection system
-Jan 18, 19:30 → :has() selector
-Jan 18, 19:45 → Container queries
-Jan 18, 20:00 → CSS carousel
-Jan 18, 20:15 → Popover API + Animations
-Jan 18, 20:30 → Documentation (AI_WORKFLOW.md)
-Jan 19, 10:20 → Final corrections
+Prompt: "Research creative demo ideas for CSS :has() selector.
+Find 3-5 real-world use cases that show how it replaces JavaScript."
 
-Total: 2.75 hours active development
+Result: Found form validation, parent hover, sibling fade-out patterns
 ```
 
----
+#### **WebSearch** (Browser Support)
 
-## 13. Post-Presentation Actions
+```
+Prompt: "Search in parallel: browser support for
+1. :has() selector
+2. Container queries
+3. Popover API
+4. @starting-style
+5. scroll-snap"
 
-### Immediately After
-1. Share GitHub repo link in team chat
-2. Share cheat sheet PDF
-3. Offer pairing sessions (send calendar invite)
-4. Send recorded video to team
+Result: Verified support across Chrome, Firefox, Safari in 30 seconds
+```
 
-### Within 1 Week
-1. Follow up with interested team members
-2. Schedule 1:1 pairing sessions
-3. Share new insights in docs
-4. Gather feedback
+#### **TodoWrite** (Task Tracking)
 
-### Within 1 Month
-1. Survey team on adoption
-2. Update AI_WORKFLOW.md with learnings
-3. Present results to leadership (if positive)
-4. Consider expanding to other teams
+- Tracked implementation of 5 features
+- Each feature had 9 subtasks
+- Marked complete as we progressed
+- Prevented forgetting steps
 
 ---
 
-## 14. Resources for Team
+## 7. The Time Savings Breakdown (3 min)
 
-**This Repository:**
-- `/docs/AI_WORKFLOW.md` - Complete workflow guide (800+ lines)
-- `/docs/FEATURES.md` - Technical CSS reference
-- `/docs/BROWSER_SUPPORT.md` - Compatibility matrix
-- `/README.md` - Project overview
-- `/index.html` - Live interactive demos
+| Task                | Manual          | With Claude Code | Savings |
+| ------------------- | --------------- | ---------------- | ------- |
+| Research 5 features | 2-3 hours       | 15 min           | 88%     |
+| Write 3,500+ lines  | 8-12 hours      | 1.5 hours        | 87%     |
+| Documentation       | 3-5 hours       | 45 min           | 85%     |
+| Browser testing     | 2 hours         | 30 min           | 75%     |
+| **TOTAL**           | **15-22 hours** | **2.75 hours**   | **87%** |
 
-**External:**
-- Claude Code documentation: [URL]
-- Modern CSS Features Skill: `~/.claude/skills/modern-css-features/`
-- MDN CSS Reference: https://developer.mozilla.org/en-US/docs/Web/CSS
+### Why These Savings Matter
 
----
+**Traditional workflow:**
 
-## 15. Optional Enhancements (Post-Presentation)
+- Google → Read docs → Trial/error → Debug → Repeat
+- Context switching between tools
+- Documentation backlog grows
 
-**If team is enthusiastic:**
-- Complete remaining 5 features (Phase 4)
-- Add dark mode toggle
-- Create Phase 2: Custom Claude Code skill
-- Write blog post about the experience
-- Present at meetup or conference
-- Add video demos or GIFs
+**Claude Code workflow:**
 
-**If team wants deeper dive:**
-- Host workshop: "Your First AI-Assisted Task"
-- Create more cheat sheets for common scenarios
-- Build team-specific Claude Code patterns library
-- Establish AI code review guidelines
+- Parallel research → Generate code → Test → Commit
+- AI handles boilerplate and docs
+- Documentation happens during development
 
 ---
 
-## Next Steps: Choose Your Path
+## 8. Lessons Learned (3 min)
 
-### Path A: Complete Implementation First
-1. Finish Phase 4 (5 remaining features) → 5-7 hours
-2. Then create presentation materials → 1-2 hours
-3. Present completed project to team
+### ✅ What Worked
 
-**Pros:** Full 10 features, more impressive demo
-**Cons:** More time before presentation
+1. **Planning first** → Prevented false starts
+2. **Parallel execution** → WebSearch saved 10+ minutes
+3. **Explore Agent** → Found better examples than manual search
+4. **Immediate docs** → AI documented while building
+5. **Structured commits** → Bash tool with heredoc
 
-### Path B: Present What We Have Now (Recommended)
-1. Create presentation materials → 1-2 hours
-2. Present with 5 features (60% complete)
-3. Use live demo to implement 6th feature
-4. Complete remaining features based on team feedback
+### ⚠️ What to Watch For
 
-**Pros:** Faster to present, still impactful story
-**Cons:** Not all 10 features demonstrated
+1. **Review everything** → AI is ~95% accurate, not 100%
+2. **Be specific** → Vague prompts = poor results
+3. **Use right tool** → Explore for research, not direct prompts
+4. **Browser test** → AI can't replace actual testing
+5. **You're the architect** → AI assists, you decide
 
-### Path C: Quick Win + Present
-1. Deploy to GitHub Pages → 15-30 min
-2. Create presentation materials → 1-2 hours
-3. Present with live link team can explore
+### Real Example: Animation Bug
 
-**Pros:** Team can try it themselves immediately
-**Cons:** Same 60% completion
+**Issue:** `@starting-style` animation didn't work
+**Root cause:** Had `prefers-reduced-motion` enabled in system settings
+**Lesson:** AI correctly implemented the code, but couldn't test accessibility settings
 
 ---
 
-## The Bottom Line
+## 9. Live Demo: Implementing scroll-state() (8 min)
 
-**What matters most:**
-- ✅ The 87% time savings is provable (git timestamps)
-- ✅ The workflow is documented (AI_WORKFLOW.md)
-- ✅ The demos work (5 features, 11 interactive examples)
-- ✅ The code is production-ready (browser support, progressive enhancement)
+> **Live demonstration of the full workflow from research to commit**
 
-**What the team needs:**
-1. See it's real (git walkthrough video)
-2. See it's doable (live demo)
-3. Know where to start (cheat sheet + pairing offer)
-4. Have confidence it works (your experience + docs)
+### Step 1: Research (3 min)
 
-**You're ready to present now.** The remaining 40% of features are optional enhancements, not requirements for a successful presentation.
+**Prompt to use:**
+
+```
+Use Explore agent to research CSS scroll-state() function.
+Find 2-3 practical examples that replace JavaScript scroll listeners.
+Focus on header styling and back-to-top buttons.
+```
+
+**What to show:**
+
+- How Explore agent works
+- Results returned
+- Quick scan of findings
+
+### Step 2: Implement (3 min)
+
+**Prompt to use:**
+
+```
+Create css/features/scroll-state.css with two demos:
+1. Header that changes background/shadow when scrolled
+2. Back-to-top button that appears on scroll
+
+Include @supports detection for progressive enhancement.
+Add comments explaining the approach.
+```
+
+**What to show:**
+
+- Generated CSS file
+- Scroll through code
+- Point out @supports usage
+- Show progressive enhancement
+
+### Step 3: Test & Commit (2 min)
+
+**Actions:**
+
+1. Open index.html in browser
+2. Scroll to see header change
+3. Scroll to see back-to-top button
+4. Commit with Bash tool:
+
+```bash
+git add css/features/scroll-state.css
+
+git commit -m "$(cat <<'EOF'
+feat: add scroll-state() function demonstration
+
+Implemented CSS scroll-state() feature with 2 demos:
+- Header that changes style on scroll
+- Back-to-top button appears on scroll
+
+Includes @supports detection for progressive enhancement.
+
+Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
+EOF
+)"
+```
+
+**Talking points:**
+
+- "Notice how fast that was - 8 minutes total"
+- "AI handled research, code generation, comments"
+- "I still reviewed the code before committing"
+- "This is the workflow you'll use for your first task"
 
 ---
 
-*Last updated: 2026-01-19*
-*Created by: Claude Code + Human collaboration*
+## 10. Resources & Next Steps (5 min)
+
+### In This Repository
+
+📁 **Documentation:**
+
+- [AI_WORKFLOW.md](./AI_WORKFLOW.md) - Complete workflow guide (800+ lines)
+- [PLANNING_PHASE.md](./PLANNING_PHASE.md) - How we started
+- [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) - What we planned
+- [CHEAT_SHEET.md](./CHEAT_SHEET.md) - Quick reference for your first task
+- [FEATURES.md](./FEATURES.md) - CSS technical reference
+- [BROWSER_SUPPORT.md](./BROWSER_SUPPORT.md) - Compatibility matrix
+
+📝 **Code:**
+
+- [index.html](../index.html) - Live interactive demos
+- [css/features/](../css/features/) - Implementation patterns
+
+### Getting Started
+
+**Your First Task (< 1 hour):**
+
+1. Install Claude Code CLI
+2. Clone this repository for reference
+3. Read [CHEAT_SHEET.md](./CHEAT_SHEET.md) (5 min)
+4. Pick a small task (refactor CSS, research feature, add docs)
+5. Use Explore Agent to research
+6. Review generated code
+7. Create structured git commit
+
+**Pair Programming Offer:**
+
+- Available for pairing on first task
+- Schedule via calendar
+- Questions welcome anytime
+
+---
+
+## Key Takeaways
+
+1. **87% time savings is real** → Git timestamps prove it
+2. **Planning prevents waste** → 15-20 min planning saved hours
+3. **AI is a pair programmer** → You drive, it assists
+4. **Start small** → First task < 1 hour
+5. **Review everything** → AI accelerates, you validate
+
+---
+
+## Git Commands Reference
+
+**Show git history:** `git log --oneline --graph --all`
+**Show commit details:** `git show <hash> --stat`
+
+---
+
+**Next:** Try it yourself. Pick a small task. Use the cheat sheet. Pair with me for first attempt.
+
+---
+
+_Last updated: 2026-01-20_
+_Created for internal team presentation_
