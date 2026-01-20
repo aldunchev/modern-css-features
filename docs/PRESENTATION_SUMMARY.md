@@ -23,7 +23,7 @@
 
 ### How It Started
 
-📄 **Show:** [INITIAL_PROMPT.md](./INITIAL_PROMPT.md)
+📄 [INITIAL_PROMPT.md](./INITIAL_PROMPT.md)
 
 **Dual Purpose:**
 
@@ -32,7 +32,7 @@
 
 ### Strategic Questions
 
-📄 **Show:** [PLANNING_PHASE.md](./PLANNING_PHASE.md)
+📄 [PLANNING_PHASE.md](./PLANNING_PHASE.md)
 
 Claude asked:
 
@@ -58,7 +58,7 @@ Claude **proactively suggested** Prism.js for syntax highlighting:
 
 ## 2. The Implementation Plan (2 min)
 
-📄 **Show:** [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md)
+📄 [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md)
 
 **6 Phases Planned:**
 

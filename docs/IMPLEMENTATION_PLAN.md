@@ -100,6 +100,7 @@ Build a vanilla HTML/CSS/JS showcase demonstrating 10 modern CSS features that r
 8. Create js/feature-detection.js skeleton
 
 **Claude Code Workflow:**
+
 - Use TodoWrite to track 8 subtasks
 - Use Bash for git init and folder creation
 - Use Write tool for creating initial files
@@ -107,6 +108,7 @@ Build a vanilla HTML/CSS/JS showcase demonstrating 10 modern CSS features that r
 - Use Bash tool with git commit: "feat: initialize project structure"
 
 **Critical Files:**
+
 - `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/index.html`
 - `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/base.css`
 - `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/js/navigation.js`
@@ -128,11 +130,13 @@ Build a vanilla HTML/CSS/JS showcase demonstrating 10 modern CSS features that r
 7. Document detection patterns in docs/BROWSER_SUPPORT.md
 
 **Claude Code Workflow:**
+
 - Use WebSearch to verify current @supports syntax for each feature (parallel searches)
 - Use TodoWrite to track implementation
 - Use Bash tool with git commit: "feat: add feature detection and browser support system"
 
 **Critical Files:**
+
 - `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/js/feature-detection.js`
 - `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/docs/BROWSER_SUPPORT.md`
 
@@ -152,7 +156,7 @@ Build a vanilla HTML/CSS/JS showcase demonstrating 10 modern CSS features that r
 
 **Per-Feature Tasks:**
 
-1. Research best demo examples (use Sub-agent: Explore)
+1. Research best demo examples **(use Sub-agent: Explore)**
 2. Create HTML structure in index.html for feature section
 3. Create dedicated CSS file in css/features/
 4. Build 2-3 interactive demos per feature
@@ -163,6 +167,7 @@ Build a vanilla HTML/CSS/JS showcase demonstrating 10 modern CSS features that r
 9. Commit: "feat: add [feature-name] demonstration"
 
 **Claude Code Workflow:**
+
 - Use Sub-agent (Explore) to research creative demo ideas for each feature
 - Use WebFetch to pull MDN documentation
 - Use WebSearch for browser support verification
@@ -170,9 +175,11 @@ Build a vanilla HTML/CSS/JS showcase demonstrating 10 modern CSS features that r
 - Use Bash tool with heredoc to commit after each feature
 
 **Example Explore Agent Prompt:**
+
 > "Research creative demo ideas for CSS :has() selector. Find 3-5 real-world use cases that show how it replaces JavaScript. Look for examples like form validation states, parent hover effects, and sibling selection."
 
 **Critical Files (per feature):**
+
 - `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/has-selector.css`
 - `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/container-queries.css`
 - `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/carousel.css`
@@ -196,6 +203,7 @@ Build a vanilla HTML/CSS/JS showcase demonstrating 10 modern CSS features that r
 **Per-Feature Tasks:** (Same as Phase 3)
 
 **Claude Code Workflow:**
+
 - Same as Phase 3
 - Important: For Features 9 & 10 (limited browser support), emphasize:
   - Progressive enhancement patterns
@@ -204,6 +212,7 @@ Build a vanilla HTML/CSS/JS showcase demonstrating 10 modern CSS features that r
   - Browser requirement notices
 
 **Critical Files:**
+
 - `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/anchor-positioning.css`
 - `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/css/features/modal-trigger.css`
 - `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/js/features/observers.js`
@@ -309,12 +318,14 @@ Critical Files:
 10. Prepare for GitHub Pages deployment (gh-pages branch or /docs folder)
 
 **Claude Code Workflow:**
+
 - Use `Grep` to find TODO comments or incomplete sections
 - Use `Read` to verify all documentation
 - Use `Bash` with heredoc: "docs: add README and final polish"
 - Use `Bash` to set up GitHub Pages deployment
 
 **Critical Files:**
+
 - `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/README.md`
 - `/Users/aldunchev/Work/ProjectsCode/AI/new-css-features/docs/FEATURES.md`
 
@@ -323,6 +334,7 @@ Critical Files:
 ## Claude Code Features: Strategic Usage Guide
 
 > **📝 Important Clarification:**
+>
 > - **Claude Code DOES have a built-in `/commit` skill**
 > - However, **all commits in this project** were created using the **Bash tool** with heredoc syntax
 > - **Sub-agents** (Explore, Plan, Bash, general-purpose) are **built-in to Claude Code** (not custom)
@@ -330,6 +342,7 @@ Critical Files:
 > - **Phase 2**: We created a custom skill (`modern-css-features`) to package this project's CSS knowledge for use in other repositories
 
 ### Git Commit Strategy (Using Bash Tool)
+
 - **Bash tool** with `git commit`: Used after each feature, documentation, or milestone (15-20 commits total)
   - Structured commit messages following Conventional Commits format
   - Manually add "Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>" to all commits
@@ -337,6 +350,7 @@ Critical Files:
   - Example: `git commit -m "$(cat <<'EOF'\nfeat: add feature\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)"`
 
 ### Sub-agents (Built-in)
+
 - **Explore (Phases 3-4)**: Research demo ideas, find creative examples, discover patterns
   - Use liberally for each feature (10+ Explore agents total)
   - Example: "Research creative demos for CSS anchor positioning"
@@ -344,6 +358,7 @@ Critical Files:
   - Used during planning mode to design implementation approach
 
 ### Tools
+
 - **WebSearch**: Browser support verification, current best practices
   - Use parallel searches at start of each phase (batch 3-5 queries)
 - **WebFetch**: Pull specific MDN documentation pages
@@ -354,8 +369,10 @@ Critical Files:
 - **Bash**: Git operations, folder creation, local server
 
 ### Parallel Execution Examples
+
 **Phase 3 Start:**
 Prompt: "Search for browser support for these 5 features in parallel:
+
 1. :has() selector
 2. Container queries
 3. scroll-snap
@@ -364,6 +381,7 @@ Prompt: "Search for browser support for these 5 features in parallel:
 
 **Phase 5 Documentation:**
 Prompt: "Read these files to review our implementation patterns:
+
 - css/features/has-selector.css
 - css/features/container-queries.css
 - css/features/carousel.css
@@ -373,9 +391,11 @@ Prompt: "Read these files to review our implementation patterns:
 ## Verification & Testing
 
 ### End-to-End Testing Checklist
+
 After Phase 6 completion, verify:
 
 **Functionality:**
+
 - [ ] All 10 features have working demos
 - [ ] Tab navigation works (mouse + keyboard)
 - [ ] Feature detection badges display correctly
@@ -384,6 +404,7 @@ After Phase 6 completion, verify:
 - [ ] No console errors in Chrome/Firefox/Safari
 
 **Accessibility:**
+
 - [ ] Keyboard navigation works (Tab, Enter, Arrows)
 - [ ] Screen reader announces feature names and content
 - [ ] ARIA labels present on interactive elements
@@ -391,6 +412,7 @@ After Phase 6 completion, verify:
 - [ ] Color contrast meets WCAG AA standards
 
 **Documentation:**
+
 - [ ] README.md provides clear overview
 - [ ] AI_WORKFLOW.md documents Claude Code usage
 - [ ] BROWSER_SUPPORT.md has accurate compatibility matrix
@@ -398,12 +420,14 @@ After Phase 6 completion, verify:
 - [ ] All links work (MDN, Can I Use, etc.)
 
 **Git & Deployment:**
+
 - [ ] 15-20 commits with clear messages
 - [ ] All commits have Claude co-authorship
 - [ ] GitHub Pages deployment works
 - [ ] Repository has description and topics/tags
 
 **Browser Testing:**
+
 - [ ] Chrome (latest): All features work
 - [ ] Firefox (latest): Tier 1-2 work, Tier 3 show fallbacks
 - [ ] Safari (latest): Tier 1 works, others show appropriate badges
@@ -435,6 +459,7 @@ After Phase 6 completion, verify:
 ## Design System
 
 **Colors:**
+
 - Primary: `#3b82f6` (blue)
 - Success: `#10b981` (green) - Widely Supported
 - Warning: `#f59e0b` (yellow) - Good Support
@@ -443,16 +468,19 @@ After Phase 6 completion, verify:
 - Neutral: Grays for text/backgrounds
 
 **Typography:**
+
 - Headings: System font stack (sans-serif)
 - Code: 'JetBrains Mono', 'Fira Code', Monaco (monospace)
 - Body: System font stack
 
 **Layout:**
+
 - Max-width: 1200px
 - Breakpoints: 640px, 768px, 1024px
 - Spacing scale: 4px, 8px, 16px, 24px, 32px, 48px
 
 **Component Style:**
+
 - Clean, minimal (MDN-inspired)
 - Generous white space
 - Clear hierarchy
@@ -476,17 +504,20 @@ After Phase 6 completion, verify:
 ## Success Criteria
 
 **Technical:**
+
 - All 10 CSS features demonstrated with working code
 - Works in 2+ major browsers with progressive enhancement
 - Zero JavaScript for features (except Observer APIs demo)
 - Keyboard accessible, screen reader friendly
 
 **Documentation:**
+
 - AI_WORKFLOW.md comprehensively documents Claude Code usage ⭐
 - README.md provides clear project overview
 - Each feature has code examples and resource links
 
 **Workflow:**
+
 - 15-20 meaningful commits with Claude co-authorship
 - Clean git history that tells development story
 - Demonstrates effective use of Claude Code features
@@ -496,6 +527,7 @@ After Phase 6 completion, verify:
 ## Post-Launch Enhancements (Optional)
 
 Consider after core completion:
+
 - Add more features (CSS Nesting, :where/:is, Cascade Layers)
 - Create video demos or animated GIFs
 - Write accompanying blog post
@@ -512,6 +544,7 @@ Consider after core completion:
 showcase project.
 
 ### What is a Custom Skill?
+
 Claude Code allows users to create custom skills (slash commands) that can be invoked in any repository. These skills
 encapsulate domain knowledge and can provide expert guidance.
 
@@ -521,6 +554,7 @@ encapsulate domain knowledge and can provide expert guidance.
 repository.
 
 **What it does:**
+
 - Answer questions about modern CSS feature implementations
 - Suggest CSS-first solutions to replace JavaScript
 - Provide code examples from the showcase repository
@@ -528,6 +562,7 @@ repository.
 - Recommend progressive enhancement strategies
 
 **Example Usage (in other repos):**
+
 ```bash
 # In any front-end project
 User: /frontend-new-css-features "How can I implement a modal without JavaScript?"
@@ -647,4 +682,4 @@ Must create in Phase 5 (KEY):
 
 Must create in Phase 6:
 - /Users/aldunchev/Work/ProjectsCode/AI/new-css-features/README.md
-````
+```
