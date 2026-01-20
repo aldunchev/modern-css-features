@@ -405,24 +405,6 @@ EOF
 - [index.html](../index.html) - Live interactive demos
 - [css/features/](../css/features/) - Implementation patterns
 
-### Getting Started
-
-**Your First Task (< 1 hour):**
-
-1. Install Claude Code CLI
-2. Clone this repository for reference
-3. Read [CHEAT_SHEET.md](./CHEAT_SHEET.md) (5 min)
-4. Pick a small task (refactor CSS, research feature, add docs)
-5. Use Explore Agent to research
-6. Review generated code
-7. Create structured git commit
-
-**Pair Programming Offer:**
-
-- Available for pairing on first task
-- Schedule via calendar
-- Questions welcome anytime
-
 ---
 
 ## Key Takeaways
@@ -442,7 +424,21 @@ EOF
 
 ---
 
-**Next:** Try it yourself. Pick a small task. Use the cheat sheet. Pair with me for first attempt.
+## Want to Try Claude Code? 🎮
+
+I have **3 guest passes** available! Here's how to claim one:
+
+**"Modern CSS Discovery Challenge"**
+
+Submit a brief pitch (3-5 sentences) describing:
+
+- One modern CSS feature you'd like to implement
+- The problem it would solve in your work
+- Why you're excited to try Claude Code for it
+
+📧 Send to: [alexander.dunchev@jakala.com] by the end of tomorrow
+🎯 Selection: First 3 submissions that show genuine interest + practical use case
+⏱️ First-come advantage: Earlier submissions win ties
 
 ---
 
