@@ -83,7 +83,7 @@ Claude **proactively suggested** Prism.js for syntax highlighting:
 
 ### Completed Features (60%)
 
-🎨 **Live Demo:** [index.html](http://127.0.0.1:8080/)
+🎨 **Live Demo:** [index.html](https://aldunchev.github.io/modern-css-features/)
 
 1. **:has() selector**
    - Parent/sibling selection without JS
