@@ -243,18 +243,23 @@ A skill is a reusable knowledge package that Claude automatically activates when
 
 ### Installation
 
-**Copy the skill to your Claude directory:**
+**The skill is already included in this repository!** When you clone this project, the skill is located at `.claude/skills/modern-css-features/` and Claude Code will automatically detect and use it when working in this project.
 
 ```bash
 # Clone this repository
 git clone https://github.com/aldunchev/modern-css-features.git
 cd modern-css-features
 
-# Copy skill to your Claude directory
-cp -r claude-skill ~/.claude/skills/modern-css-features
+# That's it! The skill is already available in .claude/skills/modern-css-features/
 ```
 
-**That's it!** The skill will automatically activate in any project when you ask CSS-related questions.
+**To use this skill in other projects:**
+```bash
+# Copy the skill to your global Claude directory
+cp -r .claude/skills/modern-css-features ~/.claude/skills/modern-css-features
+```
+
+The skill will then automatically activate in any project when you ask CSS-related questions.
 
 ### What You Get
 
@@ -280,13 +285,13 @@ Once installed, Claude will automatically:
 
 ### Skill Contents
 
-The `claude-skill/` directory contains:
+The `.claude/skills/modern-css-features/` directory contains:
 - **SKILL.md** (600+ lines) - Main skill file with auto-activation triggers
 - **BROWSER_SUPPORT.md** (400+ lines) - Compatibility matrix and detection patterns
 - **EXAMPLES.md** (500+ lines) - Working code examples
 - **PATTERNS.md** (500+ lines) - Implementation patterns and best practices
 
-**For more details**, see the [claude-skill/](claude-skill/) directory in this repository.
+**For more details**, see the [.claude/skills/modern-css-features/](.claude/skills/modern-css-features/) directory in this repository.
 
 ## 🎓 Learning Resources
 

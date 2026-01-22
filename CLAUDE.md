@@ -56,3 +56,15 @@ js/                 # Minimal JavaScript (navigation, feature detection)
 - Minimize JavaScript usage - only for navigation and feature detection
 - Each demo should be self-contained and easy to understand
 - Performance matters - keep animations smooth and efficient
+
+## Claude Code Skill
+
+This project includes a **modern-css-features** skill located in `.claude/skills/modern-css-features/` that provides comprehensive knowledge about all 10 modern CSS features demonstrated in this project. The skill can be invoked with `/modern-css-features` or will auto-activate when relevant CSS questions are asked.
+
+### Skill Contents:
+- **SKILL.md** - Main skill file with auto-activation triggers
+- **BROWSER_SUPPORT.md** - Browser compatibility information
+- **EXAMPLES.md** - Working code examples
+- **PATTERNS.md** - Implementation patterns and best practices
+
+When working on CSS features in this project, you can reference the skill documentation for detailed implementation guidance and browser support information.
