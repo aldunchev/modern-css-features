@@ -1,41 +1,190 @@
 /* ========================================
-   CSS Carousel with Scroll-Snap
+   CSS Carousel with Scroll-Snap & Scroll Markers
    ======================================== */
 
 .carousel-wrapper {
     position: relative;
-    max-width: 800px;
+    max-width: 900px;
     margin: var(--space-6) auto 0;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
     box-shadow: var(--shadow-xl);
-}
 
-/* Carousel Container */
-.carousel {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+    /* Grid layout for carousel + navigation */
+    display: grid;
+    grid-template-areas:
+        "left carousel right"
+        ". markers .";
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
     gap: 0;
 }
 
-/* Hide scrollbar but keep functionality */
+/* ========================================
+   SCROLLER - Horizontal Scroll Snap
+   ======================================== */
+
+.carousel {
+    grid-area: carousel;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-lg);
+
+    /* Hide scrollbar but keep functionality */
+    scrollbar-width: none;
+
+    @media (prefers-reduced-motion: no-preference) {
+        scroll-behavior: smooth;
+    }
+}
+
 .carousel::-webkit-scrollbar {
     display: none;
 }
 
+/* ========================================
+   SCROLL MARKERS - Interactive Dots
+   ======================================== */
+
 .carousel {
-    scrollbar-width: none;
+    /* Create scroll markers after the carousel */
+    scroll-marker-group: after;
+
+    /* Style the markers container */
+    &::scroll-marker-group {
+        grid-area: markers;
+
+        /* Layout for dots */
+        display: grid;
+        place-content: center;
+        grid: 30px / auto-flow 30px;
+        gap: 15px;
+        padding: 15px;
+
+        /* Handle overflow if many slides */
+        overflow: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+        scroll-snap-type: x mandatory;
+
+        @media (prefers-reduced-motion: no-preference) {
+            scroll-behavior: smooth;
+        }
+    }
+
+    &::scroll-marker-group::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* ========================================
+   SCROLL BUTTONS - Navigation Arrows
+   ======================================== */
+
+.carousel {
+    /* Style all scroll buttons */
+    &::scroll-button(*) {
+        /* Round, easy to press buttons */
+        inline-size: 48px;
+        aspect-ratio: 1;
+        border-radius: 1e3px;
+        border: 2px solid rgba(255, 255, 255, 0.8);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        cursor: pointer;
+        transition: all var(--transition-base);
+        backdrop-filter: blur(4px);
+
+        /* Space from content */
+        margin: 5px;
+    }
+
+    /* Focus state for accessibility */
+    &::scroll-button(*):focus-visible {
+        outline: 2px solid rgba(255, 255, 255, 1);
+        outline-offset: 5px;
+    }
+
+    /* Hover and active states */
+    &::scroll-button(*):not(:disabled):is(:hover, :active) {
+        background: rgba(255, 255, 255, 0.9);
+        color: black;
+        border-color: rgba(255, 255, 255, 1);
+        transform: scale(1.05);
+    }
+
+    &::scroll-button(*):not(:disabled):active {
+        transform: scale(0.95);
+    }
+
+    /* Disabled state */
+    &::scroll-button(*):disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    /* Left arrow */
+    &::scroll-button(left) {
+        content: "←" / "Scroll Left";
+        grid-area: left;
+    }
+
+    /* Right arrow */
+    &::scroll-button(right) {
+        content: "→" / "Scroll Right";
+        grid-area: right;
+    }
+}
+
+/* Carousel Content (List) */
+.carousel-content {
+    display: flex;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 /* Carousel Items */
 .carousel-item {
     flex: 0 0 100%;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     scroll-snap-stop: always;
     position: relative;
+
+    /* Create scroll marker for each item */
+    &::scroll-marker {
+        content: " ";
+
+        /* Dot styling - dark colors for visibility on white bg */
+        width: 12px;
+        height: 12px;
+        border: 2px solid #cbd5e1;
+        border-radius: 50%;
+        background: transparent;
+        outline-offset: 4px;
+        cursor: pointer;
+        transition: all var(--transition-base);
+        -webkit-tap-highlight-color: transparent;
+
+        /* Snap if marker group overflows */
+        scroll-snap-align: center;
+    }
+
+    /* Hover/Focus states */
+    &::scroll-marker:is(:hover, :focus-visible) {
+        border-color: #64748b;
+        background: #e2e8f0;
+        transform: scale(1.2);
+    }
+
+    /* Active slide indicator */
+    &::scroll-marker:target-current {
+        background: #3b82f6;
+        border-color: #3b82f6;
+        transform: scale(1.1);
+    }
 }
 
 .carousel-item img {
@@ -58,30 +207,30 @@
     font-weight: var(--font-bold);
 }
 
-/* Carousel Dots Indicator */
-.carousel-dots {
-    position: absolute;
-    bottom: var(--space-4);
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: var(--space-2);
-    z-index: 10;
-    pointer-events: none;
+/* ========================================
+   FALLBACK for browsers without scroll markers
+   ======================================== */
+
+/* Static dots as fallback (hidden when scroll markers are supported) */
+@supports not (scroll-marker-group: after) {
+    .carousel-wrapper::after {
+        content: "";
+        grid-area: markers;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        min-height: 40px;
+    }
+
+    /* Note: This is a visual indicator that scroll markers aren't supported */
+    /* In production, you might want to add JS-powered dots as a fallback */
 }
 
-.carousel-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    transition: all var(--transition-base);
-}
-
-/* Visual indicator for active slide (using scroll-driven animations would be ideal, but keeping it simple) */
-.carousel-dot:first-child {
-    background: rgba(255, 255, 255, 0.9);
-}
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
 
 /* Mobile responsive */
 @media (max-width: 768px) {
@@ -93,6 +242,11 @@
         font-size: var(--text-lg);
         padding: var(--space-6) var(--space-4) var(--space-4);
     }
+
+    .carousel-item::scroll-marker {
+        width: 10px;
+        height: 10px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -102,5 +256,10 @@
 
     .carousel-caption {
         font-size: var(--text-base);
+    }
+
+    .carousel-item::scroll-marker {
+        width: 8px;
+        height: 8px;
     }
 }

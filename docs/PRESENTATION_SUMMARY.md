@@ -23,7 +23,7 @@
 
 ### How It Started
 
-📄 [INITIAL_PROMPT.md](./INITIAL_PROMPT.md)
+📄 [INITIAL_PROMPT.md](./INITIAL_PROMPT.md) - Using Claude code planning phase
 
 **Dual Purpose:**
 
