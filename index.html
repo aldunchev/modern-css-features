@@ -243,91 +243,91 @@
                 <div class="code-example">
                     <h3>Code Example: Form Validation</h3>
                     <pre><code class="language-css">/* Style container when input is invalid and not empty */
-.form-group:has(input:invalid:not(:placeholder-shown)) {
-  border: 2px solid #ef4444;
-  background-color: #fee2e2;
-}
+                            .form-group:has(input:invalid:not(:placeholder-shown)) {
+                            border: 2px solid #ef4444;
+                            background-color: #fee2e2;
+                            }
 
-/* Style container when input is valid */
-.form-group:has(input:valid:not(:placeholder-shown)) {
-  border: 2px solid #10b981;
-  background-color: #f0fdf4;
-}
+                            /* Style container when input is valid */
+                            .form-group:has(input:valid:not(:placeholder-shown)) {
+                            border: 2px solid #10b981;
+                            background-color: #f0fdf4;
+                            }
 
-/* Style label based on input state */
-.form-group:has(input:invalid) label {
-  color: #ef4444;
-  font-weight: 600;
-}
+                            /* Style label based on input state */
+                            .form-group:has(input:invalid) label {
+                            color: #ef4444;
+                            font-weight: 600;
+                            }
 
-/* Show error message only when invalid */
-.form-group:has(input:invalid:not(:placeholder-shown)) .error-text {
-  display: block;
-}</code></pre>
+                            /* Show error message only when invalid */
+                            .form-group:has(input:invalid:not(:placeholder-shown)) .error-text {
+                            display: block;
+                            }</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example: Card Hover</h3>
                     <pre><code class="language-css">/* Highlight card when image is hovered */
-.product-card:has(.card-image:hover) {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  transform: translateY(-8px);
-}
+                            .product-card:has(.card-image:hover) {
+                            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                            transform: translateY(-8px);
+                            }
 
-/* Enlarge title on image hover */
-.product-card:has(.card-image:hover) .card-title {
-  font-size: 1.5rem;
-  color: #3b82f6;
-}
+                            /* Enlarge title on image hover */
+                            .product-card:has(.card-image:hover) .card-title {
+                            font-size: 1.5rem;
+                            color: #3b82f6;
+                            }
 
-/* Show hidden button on image hover */
-.product-card:has(.card-image:hover) .card-button {
-  opacity: 1;
-  pointer-events: auto;
-}</code></pre>
+                            /* Show hidden button on image hover */
+                            .product-card:has(.card-image:hover) .card-button {
+                            opacity: 1;
+                            pointer-events: auto;
+                            }</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example: Sibling Fade-Out</h3>
                     <pre><code class="language-css">/* Fade out all siblings when one is hovered */
-.has-gallery-demo:has(.gallery-item:hover) .gallery-item:not(:hover) {
-  opacity: 0.4;
-  filter: grayscale(100%);
-}
+                            .has-gallery-demo:has(.gallery-item:hover) .gallery-item:not(:hover) {
+                            opacity: 0.4;
+                            filter: grayscale(100%);
+                            }
 
-/* Scale up the hovered item */
-.gallery-item:hover {
-  transform: scale(1.05);
-  z-index: 10;
-}</code></pre>
+                            /* Scale up the hovered item */
+                            .gallery-item:hover {
+                            transform: scale(1.05);
+                            z-index: 10;
+                            }</code></pre>
                 </div>
 
                 <div class="comparison-container">
                     <h3>JavaScript Comparison</h3>
                     <p><strong>Old approach (with JavaScript):</strong></p>
                     <pre><code class="language-javascript">// Form validation - needed event listeners
-document.querySelectorAll('input').forEach(input => {
-  input.addEventListener('input', function() {
-    const formGroup = this.closest('.form-group');
-    if (this.checkValidity()) {
-      formGroup.classList.add('valid');
-      formGroup.classList.remove('invalid');
-    } else {
-      formGroup.classList.add('invalid');
-      formGroup.classList.remove('valid');
-    }
-  });
-});
+                            document.querySelectorAll('input').forEach(input => {
+                            input.addEventListener('input', function() {
+                            const formGroup = this.closest('.form-group');
+                            if (this.checkValidity()) {
+                            formGroup.classList.add('valid');
+                            formGroup.classList.remove('invalid');
+                            } else {
+                            formGroup.classList.add('invalid');
+                            formGroup.classList.remove('valid');
+                            }
+                            });
+                            });
 
-// Card hover - needed mouseenter/leave listeners
-document.querySelectorAll('.card-image').forEach(image => {
-  image.addEventListener('mouseenter', () => {
-    image.closest('.product-card').classList.add('hovered');
-  });
-  image.addEventListener('mouseleave', () => {
-    image.closest('.product-card').classList.remove('hovered');
-  });
-});</code></pre>
+                            // Card hover - needed mouseenter/leave listeners
+                            document.querySelectorAll('.card-image').forEach(image => {
+                            image.addEventListener('mouseenter', () => {
+                            image.closest('.product-card').classList.add('hovered');
+                            });
+                            image.addEventListener('mouseleave', () => {
+                            image.closest('.product-card').classList.remove('hovered');
+                            });
+                            });</code></pre>
 
                     <p><strong>New approach (pure CSS with :has()):</strong></p>
                     <p>Zero JavaScript required! All interactions are handled by CSS :has() selector.</p>
@@ -527,106 +527,106 @@ document.querySelectorAll('.card-image').forEach(image => {
                 <div class="code-example">
                     <h3>Code Example: Profile Card</h3>
                     <pre><code class="language-css">/* Enable container queries */
-.profile-card {
-  container-type: inline-size;
-}
+                            .profile-card {
+                            container-type: inline-size;
+                            }
 
-/* Default: Vertical layout */
-.profile-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
+                            /* Default: Vertical layout */
+                            .profile-content {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1rem;
+                            }
 
-/* Medium: Horizontal layout */
-@container (min-width: 20rem) {
-  .profile-content {
-    flex-direction: row;
-    align-items: center;
-  }
+                            /* Medium: Horizontal layout */
+                            @container (min-width: 20rem) {
+                            .profile-content {
+                            flex-direction: row;
+                            align-items: center;
+                            }
 
-  .profile-image {
-    width: 80px;
-    height: 80px;
-  }
-}
+                            .profile-image {
+                            width: 80px;
+                            height: 80px;
+                            }
+                            }
 
-/* Wide: Enhanced layout */
-@container (min-width: 30rem) {
-  .profile-name {
-    font-size: 1.5rem;
-  }
+                            /* Wide: Enhanced layout */
+                            @container (min-width: 30rem) {
+                            .profile-name {
+                            font-size: 1.5rem;
+                            }
 
-  .profile-meta {
-    flex-direction: row;
-    gap: 2rem;
-  }
-}</code></pre>
+                            .profile-meta {
+                            flex-direction: row;
+                            gap: 2rem;
+                            }
+                            }</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example: Product Card Grid</h3>
                     <pre><code class="language-css">/* Enable container queries on each card */
-.product-container {
-  container-type: inline-size;
-}
+                            .product-container {
+                            container-type: inline-size;
+                            }
 
-/* Minimal: Compact layout */
-.cq-product-card {
-  display: flex;
-  flex-direction: column;
-}
+                            /* Minimal: Compact layout */
+                            .cq-product-card {
+                            display: flex;
+                            flex-direction: column;
+                            }
 
-.cq-card-description {
-  display: none;
-}
+                            .cq-card-description {
+                            display: none;
+                            }
 
-/* Standard: Show description */
-@container (min-width: 12rem) {
-  .cq-card-description {
-    display: block;
-  }
+                            /* Standard: Show description */
+                            @container (min-width: 12rem) {
+                            .cq-card-description {
+                            display: block;
+                            }
 
-  .cq-card-button {
-    display: inline-block;
-  }
-}
+                            .cq-card-button {
+                            display: inline-block;
+                            }
+                            }
 
-/* Featured: Full details */
-@container (min-width: 18rem) {
-  .cq-card-title {
-    font-size: 1.25rem;
-  }
+                            /* Featured: Full details */
+                            @container (min-width: 18rem) {
+                            .cq-card-title {
+                            font-size: 1.25rem;
+                            }
 
-  .cq-card-body {
-    padding: 1.5rem;
-  }
-}</code></pre>
+                            .cq-card-body {
+                            padding: 1.5rem;
+                            }
+                            }</code></pre>
                 </div>
 
                 <div class="comparison-container">
                     <h3>Why Container Queries Beat Media Queries</h3>
                     <p><strong>Media queries respond to viewport width:</strong></p>
                     <pre><code class="language-css">/* Media query - viewport-based */
-@media (min-width: 768px) {
-  .card {
-    flex-direction: row;
-  }
-}
+                            @media (min-width: 768px) {
+                            .card {
+                            flex-direction: row;
+                            }
+                            }
 
-/* Problem: All cards change at same viewport width
-   regardless of their actual container size */</code></pre>
+                            /* Problem: All cards change at same viewport width
+                            regardless of their actual container size */</code></pre>
 
                     <p><strong>Container queries respond to container width:</strong></p>
                     <pre><code class="language-css">/* Container query - container-based */
-@container (min-width: 20rem) {
-  .card {
-    flex-direction: row;
-  }
-}
+                            @container (min-width: 20rem) {
+                            .card {
+                            flex-direction: row;
+                            }
+                            }
 
-/* Solution: Each card responds to its actual width
-   Same component works in sidebar, grid, or main content */</code></pre>
+                            /* Solution: Each card responds to its actual width
+                            Same component works in sidebar, grid, or main content */</code></pre>
 
                     <h4>Benefits:</h4>
                     <ul>
@@ -668,10 +668,13 @@ document.querySelectorAll('.card-image').forEach(image => {
 
                 <div class="demo-container">
                     <h3>Demo: Advanced CSS Carousel</h3>
-                    <p class="demo-description">Scroll through images using touch/drag, click the dots to jump to a slide,
+                    <p class="demo-description">Scroll through images using touch/drag, click the dots to jump to a
+                        slide,
                         or use the arrow buttons. All features are pure CSS!</p>
-                    <p class="demo-description"><strong>Note:</strong> Scroll markers and scroll buttons are cutting-edge
-                        features currently available in Chrome/Edge 131+ with the "Experimental Web Platform features" flag
+                    <p class="demo-description"><strong>Note:</strong> Scroll markers and scroll buttons are
+                        cutting-edge
+                        features currently available in Chrome/Edge 131+ with the "Experimental Web Platform features"
+                        flag
                         enabled. Scroll-snap works in all modern browsers.</p>
 
                     <div class="carousel-wrapper">
@@ -710,109 +713,110 @@ document.querySelectorAll('.card-image').forEach(image => {
                 <div class="code-example">
                     <h3>Code Example: Scroll-Snap Basics</h3>
                     <pre><code class="language-css">/* Scroll-snap carousel - No JavaScript! */
-.carousel {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-}
+                            .carousel {
+                            overflow-x: auto;
+                            scroll-snap-type: x mandatory;
+                            scroll-behavior: smooth;
+                            }
 
-.carousel-item {
-  flex: 0 0 100%;
-  scroll-snap-align: center;
-  scroll-snap-stop: always;
-}</code></pre>
+                            .carousel-item {
+                            flex: 0 0 100%;
+                            scroll-snap-align: center;
+                            scroll-snap-stop: always;
+                            }</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example: Scroll Markers (Interactive Dots)</h3>
                     <pre><code class="language-css">/* Create interactive scroll markers */
-.carousel {
-  scroll-marker-group: after;
+                            .carousel {
+                            scroll-marker-group: after;
 
-  /* Style the markers container */
-  &::scroll-marker-group {
-    display: grid;
-    place-content: center;
-    gap: 15px;
-    padding: 15px;
-  }
-}
+                            /* Style the markers container */
+                            &::scroll-marker-group {
+                            display: grid;
+                            place-content: center;
+                            gap: 15px;
+                            padding: 15px;
+                            }
+                            }
 
-/* Create a marker for each carousel item */
-.carousel-item {
-  &::scroll-marker {
-    content: " ";
-    width: 12px;
-    height: 12px;
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-    cursor: pointer;
-  }
+                            /* Create a marker for each carousel item */
+                            .carousel-item {
+                            &::scroll-marker {
+                            content: " ";
+                            width: 12px;
+                            height: 12px;
+                            border: 2px solid rgba(255, 255, 255, 0.6);
+                            border-radius: 50%;
+                            cursor: pointer;
+                            }
 
-  /* Active slide indicator */
-  &::scroll-marker:target-current {
-    background: rgba(255, 255, 255, 0.9);
-  }
-}</code></pre>
+                            /* Active slide indicator */
+                            &::scroll-marker:target-current {
+                            background: rgba(255, 255, 255, 0.9);
+                            }
+                            }</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example: Scroll Buttons (Navigation Arrows)</h3>
                     <pre><code class="language-css">/* Automatic navigation arrows */
-.carousel {
-  &::scroll-button(*) {
-    inline-size: 48px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+                            .carousel {
+                            &::scroll-button(*) {
+                            inline-size: 48px;
+                            aspect-ratio: 1;
+                            border-radius: 50%;
+                            cursor: pointer;
+                            }
 
-  &::scroll-button(left) {
-    content: "←" / "Scroll Left";
-  }
+                            &::scroll-button(left) {
+                            content: "←" / "Scroll Left";
+                            }
 
-  &::scroll-button(right) {
-    content: "→" / "Scroll Right";
-  }
-}</code></pre>
+                            &::scroll-button(right) {
+                            content: "→" / "Scroll Right";
+                            }
+                            }</code></pre>
                 </div>
 
                 <div class="comparison-container">
                     <h3>JavaScript Comparison</h3>
                     <p><strong>Old approach (with JavaScript):</strong></p>
                     <pre><code class="language-javascript">// Carousel required complex JavaScript
-let currentSlide = 0;
+                            let currentSlide = 0;
 
-function showSlide(index) {
-  const slides = document.querySelectorAll('.carousel-item');
-  slides.forEach((slide, i) => {
-    slide.style.transform = `translateX(-${index * 100}%)`;
-  });
-  updateDots(index);
-}
+                            function showSlide(index) {
+                            const slides = document.querySelectorAll('.carousel-item');
+                            slides.forEach((slide, i) => {
+                            slide.style.transform = `translateX(-${index * 100}%)`;
+                            });
+                            updateDots(index);
+                            }
 
-// Navigation buttons
-document.querySelector('.next-btn').addEventListener('click', () => {
-  currentSlide = (currentSlide + 1) % slideCount;
-  showSlide(currentSlide);
-});
+                            // Navigation buttons
+                            document.querySelector('.next-btn').addEventListener('click', () => {
+                            currentSlide = (currentSlide + 1) % slideCount;
+                            showSlide(currentSlide);
+                            });
 
-// Dot indicators
-function updateDots(index) {
-  document.querySelectorAll('.dot').forEach((dot, i) => {
-    dot.classList.toggle('active', i === index);
-  });
-}
+                            // Dot indicators
+                            function updateDots(index) {
+                            document.querySelectorAll('.dot').forEach((dot, i) => {
+                            dot.classList.toggle('active', i === index);
+                            });
+                            }
 
-// Plus: touch event handling, drag detection,
-// momentum scrolling, snap calculations, dot clicks...</code></pre>
+                            // Plus: touch event handling, drag detection,
+                            // momentum scrolling, snap calculations, dot clicks...</code></pre>
 
                     <p><strong>New approach (pure CSS):</strong></p>
                     <p>Zero JavaScript! CSS handles everything:</p>
                     <ul>
                         <li><strong>scroll-snap</strong> - Smooth snapping behavior</li>
                         <li><strong>scroll-marker-group</strong> - Auto-generated interactive dots</li>
-                        <li><strong>::scroll-marker</strong> - Individual dot styling with :target-current for active state</li>
+                        <li><strong>::scroll-marker</strong> - Individual dot styling with :target-current for active
+                            state</li>
                         <li><strong>::scroll-button</strong> - Auto-generated navigation arrows</li>
                     </ul>
 
@@ -836,9 +840,11 @@ function updateDots(index) {
                                 target="_blank">MDN: scroll-snap-type</a></li>
                         <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap"
                                 target="_blank">MDN: CSS Scroll Snap</a></li>
-                        <li><a href="https://developer.chrome.com/blog/scroll-snap-events" target="_blank">Chrome: Scroll Markers
+                        <li><a href="https://developer.chrome.com/blog/scroll-snap-events" target="_blank">Chrome:
+                                Scroll Markers
                                 & Buttons</a></li>
-                        <li><a href="https://caniuse.com/css-snappoints" target="_blank">Can I Use: scroll-snap Support</a>
+                        <li><a href="https://caniuse.com/css-snappoints" target="_blank">Can I Use: scroll-snap
+                                Support</a>
                         </li>
                         <li><a href="https://css-tricks.com/practical-css-scroll-snapping/" target="_blank">CSS-Tricks:
                                 Scroll Snapping Guide</a></li>
@@ -930,79 +936,79 @@ function updateDots(index) {
                 <div class="code-example">
                     <h3>Code Example: Basic Popover</h3>
                     <pre><code class="language-html">&lt;button popovertarget="my-popover"&gt;Open&lt;/button&gt;
-&lt;div popover id="my-popover"&gt;
-  Popover content
-&lt;/div&gt;</code></pre>
+                            &lt;div popover id="my-popover"&gt;
+                            Popover content
+                            &lt;/div&gt;</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example: Modal with Close Button</h3>
                     <pre><code class="language-html">&lt;button popovertarget="modal"&gt;Open Modal&lt;/button&gt;
 
-&lt;div popover id="modal" class="modal"&gt;
-  &lt;button popovertarget="modal" popovertargetaction="hide"&gt;
-    Close
-  &lt;/button&gt;
-  &lt;h3&gt;Modal Content&lt;/h3&gt;
-  &lt;p&gt;Modal text here&lt;/p&gt;
-&lt;/div&gt;</code></pre>
+                            &lt;div popover id="modal" class="modal"&gt;
+                            &lt;button popovertarget="modal" popovertargetaction="hide"&gt;
+                            Close
+                            &lt;/button&gt;
+                            &lt;h3&gt;Modal Content&lt;/h3&gt;
+                            &lt;p&gt;Modal text here&lt;/p&gt;
+                            &lt;/div&gt;</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>CSS Styling</h3>
                     <pre><code class="language-css">/* Style the popover */
-[popover] {
-  padding: 1.5rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
-  background: white;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
+                            [popover] {
+                            padding: 1.5rem;
+                            border: 2px solid #e5e7eb;
+                            border-radius: 8px;
+                            background: white;
+                            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                            }
 
-/* Backdrop (automatically created) */
-[popover]::backdrop {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
-}
+                            /* Backdrop (automatically created) */
+                            [popover]::backdrop {
+                            background: rgba(0, 0, 0, 0.5);
+                            backdrop-filter: blur(4px);
+                            }
 
-/* Open state */
-[popover]:popover-open {
-  opacity: 1;
-}</code></pre>
+                            /* Open state */
+                            [popover]:popover-open {
+                            opacity: 1;
+                            }</code></pre>
                 </div>
 
                 <div class="comparison-container">
                     <h3>JavaScript Comparison</h3>
                     <p><strong>Old approach (with JavaScript):</strong></p>
                     <pre><code class="language-javascript">// Modal required extensive JavaScript
-const modal = document.querySelector('.modal');
-const openBtn = document.querySelector('.open-btn');
-const closeBtn = document.querySelector('.close-btn');
+                            const modal = document.querySelector('.modal');
+                            const openBtn = document.querySelector('.open-btn');
+                            const closeBtn = document.querySelector('.close-btn');
 
-openBtn.addEventListener('click', () => {
-  modal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  modal.focus(); // Manual focus management
-});
+                            openBtn.addEventListener('click', () => {
+                            modal.classList.add('open');
+                            document.body.style.overflow = 'hidden';
+                            modal.focus(); // Manual focus management
+                            });
 
-closeBtn.addEventListener('click', () => {
-  modal.classList.remove('open');
-  document.body.style.overflow = '';
-});
+                            closeBtn.addEventListener('click', () => {
+                            modal.classList.remove('open');
+                            document.body.style.overflow = '';
+                            });
 
-// Escape key handler
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modal.classList.contains('open')) {
-    modal.classList.remove('open');
-  }
-});
+                            // Escape key handler
+                            document.addEventListener('keydown', (e) => {
+                            if (e.key === 'Escape' && modal.classList.contains('open')) {
+                            modal.classList.remove('open');
+                            }
+                            });
 
-// Click outside to close
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.classList.remove('open');
-  }
-});</code></pre>
+                            // Click outside to close
+                            modal.addEventListener('click', (e) => {
+                            if (e.target === modal) {
+                            modal.classList.remove('open');
+                            }
+                            });</code></pre>
 
                     <p><strong>New approach (Popover API):</strong></p>
                     <p>Zero JavaScript! The browser handles opening, closing, focus, Escape key, and backdrop
@@ -1103,54 +1109,54 @@ modal.addEventListener('click', (e) => {
                 <div class="code-example">
                     <h3>Code Example: Animating display</h3>
                     <pre><code class="language-css">/* Element with display animation */
-.box {
-  display: block;
-  opacity: 1;
-  transition:
-    opacity 0.4s ease-out,
-    display 0.4s allow-discrete;
-}
+                            .box {
+                            display: block;
+                            opacity: 1;
+                            transition:
+                            opacity 0.4s ease-out,
+                            display 0.4s allow-discrete;
+                            }
 
-/* Hidden state */
-.box.hidden {
-  display: none;
-  opacity: 0;
-}
+                            /* Hidden state */
+                            .box.hidden {
+                            display: none;
+                            opacity: 0;
+                            }
 
-/* Starting state for entry animation */
-@starting-style {
-  .box {
-    opacity: 0;
-  }
-}</code></pre>
+                            /* Starting state for entry animation */
+                            @starting-style {
+                            .box {
+                            opacity: 0;
+                            }
+                            }</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example: Smooth Accordion</h3>
                     <pre><code class="language-css">/* Details/Summary accordion */
-details {
-  transition: height 0.3s ease-out;
-}
+                            details {
+                            transition: height 0.3s ease-out;
+                            }
 
-details[open] {
-  height: auto;
-}
+                            details[open] {
+                            height: auto;
+                            }
 
-/* Smooth content reveal */
-details[open] > .content {
-  animation: slideDown 0.3s ease-out;
-}
+                            /* Smooth content reveal */
+                            details[open] > .content {
+                            animation: slideDown 0.3s ease-out;
+                            }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}</code></pre>
+                            @keyframes slideDown {
+                            from {
+                            opacity: 0;
+                            transform: translateY(-10px);
+                            }
+                            to {
+                            opacity: 1;
+                            transform: translateY(0);
+                            }
+                            }</code></pre>
                 </div>
 
                 <div class="comparison-container">
@@ -1161,20 +1167,20 @@ details[open] > .content {
 
                     <p><strong>The old workaround (with JavaScript):</strong></p>
                     <pre><code class="language-javascript">// Had to use setTimeout and remove display manually
-function fadeOut(element) {
-  element.style.opacity = '0';
-  setTimeout(() => {
-    element.style.display = 'none';
-  }, 300); // Match transition duration
-}
+                            function fadeOut(element) {
+                            element.style.opacity = '0';
+                            setTimeout(() => {
+                            element.style.display = 'none';
+                            }, 300); // Match transition duration
+                            }
 
-function fadeIn(element) {
-  element.style.display = 'block';
-  element.style.opacity = '0';
-  setTimeout(() => {
-    element.style.opacity = '1';
-  }, 10); // Force reflow
-}</code></pre>
+                            function fadeIn(element) {
+                            element.style.display = 'block';
+                            element.style.opacity = '0';
+                            setTimeout(() => {
+                            element.style.opacity = '1';
+                            }, 10); // Force reflow
+                            }</code></pre>
 
                     <p><strong>The new solution (pure CSS):</strong></p>
                     <ul>
@@ -1221,15 +1227,15 @@ function fadeIn(element) {
                 <div class="code-example">
                     <h3>Code Example</h3>
                     <pre><code class="language-css">/* Anchor positioning */
-.anchor {
-  anchor-name: --my-anchor;
-}
+                            .anchor {
+                            anchor-name: --my-anchor;
+                            }
 
-.tooltip {
-  position: absolute;
-  position-anchor: --my-anchor;
-  top: anchor(bottom);
-}</code></pre>
+                            .tooltip {
+                            position: absolute;
+                            position-anchor: --my-anchor;
+                            top: anchor(bottom);
+                            }</code></pre>
                 </div>
 
                 <div class="resources">
@@ -1262,9 +1268,9 @@ function fadeIn(element) {
                 <div class="code-example">
                     <h3>Code Example</h3>
                     <pre><code class="language-html">&lt;button popovertarget="menu" popovertargetaction="toggle"&gt;
-  Toggle Menu
-&lt;/button&gt;
-&lt;div popover id="menu"&gt;Menu content&lt;/div&gt;</code></pre>
+                            Toggle Menu
+                            &lt;/button&gt;
+                            &lt;div popover id="menu"&gt;Menu content&lt;/div&gt;</code></pre>
                 </div>
 
                 <div class="resources">
@@ -1298,15 +1304,15 @@ function fadeIn(element) {
                 <div class="code-example">
                     <h3>Code Example</h3>
                     <pre><code class="language-javascript">// Intersection Observer
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-});
+                            const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            }
+                            });
+                            });
 
-observer.observe(element);</code></pre>
+                            observer.observe(element);</code></pre>
                 </div>
 
                 <div class="resources">
@@ -1327,29 +1333,232 @@ observer.observe(element);</code></pre>
                 </header>
 
                 <div class="feature-description">
-                    <p>Style elements based on scroll position using pure CSS.</p>
+                    <p>The <code>scroll-state()</code> function enables CSS container queries based on scroll states
+                        like <code>stuck</code>, <code>snapped</code>, <code>scrollable</code>, and
+                        <code>scrolled</code>. Detect when sticky elements stick, when scroll containers are at certain
+                        positions, or track scroll direction—all without JavaScript.
+                    </p>
+                    <p><strong>Browser Support:</strong> Chrome 133+, Safari 18+ (requires <code>container-type:
+                            scroll-state</code>)</p>
                 </div>
 
+                <!-- Browser Support Indicator -->
+                <div class="scroll-state-support-indicator">
+                    Your browser does not support scroll-state() queries. Please use Chrome 133+ or Safari 18+ to see
+                    the demos in action.
+                </div>
+
+                <!-- Demo 1: Sticky Header Detection -->
                 <div class="demo-container">
-                    <h3>Demo Area</h3>
-                    <!-- Demo content will be added in Phase 4 -->
+                    <h3>Demo 1: Sticky Header Detection</h3>
+                    <p class="demo-description">Scroll down to see the header change style when it becomes stuck to the
+                        top. The CSS detects the stuck state and applies different styling automatically.</p>
+
+                    <div class="scroll-state-demo-1">
+                        <header class="sticky-header">
+                            <div class="header-content">Scroll to See Magic ✨</div>
+                        </header>
+                        <div class="content">
+                            <p>This is a scrollable container with a sticky header. As you scroll down, watch how the
+                                header changes appearance when it sticks to the top.</p>
+
+                            <div class="content-block">
+                                <h4>What's Happening?</h4>
+                                <p>The container has <code>container-type: scroll-state</code>, which enables
+                                    scroll-state queries. When the sticky header reaches the top and "sticks," the CSS
+                                    query <code>@container scroll-state(stuck: top)</code> activates, applying new
+                                    styles.</p>
+                            </div>
+
+                            <div class="content-block">
+                                <h4>CSS-Only Detection</h4>
+                                <p>No JavaScript needed! The browser natively detects when the sticky element is stuck
+                                    and allows you to style it accordingly. This is perfect for navigation bars, table
+                                    headers, and any sticky UI elements.</p>
+                            </div>
+
+                            <div class="content-block">
+                                <h4>Performance Benefits</h4>
+                                <p>Since this is handled by CSS, it's highly performant. No scroll event listeners, no
+                                    layout thrashing, no JavaScript performance overhead. The browser handles everything
+                                    efficiently.</p>
+                            </div>
+
+                            <p>Keep scrolling to see more content...</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris.</p>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                            <p>Scroll back up to see the header return to its original style.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demo 2: Scroll Position Detection -->
+                <div class="demo-container">
+                    <h3>Demo 2: Scroll Position Detection</h3>
+                    <p class="demo-description">Scroll down to hide the header and reveal a "Back to Top" button. The
+                        demo uses <code>scroll-state(scrollable: top)</code> to detect when you can scroll back up,
+                        indicating you've scrolled down from the top.
+                    </p>
+
+                    <div class="scroll-state-demo-2" id="scroll-state-demo-2">
+                        <header class="floating-header">
+                            <div class="header-text">Direction-Aware Header</div>
+                        </header>
+                        <div class="article">
+                            <h3>The Power of CSS Scroll Detection</h3>
+                            <p>Modern CSS can now detect scroll direction without any JavaScript. As you scroll down
+                                this article, watch the header disappear and a "Back to Top" button appear.</p>
+
+                            <p>The <code>scroll-state(scrollable)</code> query detects whether content can be scrolled
+                                in a given direction, with values like <span class="highlight">top</span>, <span
+                                    class="highlight">bottom</span>, <span class="highlight">left</span>, and <span
+                                    class="highlight">right</span>. When <code>scrollable: top</code> is true, it means
+                                you can scroll up—indicating you've already scrolled down!</p>
+
+                            <h3>Why This Matters</h3>
+                            <p>Traditionally, detecting scroll position required JavaScript event listeners, scroll
+                                calculations, and state management. Now, CSS handles it natively with better performance
+                                and simpler code.</p>
+
+                            <p>This technique is perfect for:</p>
+                            <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; list-style: disc;">
+                                <li>Auto-hiding navigation bars</li>
+                                <li>Showing/hiding floating action buttons</li>
+                                <li>Context-aware UI elements</li>
+                                <li>Reading mode optimizations</li>
+                            </ul>
+
+                            <h3>Browser Support</h3>
+                            <p>The <code>scrollable</code> state is available in Chrome 133+ and Safari 18+. Other
+                                states include <code>stuck</code> for sticky positioning and <code>snapped</code> for
+                                scroll-snap detection.</p>
+
+                            <p>Keep scrolling to see the full effect of direction-aware styling...</p>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                                officia deserunt mollit anim id est laborum.</p>
+
+                            <p>Now scroll back up to see the header reappear and the button disappear!</p>
+                        </div>
+                        <button onclick="`${document.querySelector('#scroll-state-demo-2').scrollTo({top: 0})}`"
+                            class="back-to-top" aria-label="Back to top">↑ Back to Top</button>
+                    </div>
+                </div>
+
+                <!-- Code Examples -->
+                <div class="code-example">
+                    <h3>Code Example: Sticky Header Detection</h3>
+                    <pre><code class="language-css">/* The sticky element itself is the container */
+                            .sticky-header {
+                            container-name: sticky-heading;
+                            container-type: scroll-state;
+                            position: sticky;
+                            top: 0;
+                            }
+
+                            /* Style the content inside */
+                            .header-content {
+                            padding: 1rem 1.5rem;
+                            background: #f9fafb;
+                            transition: all 250ms;
+                            }
+
+                            /* Apply styles when stuck to top */
+                            @container sticky-heading scroll-state(stuck: top) {
+                            .header-content {
+                            background: white;
+                            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                            color: #3b82f6;
+                            }
+                            }</code></pre>
                 </div>
 
                 <div class="code-example">
-                    <h3>Code Example</h3>
-                    <pre><code class="language-css">/* Scroll-aware styles */
-.header {
-  background: scroll-state(stuck) ? #fff : transparent;
-  box-shadow: scroll-state(stuck) ? 0 2px 4px rgba(0,0,0,0.1) : none;
-}</code></pre>
+                    <h3>Code Example: Scroll Position Detection</h3>
+                    <pre><code class="language-css">/* The scrollable container is the scroll-state container */
+                            .scrollable-area {
+                            container-name: scrollable-area;
+                            container-type: scroll-state;
+                            overflow-y: auto;
+                            height: 500px;
+                            }
+
+                            /* Hide header when can scroll up (user scrolled down) */
+                            @container scrollable-area scroll-state(scrollable: top) {
+                            .header-text {
+                            transform: translateY(-100%);
+                            opacity: 0;
+                            }
+                            }
+
+                            /* Show back-to-top button when can scroll up */
+                            @container scrollable-area scroll-state(scrollable: top) {
+                            .back-to-top {
+                            opacity: 1;
+                            pointer-events: auto;
+                            }
+                            }</code></pre>
                 </div>
 
+                <!-- JavaScript Comparison -->
+                <div class="comparison">
+                    <h3>Without CSS (JavaScript Approach)</h3>
+                    <pre><code class="language-javascript">// Detect sticky state with JavaScript
+                            const header = document.querySelector('.header');
+                            const observer = new IntersectionObserver(
+                            ([entry]) => {
+                            header.classList.toggle('stuck', !entry.isIntersecting);
+                            },
+                            { threshold: [1] }
+                            );
+
+                            // Track scroll direction
+                            let lastScrollY = window.scrollY;
+                            window.addEventListener('scroll', () => {
+                            const currentScrollY = window.scrollY;
+                            if (currentScrollY > lastScrollY) {
+                            header.classList.add('scrolled-down');
+                            } else {
+                            header.classList.remove('scrolled-down');
+                            }
+                            lastScrollY = currentScrollY;
+                            }, { passive: true });</code></pre>
+
+                    <h3>With CSS (scroll-state)</h3>
+                    <pre><code class="language-css">/* Just enable scroll-state and use queries */
+                            .container {
+                            container-type: scroll-state;
+                            }
+
+                            @container scroll-state(stuck: top) {
+                            .header { /* styles */ }
+                            }
+
+                            @container scroll-state(scrollable: top) {
+                            .header { /* styles when can scroll up */ }
+                            }</code></pre>
+                </div>
+
+                <!-- Resources -->
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-state" target="_blank">MDN
-                                Documentation</a></li>
-                        <li><a href="https://caniuse.com/?search=scroll-state" target="_blank">Browser Support</a></li>
+                        <li><a href="https://developer.chrome.com/blog/css-scroll-state-queries" target="_blank">Chrome
+                                for Developers: CSS scroll-state() queries</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Conditional_rules/Container_scroll-state_queries"
+                                target="_blank">MDN: Container scroll-state queries</a></li>
+                        <li><a href="https://una.im/scroll-state-scrolled" target="_blank">Una Kravets: Directional CSS
+                                with scroll-state()</a></li>
+                        <li><a href="https://caniuse.com/?search=scroll-state" target="_blank">Browser Support on Can I
+                                Use</a></li>
                     </ul>
                 </div>
             </section>
@@ -1374,13 +1583,13 @@ observer.observe(element);</code></pre>
                 <div class="code-example">
                     <h3>Code Example</h3>
                     <pre><code class="language-css">/* Styleable select */
-select {
-  appearance: base-select;
-  background: white;
-  border: 2px solid #ccc;
-  padding: 0.5rem;
-  border-radius: 8px;
-}</code></pre>
+                            select {
+                            appearance: base-select;
+                            background: white;
+                            border: 2px solid #ccc;
+                            padding: 0.5rem;
+                            border-radius: 8px;
+                            }</code></pre>
                 </div>
 
                 <div class="resources">
