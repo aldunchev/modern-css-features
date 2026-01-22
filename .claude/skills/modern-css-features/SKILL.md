@@ -172,7 +172,7 @@ dialog[open] {
 #### 6. scroll-state() - CSS Scroll Detection
 **What it does:** Detect scroll state (stuck, scrollable, snapped) with pure CSS
 **Replaces:** JavaScript scroll event listeners, IntersectionObserver for scroll effects
-**Browser support:** Chrome 133+, Safari 18+
+**Browser support:** Chrome 133+ (scrollable, stuck, snapped), Chrome 144+ (scrolled)
 **File:** `css/features/scroll-state.css`
 
 **Use cases:**
@@ -180,36 +180,47 @@ dialog[open] {
 - Back-to-top buttons that appear when scrollable
 - Scroll-aware navigation (hide on scroll down)
 
+**⚠️ CRITICAL GOTCHAS - READ FIRST:**
+See [SCROLL_STATE_GOTCHAS.md](SCROLL_STATE_GOTCHAS.md) for complete implementation guide.
+
+**Three Critical Rules:**
+1. **CANNOT query the container itself** - only style children
+2. **Use `scrollable` not `scrolled`** - better browser support (133+ vs 144+)
+3. **Container must be named + sticky/scrollable** - `container-name` required
+
 **Example - Sticky Header:**
 ```css
-/* CRITICAL: Sticky element needs container-type */
+/* CRITICAL: Sticky element IS the container */
 .sticky-header {
   position: sticky;
   top: 0;
+  container-name: sticky-heading; /* Name required */
   container-type: scroll-state;
-  container-name: sticky-header;
 }
 
-/* Child wrapper gets styled (not the container itself!) */
-.sticky-header-content {
+/* Style CHILD wrapper (not container!) */
+.header-content {
   padding: 1rem 2rem;
+  background: #f9fafb;
   transition: all 0.3s ease;
 }
 
-/* Detect when sticky element is stuck, style its CHILD */
-@container sticky-header scroll-state(stuck: top) {
-  .sticky-header-content {
+/* Detect stuck state, style CHILD */
+@container sticky-heading scroll-state(stuck: top) {
+  .header-content {
+    background: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(10px);
+    color: #3b82f6;
   }
 }
 ```
 
 **Required HTML Structure:**
 ```html
+<!-- Container = sticky element -->
 <div class="sticky-header">
-  <div class="sticky-header-content">
+  <!-- Child gets styled -->
+  <div class="header-content">
     <h4>Header Title</h4>
   </div>
 </div>
@@ -217,33 +228,51 @@ dialog[open] {
 
 **Example - Back-to-Top Button:**
 ```css
-.container {
+/* Scrollable container IS the container */
+.scrollable-area {
+  overflow-y: auto;
+  height: 500px;
+  container-name: scrollable-area; /* Name required */
   container-type: scroll-state;
-  container-name: scroll-container;
 }
 
+/* Button hidden by default */
 .back-to-top {
   position: sticky;
   bottom: 20px;
-  margin-left: auto;
   opacity: 0;
   pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-/* Show when user can scroll to top */
-@container scroll-container scroll-state(scrollable: top) {
+/* Show when can scroll up (user scrolled down) */
+@container scrollable-area scroll-state(scrollable: top) {
   .back-to-top {
-    opacity: 1;
-    pointer-events: auto;
+    opacity: 1 !important; /* !important for specificity */
+    pointer-events: auto !important;
   }
 }
 ```
 
-**CRITICAL: Container Query Pattern for stuck detection**
-- `container-type: scroll-state` must be on the **sticky element itself**
-- You can only style **children** of that sticky element, not the element itself
-- Requires a wrapper div inside the sticky element to apply visual changes
-- The sticky element detects its own stuck state and allows styling of its children
+**Button Click Handler:**
+```html
+<!-- Use scrollTo(), NOT anchor links -->
+<button class="back-to-top"
+  onclick="this.closest('.scrollable-area').scrollTo({top: 0, behavior: 'smooth'})">
+  ↑ Back to Top
+</button>
+```
+
+**Why `scrollable: top` not `scrolled: down`?**
+- `scrollable: top` = "can scroll up" = user has scrolled down (Chrome 133+) ✅
+- `scrolled: down` = "user scrolling down" = very new (Chrome 144+) ⚠️
+
+**CRITICAL IMPLEMENTATION NOTES:**
+- Container queries style **descendants**, NOT the container itself
+- Must use `container-name` to target specific containers
+- Use `!important` if base styles have higher specificity
+- For scrollable containers, use `scrollTo()` not anchor links
+- See [SCROLL_STATE_GOTCHAS.md](SCROLL_STATE_GOTCHAS.md) for complete details
 
 ### Tier 2 & 3: Emerging Features (Planned/Documentation Only)
 
