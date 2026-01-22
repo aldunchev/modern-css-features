@@ -4,11 +4,12 @@
 
 ## Agenda
 
-- AI planning phase
-- The end result
-- Live demo
+- What We Built
+- The Planning Phase and The Implementation Plan
+- Live demo for implementing a new feature
 - AI Usage details
-- Key takeaways and Key Mindset Shifts
+- Key takeaways and the Key Mindset Shift
+- 3 free guest passes pitch
 
 ## Quick Stats
 
@@ -19,71 +20,11 @@
 
 ---
 
-## 1. The Planning Phase (5 min)
-
-### How It Started
-
-📄 [INITIAL_PROMPT.md](./INITIAL_PROMPT.md) - Using Claude code planning phase
-
-**Dual Purpose:**
-
-1. Teach modern CSS features that replace JavaScript
-2. Demonstrate effective AI workflow with Claude Code
-
-### Strategic Questions
-
-📄 [PLANNING_PHASE.md](./PLANNING_PHASE.md)
-
-Claude asked:
-
-- Target audience? → Mixed (senior devs + back-end)
-- Tech stack? → Vanilla HTML/CSS/JS, single page
-- Which features? → 10 modern CSS features
-- Document AI workflow? → Yes!
-
-### Proactive Suggestions
-
-Claude **proactively suggested** Prism.js for syntax highlighting:
-
-- Lightweight library via CDN
-- Supports HTML, CSS, JavaScript
-- Professional code display
-
-**Result:** Used throughout the project - code examples look great!
-
-**Planning time:** 15-20 minutes
-**Key insight:** Good planning prevents wasted implementation effort
-
----
-
-## 2. The Implementation Plan (2 min)
-
-📄 [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md)
-
-**6 Phases Planned:**
-
-1. Foundation & Git Setup
-2. Feature Detection System
-3. Tier 1 Features (5 widely-supported)
-4. Tier 2 & 3 Features (5 emerging)
-5. AI Workflow Documentation ⭐
-6. Polish, README & Deployment
-
-**Claude Code tools identified:**
-
-- Explore agent → Research demos
-- WebSearch → Browser support (parallel)
-- TodoWrite → Track tasks
-- Write/Edit → Generate code
-- Bash → Git commits
-
----
-
-## 3. What We Built (8 min)
+## 1. What We Built (8 min)
 
 ### Completed Features (60%)
 
-🎨 **Live Demo:** [index.html](https://aldunchev.github.io/modern-css-features/)
+🎨 **Live Demo:** [https://aldunchev.github.io/modern-css-features/](https://aldunchev.github.io/modern-css-features/)
 
 1. **:has() selector**
    - Parent/sibling selection without JS
@@ -125,7 +66,99 @@ Claude **proactively suggested** Prism.js for syntax highlighting:
 
 ---
 
-## 4. The PIV Loop (5 min)
+## 2. The Planning Phase (5 min)
+
+### How It Started
+
+📄 [INITIAL_PROMPT.md](./INITIAL_PROMPT.md) - Using Claude code planning phase
+
+### Live demo of the planning phase with the [INITIAL_PROMPT.md](./INITIAL_PROMPT.md)
+
+**Dual Purpose:**
+
+1. Teach modern CSS features that replace JavaScript
+2. Demonstrate effective AI workflow with Claude Code
+
+### Strategic Questions
+
+📄 [PLANNING_PHASE.md](./PLANNING_PHASE.md)
+
+Claude asked:
+
+- Target audience? → Mixed (senior devs + back-end)
+- Tech stack? → Vanilla HTML/CSS/JS, single page
+- Which features? → 10 modern CSS features
+- Document AI workflow? → Yes!
+
+### Proactive Suggestions
+
+Claude **proactively suggested** Prism.js for syntax highlighting:
+
+- Lightweight library via CDN
+- Supports HTML, CSS, JavaScript
+- Professional code display
+
+**Result:** Used throughout the project - code examples look great!
+
+**Planning time:** 15-20 minutes
+**Key insight:** Good planning prevents wasted implementation effort
+
+---
+
+## 3. The Implementation Plan (2 min)
+
+📄 [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md)
+
+**6 Phases Planned:**
+
+1. Foundation & Git Setup
+2. Feature Detection System
+3. Tier 1 Features (5 widely-supported)
+4. Tier 2 & 3 Features (5 emerging)
+5. AI Workflow Documentation ⭐
+6. Polish, README & Deployment
+
+**Claude Code tools identified:**
+
+- Explore agent → Research demos
+- WebSearch → Browser support (parallel)
+- TodoWrite → Track tasks
+- Write/Edit → Generate code
+- Bash → Git commits
+
+---
+
+## 4. Live Demo: Implementing scroll-state() (8 min)
+
+> **Live demonstration of the full workflow from research to commit**
+
+### Step 1: Research (3 min)
+
+**Prompt to use:**
+
+```
+Use Explore agent to research CSS scroll-state() function.
+Find 2-3 practical examples that replace JavaScript scroll listeners.
+Focus on header styling and back-to-top buttons.
+Update after that the @PROJECT_STATUS.md
+```
+
+### Step 2: Implement (3 min)
+
+**Prompt to use:**
+
+```
+Create css/features/scroll-state.css with two demos:
+1. Header that changes background/shadow when scrolled
+2. Back-to-top button that appears on scroll
+
+Include @supports detection for progressive enhancement.
+Add comments explaining the approach.
+```
+
+---
+
+## 5. The PIV Loop (5 min)
 
 ### Plan → Implement → Validate
 
@@ -133,10 +166,11 @@ This methodology ensures quality AI-assisted development:
 
 #### **PLAN** (15-20 min)
 
+- Shift + tab to switch to plan mode
 - Ask strategic questions
 - Clarify requirements
 - Create implementation roadmap
-- Identify tools to use
+- Identify tools to use - Claude does that automatically, but it does not hurt to specify
 
 **Example:** The planning conversation in [PLANNING_PHASE.md](./PLANNING_PHASE.md)
 
@@ -172,7 +206,7 @@ This methodology ensures quality AI-assisted development:
 
 ---
 
-## 5. Key Mindset Shifts (5 min)
+## 6. Key Mindset Shifts (5 min)
 
 📄 **Reference:** [CHEAT_SHEET.md](./CHEAT_SHEET.md) § Key Mindset Shifts
 
@@ -225,7 +259,7 @@ This methodology ensures quality AI-assisted development:
 
 ---
 
-## 6. Exploration Tools Deep Dive (5 min)
+## 7. Exploration Tools Deep Dive (5 min)
 
 ### How We Used Tools
 
@@ -260,7 +294,7 @@ Result: Verified support across Chrome, Firefox, Safari in 30 seconds
 
 ---
 
-## 7. The Time Savings Breakdown (3 min)
+## 8. The Time Savings Breakdown (3 min)
 
 | Task                | Manual          | With Claude Code | Savings |
 | ------------------- | --------------- | ---------------- | ------- |
@@ -286,7 +320,7 @@ Result: Verified support across Chrome, Firefox, Safari in 30 seconds
 
 ---
 
-## 8. Lessons Learned (3 min)
+## 9. Lessons Learned (3 min)
 
 ### ✅ What Worked
 
@@ -309,81 +343,6 @@ Result: Verified support across Chrome, Firefox, Safari in 30 seconds
 **Issue:** `@starting-style` animation didn't work
 **Root cause:** Had `prefers-reduced-motion` enabled in system settings
 **Lesson:** AI correctly implemented the code, but couldn't test accessibility settings
-
----
-
-## 9. Live Demo: Implementing scroll-state() (8 min)
-
-> **Live demonstration of the full workflow from research to commit**
-
-### Step 1: Research (3 min)
-
-**Prompt to use:**
-
-```
-Use Explore agent to research CSS scroll-state() function.
-Find 2-3 practical examples that replace JavaScript scroll listeners.
-Focus on header styling and back-to-top buttons.
-```
-
-**What to show:**
-
-- How Explore agent works
-- Results returned
-- Quick scan of findings
-
-### Step 2: Implement (3 min)
-
-**Prompt to use:**
-
-```
-Create css/features/scroll-state.css with two demos:
-1. Header that changes background/shadow when scrolled
-2. Back-to-top button that appears on scroll
-
-Include @supports detection for progressive enhancement.
-Add comments explaining the approach.
-```
-
-**What to show:**
-
-- Generated CSS file
-- Scroll through code
-- Point out @supports usage
-- Show progressive enhancement
-
-### Step 3: Test & Commit (2 min)
-
-**Actions:**
-
-1. Open index.html in browser
-2. Scroll to see header change
-3. Scroll to see back-to-top button
-4. Commit with Bash tool:
-
-```bash
-git add css/features/scroll-state.css
-
-git commit -m "$(cat <<'EOF'
-feat: add scroll-state() function demonstration
-
-Implemented CSS scroll-state() feature with 2 demos:
-- Header that changes style on scroll
-- Back-to-top button appears on scroll
-
-Includes @supports detection for progressive enhancement.
-
-Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>
-EOF
-)"
-```
-
-**Talking points:**
-
-- "Notice how fast that was - 8 minutes total"
-- "AI handled research, code generation, comments"
-- "I still reviewed the code before committing"
-- "This is the workflow you'll use for your first task"
 
 ---
 

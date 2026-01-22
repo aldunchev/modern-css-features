@@ -13,7 +13,7 @@ This Skill provides expert guidance on modern CSS features from a production-rea
 **Knowledge Base Location:**
 - **GitHub Repository:** https://github.com/aldunchev/modern-css-features
 - **Live Demos:** https://aldunchev.github.io/modern-css-features (once GitHub Pages is enabled)
-- **Implemented features:** 5 Tier 1 features (production-ready)
+- **Implemented features:** 6 features (5 Tier 1 production-ready + 1 Tier 2 emerging)
 - **Documentation:** `docs/FEATURES.md`, `docs/BROWSER_SUPPORT.md`, `docs/AI_WORKFLOW.md`
 - **Source code:** `css/features/*.css`, `index.html`
 
@@ -169,12 +169,87 @@ dialog[open] {
 }
 ```
 
-### Tier 2 & 3: Emerging Features (Documentation Available)
+#### 6. scroll-state() - CSS Scroll Detection
+**What it does:** Detect scroll state (stuck, scrollable, snapped) with pure CSS
+**Replaces:** JavaScript scroll event listeners, IntersectionObserver for scroll effects
+**Browser support:** Chrome 133+, Safari 18+
+**File:** `css/features/scroll-state.css`
 
-6. **Anchor positioning** (Chrome 125+, Firefox 145+) - Tooltip/popover positioning
-7. **Modal trigger commands** - `popovertarget` attribute (same as Popover API)
-8. **Modern Observer APIs** - IntersectionObserver, ResizeObserver, MutationObserver
-9. **scroll-state()** (Chrome 133+, Safari 18+) - Scroll-aware UI states
+**Use cases:**
+- Sticky headers that change appearance when stuck
+- Back-to-top buttons that appear when scrollable
+- Scroll-aware navigation (hide on scroll down)
+
+**Example - Sticky Header:**
+```css
+/* CRITICAL: Sticky element needs container-type */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  container-type: scroll-state;
+  container-name: sticky-header;
+}
+
+/* Child wrapper gets styled (not the container itself!) */
+.sticky-header-content {
+  padding: 1rem 2rem;
+  transition: all 0.3s ease;
+}
+
+/* Detect when sticky element is stuck, style its CHILD */
+@container sticky-header scroll-state(stuck: top) {
+  .sticky-header-content {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+  }
+}
+```
+
+**Required HTML Structure:**
+```html
+<div class="sticky-header">
+  <div class="sticky-header-content">
+    <h4>Header Title</h4>
+  </div>
+</div>
+```
+
+**Example - Back-to-Top Button:**
+```css
+.container {
+  container-type: scroll-state;
+  container-name: scroll-container;
+}
+
+.back-to-top {
+  position: sticky;
+  bottom: 20px;
+  margin-left: auto;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Show when user can scroll to top */
+@container scroll-container scroll-state(scrollable: top) {
+  .back-to-top {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+```
+
+**CRITICAL: Container Query Pattern for stuck detection**
+- `container-type: scroll-state` must be on the **sticky element itself**
+- You can only style **children** of that sticky element, not the element itself
+- Requires a wrapper div inside the sticky element to apply visual changes
+- The sticky element detects its own stuck state and allows styling of its children
+
+### Tier 2 & 3: Emerging Features (Planned/Documentation Only)
+
+7. **Anchor positioning** (Chrome 125+, Firefox 145+) - Tooltip/popover positioning
+8. **Modal trigger commands** - `popovertarget` attribute (same as Popover API)
+9. **Modern Observer APIs** - IntersectionObserver, ResizeObserver, MutationObserver
 10. **Styleable select** (Chrome 135+ experimental) - Custom select styling
 
 ## How to Use This Knowledge
@@ -240,11 +315,11 @@ When answering CSS questions, use this structure:
 - **@starting-style**: Chrome 117+, Firefox 129+, Safari 17.5+ (~88% coverage)
 
 ### Tier 2: Good Support (Use with Feature Detection)
+- **scroll-state()**: Chrome 133+, Safari 18+ (~30-40% coverage, but growing fast)
 - **Anchor positioning**: Chrome 125+, Firefox 145+ (~50% coverage)
 - **Modal trigger commands**: Same as Popover API (~90% coverage)
 
 ### Tier 3: Emerging (Use with Strong Fallbacks)
-- **scroll-state()**: Chrome 133+, Safari 18+ (~30% coverage)
 - **Styleable select**: Chrome 135+ only (~20% coverage)
 
 ## Example Interactions
@@ -477,5 +552,5 @@ This Skill helps users achieve:
 **GitHub Repository:** https://github.com/aldunchev/modern-css-features
 **Live Demos:** https://aldunchev.github.io/modern-css-features
 **Last Updated:** January 2026
-**Features Implemented:** 5 of 10 (Tier 1 complete, Tier 2/3 documented)
+**Features Implemented:** 6 of 10 (5 Tier 1 complete, 1 Tier 2 complete, remaining documented)
 **Status:** Production-ready, open source
