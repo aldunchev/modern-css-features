@@ -1322,34 +1322,290 @@ observer.observe(element);</code></pre>
             <!-- Feature 9: scroll-state() -->
             <section id="scroll-state" class="feature-section" role="tabpanel" aria-labelledby="scroll-state-tab">
                 <header class="feature-header">
-                    <h2>scroll-state() Function</h2>
-                    <div class="support-badge emerging">Emerging</div>
+                    <h2>scroll-state() Container Queries</h2>
+                    <div class="support-badge emerging">Emerging - Chrome 133+</div>
                 </header>
 
                 <div class="feature-description">
-                    <p>Style elements based on scroll position using pure CSS.</p>
+                    <p>Detect and respond to scroll states (direction, position, sticky state) using pure CSS container queries — no JavaScript required. Perfect for auto-hiding headers, back-to-top buttons, and sticky element effects.</p>
+                    <p><strong>Browser Support:</strong> Chrome 133+ (scrollable/stuck/snapped), Chrome 144+ (scrolled direction), Safari 18+ (scrollable/stuck)</p>
                 </div>
 
+                <!-- Feature Detection Warning -->
+                <div class="scroll-state-warning">
+                    This feature requires Chrome 133+ or Safari 18+. Please update your browser to see the demos.
+                </div>
+
+                <!-- Demo 1: Auto-Hide Header on Scroll Direction -->
                 <div class="demo-container">
-                    <h3>Demo Area</h3>
-                    <!-- Demo content will be added in Phase 4 -->
+                    <h3>Demo 1: Auto-Hide Header on Scroll Direction</h3>
+                    <p>Scroll down and the header hides. Scroll up and it reappears. Uses <code>scroll-state(scrolled)</code> to detect scroll direction — Chrome 144+ only.</p>
+
+                    <div class="scroll-direction-demo">
+                        <div class="demo-header">
+                            📜 Scroll to see me hide and show!
+                        </div>
+                        <div class="demo-content">
+                            <h4>How It Works</h4>
+                            <p>This demo uses <code>scroll-state(scrolled: bottom)</code> to detect when you're scrolling DOWN (toward the bottom) and hides the header. When you scroll UP (toward the top), <code>scroll-state(scrolled: top)</code> brings it back.</p>
+
+                            <h4>Why This is Better Than JavaScript</h4>
+                            <p>Traditional implementations require scroll event listeners, throttling, direction tracking, and state management. With CSS scroll-state(), it's completely declarative and performant.</p>
+
+                            <h4>The JavaScript You DON'T Need</h4>
+                            <p>No more <code>addEventListener('scroll')</code>, no debouncing logic, no <code>lastScrollTop</code> variables. Just pure CSS that responds instantly to scroll direction changes.</p>
+
+                            <h4>Performance Benefits</h4>
+                            <p>Browser-native scroll detection means zero JavaScript execution, no layout thrashing, and buttery-smooth animations that run on the compositor thread.</p>
+
+                            <h4>Keep Scrolling!</h4>
+                            <p>The header will hide when you scroll down and reveal when you scroll up. This creates a more immersive reading experience while keeping navigation accessible.</p>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- Demo 2: Back-to-Top Button -->
+                <div class="demo-container">
+                    <h3>Demo 2: Back-to-Top Button</h3>
+                    <p>Scroll down to reveal a "Back to Top" button. Uses <code>scroll-state(scrollable)</code> — Chrome 133+, Safari 18+.</p>
+
+                    <div class="back-to-top-demo">
+                        <article>
+                            <h4>Article Title: Understanding CSS scroll-state()</h4>
+                            <p>Container scroll-state queries allow you to style elements based on the scroll position and state of a scrollable container. This is particularly useful for implementing common UI patterns without JavaScript.</p>
+
+                            <h4>The scrollable Query</h4>
+                            <p>The <code>scroll-state(scrollable: top)</code> query returns true when the container CAN be scrolled upward — meaning the user has scrolled down. Perfect for showing "back to top" buttons!</p>
+
+                            <p><code>scroll-state(scrollable: bottom)</code> returns true when there's more content below. Great for infinite scroll indicators or "more content" hints.</p>
+
+                            <h4>Why Use scrollable Over scrolled?</h4>
+                            <p>The <code>scrollable</code> query has much better browser support (Chrome 133+, Safari 18+) compared to <code>scrolled</code> which only works in Chrome 144+. For most use cases, scrollable is the right choice.</p>
+
+                            <h4>Implementation Pattern</h4>
+                            <p>Create a scrollable container with <code>container-type: scroll-state</code> and <code>container-name</code>. Then use container queries to style child elements based on scroll position.</p>
+
+                            <p>The button below uses <code>opacity: 0</code> by default and becomes visible when the container is scrollable to the top. Click it to smoothly scroll back up!</p>
+
+                            <h4>Progressive Enhancement</h4>
+                            <p>Always provide fallbacks for browsers without support. In this case, the button can remain visible or be hidden entirely depending on your design requirements.</p>
+
+                            <p>Keep scrolling to see the button appear as you read through this article. The transition is smooth and controlled entirely by CSS — no JavaScript scroll listeners required.</p>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </article>
+
+                        <button class="back-to-top-button" onclick="this.closest('.back-to-top-demo').scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">
+                            ↑ Back to Top
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Demo 3: Sticky Header Shadow -->
+                <div class="demo-container">
+                    <h3>Demo 3: Sticky Header Shadow</h3>
+                    <p>Scroll down and watch the header gain a shadow when it becomes stuck. Uses <code>scroll-state(stuck)</code> — Chrome 133+, Safari 18+.</p>
+
+                    <div class="sticky-shadow-demo">
+                        <div class="sticky-shadow-header">
+                            <div class="header-content">
+                                <h4>Sticky Header — Watch for the Shadow!</h4>
+                            </div>
+                        </div>
+
+                        <div class="demo-content">
+                            <h4>The stuck State</h4>
+                            <p>The <code>scroll-state(stuck: top)</code> query detects when a sticky element is actively stuck to the top of its scroll container. This is incredibly useful for adding visual feedback.</p>
+
+                            <h4>Common Use Cases</h4>
+                            <p>• Add shadows to sticky headers when they stick<br>
+                            • Change background colors for better contrast<br>
+                            • Adjust padding or sizing of sticky elements<br>
+                            • Show/hide elements based on sticky state</p>
+
+                            <h4>Without JavaScript</h4>
+                            <p>Before scroll-state(), detecting when a sticky element became stuck required Intersection Observer APIs or scroll event listeners. Now it's a simple CSS container query.</p>
+
+                            <h4>How It Works</h4>
+                            <p>The sticky element itself becomes the container with <code>container-type: scroll-state</code>. When it sticks, child elements can be styled using <code>@container scroll-state(stuck: top)</code>.</p>
+
+                            <h4>Visual Feedback</h4>
+                            <p>Notice how the header above gains a prominent shadow and the border color changes to blue when it's stuck? That's pure CSS responding to the stuck state.</p>
+
+                            <p>This pattern creates a polished, professional feel with zero JavaScript overhead. The browser handles all the detection and style updates efficiently.</p>
+
+                            <h4>Try It Yourself</h4>
+                            <p>Scroll up and down to see the header transition between its normal state and stuck state. The shadow appears and disappears smoothly as you scroll.</p>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Code Examples -->
                 <div class="code-example">
-                    <h3>Code Example</h3>
-                    <pre><code class="language-css">/* Scroll-aware styles */
-.header {
-  background: scroll-state(stuck) ? #fff : transparent;
-  box-shadow: scroll-state(stuck) ? 0 2px 4px rgba(0,0,0,0.1) : none;
+                    <h3>Code Examples</h3>
+
+                    <div class="scroll-state-code-grid">
+                        <!-- Example 1: scrolled direction -->
+                        <div class="scroll-state-code-example">
+                            <h4>Scroll Direction (Chrome 144+)</h4>
+                            <pre><code class="language-css">/* Setup container */
+.container {
+  container-name: scroll-dir;
+  container-type: scroll-state;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+/* Hide header when scrolling down */
+@container scroll-dir scroll-state(scrolled: bottom) {
+  .header {
+    translate: 0 -100%;
+  }
+}
+
+/* Show header when scrolling up */
+@container scroll-dir scroll-state(scrolled: top) {
+  .header {
+    translate: 0 0;
+  }
 }</code></pre>
+                        </div>
+
+                        <!-- Example 2: scrollable position -->
+                        <div class="scroll-state-code-example">
+                            <h4>Back-to-Top Button</h4>
+                            <pre><code class="language-css">/* Setup container */
+.article {
+  container-name: article;
+  container-type: scroll-state;
+  overflow-y: auto;
+}
+
+/* Button hidden by default */
+.back-to-top {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Show when can scroll up */
+@container article scroll-state(scrollable: top) {
+  .back-to-top {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}</code></pre>
+                        </div>
+
+                        <!-- Example 3: stuck state -->
+                        <div class="scroll-state-code-example">
+                            <h4>Sticky Element Shadow</h4>
+                            <pre><code class="language-css">/* Sticky element is container */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  container-name: header;
+  container-type: scroll-state;
+}
+
+/* Style children when stuck */
+@container header scroll-state(stuck: top) {
+  .header-content {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background: white;
+  }
+}</code></pre>
+                        </div>
+                    </div>
                 </div>
 
+                <!-- JavaScript vs CSS Comparison -->
+                <div class="comparison">
+                    <h3>JavaScript vs CSS</h3>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-item">
+                            <h4>❌ Old Way: JavaScript</h4>
+                            <pre><code class="language-javascript">// Track scroll direction
+let lastScrollTop = 0;
+const header = document.querySelector('.header');
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.pageYOffset;
+
+  if (scrollTop > lastScrollTop) {
+    // Scrolling down
+    header.style.transform = 'translateY(-100%)';
+  } else {
+    // Scrolling up
+    header.style.transform = 'translateY(0)';
+  }
+
+  lastScrollTop = scrollTop;
+}, { passive: true });
+
+// Plus: debouncing, throttling,
+// RAF scheduling, cleanup...</code></pre>
+                        </div>
+
+                        <div class="comparison-item">
+                            <h4>✅ New Way: CSS</h4>
+                            <pre><code class="language-css">/* Container setup */
+.page {
+  container-name: page;
+  container-type: scroll-state;
+  overflow-y: auto;
+}
+
+/* Automatic scroll direction detection */
+@container page scroll-state(scrolled: bottom) {
+  .header { translate: 0 -100%; }
+}
+
+@container page scroll-state(scrolled: top) {
+  .header { translate: 0 0; }
+}
+
+/* That's it! No JavaScript needed. */</code></pre>
+                        </div>
+                    </div>
+
+                    <h4>Benefits of CSS scroll-state()</h4>
+                    <ul>
+                        <li><strong>Zero JavaScript:</strong> Completely declarative, no event listeners or logic needed</li>
+                        <li><strong>Better Performance:</strong> Browser-native, runs on compositor thread</li>
+                        <li><strong>No Bugs:</strong> No scroll listener memory leaks or timing issues</li>
+                        <li><strong>Simpler Code:</strong> No state management, no throttling/debouncing</li>
+                        <li><strong>Accessible:</strong> Works with keyboard navigation and assistive technologies</li>
+                    </ul>
+                </div>
+
+                <!-- Important Gotchas -->
+                <div class="scroll-state-gotchas">
+                    <h3>🚨 Important: Critical Implementation Rules</h3>
+                    <ul>
+                        <li><strong>Cannot style container itself:</strong> Container queries only style <em>descendants</em> of the container, never the container element itself. Always wrap your content in a child element.</li>
+                        <li><strong>Must name containers:</strong> Use <code>container-name</code> (required) along with <code>container-type: scroll-state</code>.</li>
+                        <li><strong>Container must be scrollable or sticky:</strong> Add <code>overflow: auto</code> for scrollable containers, or <code>position: sticky</code> for stuck detection.</li>
+                        <li><strong>Use scrollTo() not anchor links:</strong> For back-to-top buttons in scrollable containers, use <code>element.scrollTo({top: 0})</code> instead of <code>&lt;a href="#top"&gt;</code> which scrolls the entire page.</li>
+                        <li><strong>Browser support varies:</strong> <code>scrollable</code>/<code>stuck</code> work in Chrome 133+ and Safari 18+. <code>scrolled</code> requires Chrome 144+.</li>
+                        <li><strong>Value meanings:</strong> <code>scrolled: top</code> = scrolling UP (toward top), <code>scrolled: bottom</code> = scrolling DOWN (toward bottom). The value names the edge you're scrolling <em>toward</em>.</li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
                 <div class="resources">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-state" target="_blank">MDN
-                                Documentation</a></li>
-                        <li><a href="https://caniuse.com/?search=scroll-state" target="_blank">Browser Support</a></li>
+                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_scroll-state_queries" target="_blank">MDN: Container scroll-state queries</a></li>
+                        <li><a href="https://developer.chrome.com/blog/css-scroll-state-queries" target="_blank">Chrome for Developers: CSS scroll-state()</a></li>
+                        <li><a href="https://una.im/scroll-state-scrolled" target="_blank">Una Kravets: Directional CSS with scroll-state()</a></li>
+                        <li><a href="https://caniuse.com/mdn-css_properties_container-type_scroll-state" target="_blank">Can I Use: scroll-state support</a></li>
                     </ul>
                 </div>
             </section>

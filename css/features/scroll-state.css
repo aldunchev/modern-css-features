@@ -1,0 +1,461 @@
+/* ========================================
+   CSS scroll-state() Container Queries
+   Browser Support: Chrome 133+, Safari 18+
+   ======================================== */
+
+/* ========================================
+   Demo 1: Auto-Hide Header on Scroll Direction
+   Uses scroll-state(scrolled) - Chrome 144+ only
+   Detects scroll direction to show/hide header
+   ======================================== */
+
+/* Scrollable container setup - MUST be named and scrollable */
+.scroll-direction-demo {
+  container-name: scroll-direction;
+  container-type: scroll-state;
+
+  /* Make container scrollable */
+  overflow-y: auto;
+  height: 500px;
+
+  /* Styling */
+  position: relative;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border);
+  background: var(--color-gray-50);
+  box-shadow: var(--shadow-md);
+}
+
+/* Header child element - gets styled by container queries */
+.scroll-direction-demo .demo-header {
+  /* Sticky positioning */
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  /* Styling */
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  padding: var(--space-4) var(--space-6);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-lg);
+  box-shadow: var(--shadow-md);
+
+  /* Smooth transitions */
+  translate: 0 0;
+  transition: translate var(--transition-base);
+  will-change: translate;
+}
+
+/* Hide header when scrolling DOWN (toward bottom) - Chrome 144+ only */
+@container scroll-direction scroll-state(scrolled: bottom) {
+  .demo-header {
+    translate: 0 -100% !important;
+  }
+}
+
+/* Show header when scrolling UP (toward top) - Chrome 144+ only */
+@container scroll-direction scroll-state(scrolled: top) {
+  .demo-header {
+    translate: 0 0 !important;
+  }
+}
+
+/* Prevent header from hiding when focused */
+.scroll-direction-demo .demo-header:focus-within {
+  translate: 0 0 !important;
+}
+
+/* Demo content area */
+.scroll-direction-demo .demo-content {
+  padding: var(--space-6);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+}
+
+.scroll-direction-demo .demo-content h4 {
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.scroll-direction-demo .demo-content h4:first-child {
+  margin-top: 0;
+}
+
+.scroll-direction-demo .demo-content p {
+  margin-bottom: var(--space-4);
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   Demo 2: Back-to-Top Button
+   Uses scroll-state(scrollable) - Chrome 133+, Safari 18+
+   Button appears when user can scroll back to top
+   ======================================== */
+
+/* Scrollable article container - MUST be named and scrollable */
+.back-to-top-demo {
+  container-name: back-to-top;
+  container-type: scroll-state;
+
+  /* Make container scrollable */
+  overflow-y: auto;
+  height: 450px;
+
+  /* Styling */
+  position: relative;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border);
+  background: white;
+  box-shadow: var(--shadow-md);
+}
+
+/* Article content */
+.back-to-top-demo article {
+  padding: var(--space-6);
+  line-height: var(--leading-relaxed);
+}
+
+.back-to-top-demo article h4 {
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.back-to-top-demo article h4:first-child {
+  margin-top: 0;
+}
+
+.back-to-top-demo article p {
+  margin-bottom: var(--space-4);
+  color: var(--color-text-muted);
+}
+
+/* Back-to-top button - hidden by default */
+.back-to-top-button {
+  /* Sticky positioning at bottom */
+  position: sticky;
+  bottom: var(--space-4);
+  left: 50%;
+  translate: -50% 0;
+
+  /* Styling */
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-success);
+  color: white;
+  border: none;
+  border-radius: var(--radius-full);
+  font-weight: var(--font-semibold);
+  font-size: var(--text-base);
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+
+  /* Hidden by default */
+  opacity: 0;
+  pointer-events: none;
+
+  /* Smooth transition */
+  transition: all var(--transition-base);
+}
+
+.back-to-top-button:hover {
+  background: #059669;
+  box-shadow: var(--shadow-xl);
+  translate: -50% -2px;
+}
+
+.back-to-top-button:active {
+  translate: -50% 0;
+}
+
+/* Show button when can scroll to top (user has scrolled down) */
+@container back-to-top scroll-state(scrollable: top) {
+  .back-to-top-button {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* ========================================
+   Demo 3: Sticky Header Shadow
+   Uses scroll-state(stuck) - Chrome 133+, Safari 18+
+   Shadow appears when header sticks to top
+   ======================================== */
+
+/* Wrapper for sticky demo */
+.sticky-shadow-demo {
+  height: 400px;
+  overflow-y: auto;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-border);
+  background: var(--color-gray-50);
+  box-shadow: var(--shadow-md);
+}
+
+/* Sticky header is the container - MUST be named and sticky */
+.sticky-shadow-header {
+  container-name: sticky-shadow;
+  container-type: scroll-state;
+
+  /* Sticky positioning */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Header content wrapper - gets styled by container queries */
+.sticky-shadow-header .header-content {
+  /* Styling */
+  background: white;
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 2px solid var(--color-gray-200);
+
+  /* No shadow by default */
+  box-shadow: none;
+
+  /* Smooth transition */
+  transition: box-shadow var(--transition-base);
+}
+
+.sticky-shadow-header .header-content h4 {
+  margin: 0;
+  color: var(--color-text);
+  font-size: var(--text-lg);
+}
+
+/* Add shadow when header is stuck to top */
+@container sticky-shadow scroll-state(stuck: top) {
+  .header-content {
+    box-shadow: var(--shadow-lg) !important;
+    border-bottom-color: var(--color-primary) !important;
+  }
+
+  .header-content h4 {
+    color: var(--color-primary) !important;
+  }
+}
+
+/* Demo content below sticky header */
+.sticky-shadow-demo .demo-content {
+  padding: var(--space-6);
+  line-height: var(--leading-relaxed);
+}
+
+.sticky-shadow-demo .demo-content h4 {
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+.sticky-shadow-demo .demo-content h4:first-child {
+  margin-top: 0;
+}
+
+.sticky-shadow-demo .demo-content p {
+  margin-bottom: var(--space-4);
+  color: var(--color-text-muted);
+}
+
+/* ========================================
+   Progressive Enhancement & Feature Detection
+   ======================================== */
+
+/* Show warning for unsupported browsers */
+@supports not (container-type: scroll-state) {
+  .scroll-state-warning {
+    display: block !important;
+    padding: var(--space-4);
+    margin-bottom: var(--space-6);
+    background: var(--color-warning);
+    color: white;
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-weight: var(--font-semibold);
+  }
+
+  .scroll-state-warning::before {
+    content: "⚠️ ";
+  }
+}
+
+/* Hide warning in supported browsers */
+@supports (container-type: scroll-state) {
+  .scroll-state-warning {
+    display: none !important;
+  }
+}
+
+/* Fallback: Always show back-to-top button in unsupported browsers */
+@supports not (container-type: scroll-state) {
+  .back-to-top-button {
+    opacity: 0.7 !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* ========================================
+   Accessibility - Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Disable header slide animation */
+  .scroll-direction-demo .demo-header {
+    transition: none;
+  }
+
+  /* Disable button transitions */
+  .back-to-top-button {
+    transition: opacity var(--transition-base);
+  }
+
+  /* Disable shadow transitions */
+  .sticky-shadow-header .header-content {
+    transition: none;
+  }
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+
+/* Mobile: Smaller containers and adjusted spacing */
+@media (max-width: 640px) {
+  .scroll-direction-demo,
+  .back-to-top-demo,
+  .sticky-shadow-demo {
+    height: 350px;
+  }
+
+  .scroll-direction-demo .demo-header {
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-base);
+  }
+
+  .scroll-direction-demo .demo-content,
+  .back-to-top-demo article,
+  .sticky-shadow-demo .demo-content {
+    padding: var(--space-4);
+  }
+
+  .back-to-top-button {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+  }
+
+  .sticky-shadow-header .header-content {
+    padding: var(--space-3) var(--space-4);
+  }
+}
+
+/* Tablet: Medium containers */
+@media (min-width: 641px) and (max-width: 1023px) {
+  .scroll-direction-demo,
+  .back-to-top-demo {
+    height: 450px;
+  }
+
+  .sticky-shadow-demo {
+    height: 400px;
+  }
+}
+
+/* Desktop: Full-size containers */
+@media (min-width: 1024px) {
+  .scroll-direction-demo,
+  .back-to-top-demo {
+    height: 500px;
+  }
+
+  .sticky-shadow-demo {
+    height: 450px;
+  }
+}
+
+/* ========================================
+   Code Example Highlights
+   ======================================== */
+
+/* Style code examples in the feature section */
+.scroll-state-code-grid {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .scroll-state-code-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .scroll-state-code-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.scroll-state-code-example {
+  background: var(--color-gray-900);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  overflow-x: auto;
+}
+
+.scroll-state-code-example h4 {
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.scroll-state-code-example pre {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  font-size: var(--text-xs);
+}
+
+/* ========================================
+   Important Notes Section
+   ======================================== */
+
+.scroll-state-gotchas {
+  background: var(--color-caution);
+  color: white;
+  padding: var(--space-6);
+  border-radius: var(--radius-lg);
+  margin-top: var(--space-8);
+}
+
+.scroll-state-gotchas h3 {
+  margin-bottom: var(--space-4);
+  color: white;
+}
+
+.scroll-state-gotchas ul {
+  list-style: disc;
+  margin-left: var(--space-6);
+}
+
+.scroll-state-gotchas li {
+  margin-bottom: var(--space-2);
+  line-height: var(--leading-relaxed);
+}
+
+.scroll-state-gotchas li:last-child {
+  margin-bottom: 0;
+}
+
+.scroll-state-gotchas code {
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
