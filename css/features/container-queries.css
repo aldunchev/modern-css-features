@@ -94,7 +94,7 @@
 }
 
 /* Container Query: Medium width - Horizontal layout */
-@container (min-width: 30rem) {
+@container (min-width: 20rem) {
   .profile-card {
     display: flex;
     gap: var(--space-4);
@@ -265,7 +265,7 @@
 }
 
 /* Container Query: Featured width - Enhanced layout */
-@container (min-width: 30rem) {
+@container (min-width: 18rem) {
   .cq-product-card img {
     height: 200px;
   }
