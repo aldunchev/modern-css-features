@@ -74,20 +74,22 @@
 ```css
 /* Detects the DIRECTION of recent user scrolling */
 
-/* scrolled: down = User just scrolled DOWN */
-@container scroll-state(scrolled: down) {
+/* scrolled: bottom = User scrolling DOWN (toward bottom) */
+@container scroll-state(scrolled: bottom) {
   .header {
-    transform: translateY(-100%); /* Hide header */
+    translate: 0 -100%; /* Hide header when scrolling down */
   }
 }
 
-/* scrolled: up = User just scrolled UP */
-@container scroll-state(scrolled: up) {
+/* scrolled: top = User scrolling UP (toward top) */
+@container scroll-state(scrolled: top) {
   .header {
-    transform: translateY(0); /* Show header */
+    translate: 0 0; /* Show header when scrolling up */
   }
 }
 ```
+
+**Note:** Use `translate` property instead of `transform` for better performance.
 
 **When to Use Which:**
 - **`scrollable`** - Show/hide elements based on position (back-to-top buttons, scroll indicators)
@@ -334,12 +336,18 @@ Detects when an element is snapped on an axis.
 ### `scrolled` - Scroll Direction (Chrome 144+ Only)
 Detects the direction of recent user scrolling.
 
+**⚠️ IMPORTANT: Use "top/bottom" not "up/down"**
+
 ```css
-@container scroll-state(scrolled: up) { /* User scrolled UP */ }
-@container scroll-state(scrolled: down) { /* User scrolled DOWN */ }
-@container scroll-state(scrolled: left) { /* User scrolled LEFT */ }
-@container scroll-state(scrolled: right) { /* User scrolled RIGHT */ }
+@container scroll-state(scrolled: top) { /* User scrolling UP */ }
+@container scroll-state(scrolled: bottom) { /* User scrolling DOWN */ }
+@container scroll-state(scrolled: left) { /* User scrolling LEFT */ }
+@container scroll-state(scrolled: right) { /* User scrolling RIGHT */ }
 ```
+
+**Why "top" for scrolling up?** The value names the edge you're scrolling TOWARD:
+- `scrolled: top` = moving toward the top = scrolling UP
+- `scrolled: bottom` = moving toward the bottom = scrolling DOWN
 
 ---
 
