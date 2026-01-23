@@ -11,12 +11,13 @@
 **❌ WRONG - This will NOT work:**
 ```css
 .container {
+  container-name: my-container;
   container-type: scroll-state;
   background: white;
 }
 
 /* Trying to style the container itself - FAILS! */
-@container scroll-state(stuck: top) {
+@container my-container scroll-state(stuck: top) {
   .container {
     background: blue; /* This will NEVER apply */
   }
@@ -26,11 +27,12 @@
 **✅ CORRECT - Query children of the container:**
 ```css
 .container {
+  container-name: my-container;  /* REQUIRED: Must name container */
   container-type: scroll-state;
 }
 
 /* Style CHILDREN of the container - WORKS! */
-@container scroll-state(stuck: top) {
+@container my-container scroll-state(stuck: top) {
   .child-element {
     background: blue; /* This works */
   }
@@ -47,22 +49,30 @@
 - `scrollable` → Chrome 133+, Safari 18+ ✅ Available now
 - `scrolled` → Chrome 144+ only ⚠️ Very new, limited support
 
+**⚠️ IMPORTANT:** All examples below include `container-name` which is REQUIRED (see Rule #3).
+
 **Use Cases:**
 
 #### ✅ RECOMMENDED: `scrollable` (Better Browser Support)
 
 ```css
-/* Detects if content CAN be scrolled in a direction */
+/* First, set up the scrollable container */
+.scrollable-area {
+  overflow-y: auto;
+  height: 500px;
+  container-name: scrollable-area;  /* REQUIRED: Must name container */
+  container-type: scroll-state;
+}
 
 /* scrollable: top = Can scroll UP (user has scrolled DOWN) */
-@container scroll-state(scrollable: top) {
+@container scrollable-area scroll-state(scrollable: top) {
   .back-to-top {
     opacity: 1; /* Show button when can scroll to top */
   }
 }
 
 /* scrollable: bottom = Can scroll DOWN (more content below) */
-@container scroll-state(scrollable: bottom) {
+@container scrollable-area scroll-state(scrollable: bottom) {
   .scroll-indicator {
     display: block; /* Show "more content" indicator */
   }
@@ -72,17 +82,23 @@
 #### ⚠️ ADVANCED: `scrolled` (Chrome 144+ Only)
 
 ```css
-/* Detects the DIRECTION of recent user scrolling */
+/* First, set up the scrollable container */
+.page-container {
+  overflow-y: auto;
+  height: 100vh;
+  container-name: page-scroll;  /* REQUIRED: Must name container */
+  container-type: scroll-state;
+}
 
 /* scrolled: bottom = User scrolling DOWN (toward bottom) */
-@container scroll-state(scrolled: bottom) {
+@container page-scroll scroll-state(scrolled: bottom) {
   .header {
     translate: 0 -100%; /* Hide header when scrolling down */
   }
 }
 
 /* scrolled: top = User scrolling UP (toward top) */
-@container scroll-state(scrolled: top) {
+@container page-scroll scroll-state(scrolled: top) {
   .header {
     translate: 0 0; /* Show header when scrolling up */
   }
