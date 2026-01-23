@@ -86,6 +86,21 @@
   margin-bottom: var(--space-4);
   overflow: hidden;
   transition: all var(--transition-base);
+  interpolate-size: allow-keywords;
+}
+
+.anim-details::details-content {
+  /* 2. Animate the ::details-content pseudo-element */
+  height: 0;
+  overflow: hidden;
+  transition:
+    height 0.3s ease-out,
+    content-visibility 0.3s ease-out allow-discrete;
+}
+
+.anim-details[open]::details-content {
+  /* 3. Set height to auto when opened */
+  height: auto;
 }
 
 .anim-details:hover {
@@ -139,7 +154,7 @@
 }
 
 .anim-details[open] .anim-details-content {
-  animation: slideDownFade 0.3s ease-out forwards;
+  animation: slideDownFade 0.5s ease-out forwards;
 }
 
 @keyframes slideDownFade {
