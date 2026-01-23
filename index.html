@@ -1453,6 +1453,56 @@
                     </div>
                 </div>
 
+                <!-- Demo 3: Scroll Direction with scrolled (Chrome 144+) -->
+                <div class="demo-container">
+                    <h3>Demo 3: Scroll Direction Detection (Chrome 144+)</h3>
+                    <p class="demo-description">This demo uses the newest <code>scroll-state(scrolled)</code> query to detect actual scroll direction. Scroll down and the header disappears. Scroll back up and it reappears. This requires Chrome 144+ or Safari 18.2+.</p>
+                    <p class="demo-description"><strong>Note:</strong> This uses <code>scrolled: bottom</code> (scrolling down) and <code>scrolled: top</code> (scrolling up), which are different from <code>scrollable</code> values.</p>
+
+                    <div class="scroll-state-demo-3">
+                        <header class="direction-header">
+                            <div class="direction-header-content">Scroll Direction Aware Header</div>
+                        </header>
+                        <div class="direction-content">
+                            <h3>Real-Time Scroll Direction Detection</h3>
+                            <p>This demo showcases the <span class="highlight-purple">scrolled</span> state, the newest addition to scroll-state queries in Chrome 144+. Unlike <code>scrollable</code> which detects if you <em>can</em> scroll, <code>scrolled</code> detects which direction you're <em>actively scrolling</em>.</p>
+
+                            <h3>The Key Difference</h3>
+                            <p><strong>scrollable:</strong> Position-based detection (Chrome 133+)</p>
+                            <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; list-style: disc;">
+                                <li><code>scrollable: top</code> = Can scroll UP (content exists above)</li>
+                                <li><code>scrollable: bottom</code> = Can scroll DOWN (content exists below)</li>
+                            </ul>
+
+                            <p><strong>scrolled:</strong> Direction-based detection (Chrome 144+)</p>
+                            <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; list-style: disc;">
+                                <li><code>scrolled: top</code> = User is scrolling UP</li>
+                                <li><code>scrolled: bottom</code> = User is scrolling DOWN</li>
+                            </ul>
+
+                            <h3>Use Cases</h3>
+                            <p>The <code>scrolled</code> query is perfect for:</p>
+                            <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; list-style: disc;">
+                                <li>Auto-hiding navigation bars (hide on down, show on up)</li>
+                                <li>Reading mode optimization (maximize screen space)</li>
+                                <li>Directional UI feedback</li>
+                                <li>Context-aware floating elements</li>
+                            </ul>
+
+                            <h3>Implementation</h3>
+                            <p>The CSS uses <code>translate</code> instead of <code>transform</code> for smoother performance. When you scroll down, <code>@container scroll-state(scrolled: bottom)</code> activates and hides the header with <code>translate: 0 -100%</code>.</p>
+
+                            <p>Keep scrolling to test the behavior...</p>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                            <p>Now scroll back up to see the header reappear smoothly! This is powered entirely by CSS with zero JavaScript event listeners.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Code Examples -->
                 <div class="code-example">
                     <h3>Code Example: Sticky Header Detection</h3>
@@ -1506,6 +1556,47 @@
                             pointer-events: auto;
                             }
                             }</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <h3>Code Example: Scroll Direction Detection (Chrome 144+)</h3>
+                    <pre><code class="language-css">/* The scrollable container detects scroll direction */
+                            .scrollable-container {
+                            container-name: direction-scroll;
+                            container-type: scroll-state;
+                            overflow-y: auto;
+                            height: 500px;
+                            }
+
+                            /* Header that responds to scroll direction */
+                            .direction-header-content {
+                            position: sticky;
+                            top: 0;
+                            padding: 1rem 2rem;
+                            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+                            transition: translate 0.25s ease;
+                            }
+
+                            /* Hide when scrolling DOWN */
+                            @container direction-scroll scroll-state(scrolled: bottom) {
+                            .direction-header-content {
+                            translate: 0 -100%;
+                            }
+                            }
+
+                            /* Show when scrolling UP */
+                            @container direction-scroll scroll-state(scrolled: top) {
+                            .direction-header-content {
+                            translate: 0 0;
+                            }
+                            }</code></pre>
+                    <p><strong>Key differences from Demo 2:</strong></p>
+                    <ul style="margin-left: 1.5rem; margin-bottom: 1rem; list-style: disc;">
+                        <li><code>scrolled: bottom</code> = user is scrolling DOWN (not "can scroll down")</li>
+                        <li><code>scrolled: top</code> = user is scrolling UP (not "can scroll up")</li>
+                        <li>Requires Chrome 144+ or Safari 18.2+ (newer than <code>scrollable</code>)</li>
+                        <li>Uses <code>translate</code> property for better performance</li>
+                    </ul>
                 </div>
 
                 <!-- JavaScript Comparison -->

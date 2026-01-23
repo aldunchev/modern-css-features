@@ -211,6 +211,89 @@
 }
 
 /* ========================================
+   DEMO 3: Scroll Direction with scrolled (Chrome 144+)
+   ======================================== */
+
+.scroll-state-demo-3 {
+  /* Scrollable container detects scroll direction */
+  container-name: direction-scroll;
+  container-type: scroll-state;
+
+  height: 500px;
+  overflow-y: auto;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: white;
+  position: relative;
+  box-shadow: var(--shadow-md);
+}
+
+/* Direction-aware header */
+.scroll-state-demo-3 .direction-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.scroll-state-demo-3 .direction-header-content {
+  padding: var(--space-4) var(--space-6);
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  color: white;
+  font-weight: var(--font-semibold);
+  font-size: var(--text-lg);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: translate 0.25s ease;
+  }
+}
+
+/* Hide header when scrolling DOWN (scrolled: bottom) */
+@container direction-scroll scroll-state(scrolled: bottom) {
+  .direction-header-content {
+    translate: 0 -100%;
+  }
+}
+
+/* Show header when scrolling UP (scrolled: top) */
+@container direction-scroll scroll-state(scrolled: top) {
+  .direction-header-content {
+    translate: 0 0;
+  }
+}
+
+/* Demo content */
+.scroll-state-demo-3 .direction-content {
+  padding: var(--space-8) var(--space-6);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.scroll-state-demo-3 .direction-content h3 {
+  color: #8b5cf6;
+  margin-bottom: var(--space-4);
+  font-size: var(--text-2xl);
+}
+
+.scroll-state-demo-3 .direction-content p {
+  margin-bottom: var(--space-5);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+}
+
+.scroll-state-demo-3 .direction-content .highlight-purple {
+  background: linear-gradient(120deg, #ddd6fe 0%, #ddd6fe 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 30%;
+  background-position: 0 88%;
+  padding: 0 var(--space-1);
+  font-weight: var(--font-semibold);
+  color: #6b21a8;
+}
+
+
+/* ========================================
    DEMO INDICATORS - Browser Support
    ======================================== */
 
@@ -246,18 +329,21 @@
 /* Tablet breakpoint */
 @media (max-width: 768px) {
   .scroll-state-demo-1,
-  .scroll-state-demo-2 {
+  .scroll-state-demo-2,
+  .scroll-state-demo-3 {
     height: 350px;
   }
 
   .scroll-state-demo-1 .header-content,
-  .scroll-state-demo-2 .header-text {
+  .scroll-state-demo-2 .header-text,
+  .scroll-state-demo-3 .direction-header-content {
     padding: var(--space-4) var(--space-5);
     font-size: var(--text-base);
   }
 
   .scroll-state-demo-1 .content,
-  .scroll-state-demo-2 .article {
+  .scroll-state-demo-2 .article,
+  .scroll-state-demo-3 .direction-content {
     padding: var(--space-5) var(--space-4);
   }
 
@@ -270,19 +356,22 @@
 /* Mobile breakpoint */
 @media (max-width: 480px) {
   .scroll-state-demo-1,
-  .scroll-state-demo-2 {
+  .scroll-state-demo-2,
+  .scroll-state-demo-3 {
     height: 300px;
     border-radius: var(--radius-md);
   }
 
   .scroll-state-demo-1 .header-content,
-  .scroll-state-demo-2 .header-text {
+  .scroll-state-demo-2 .header-text,
+  .scroll-state-demo-3 .direction-header-content {
     padding: var(--space-3) var(--space-4);
     font-size: var(--text-sm);
   }
 
   .scroll-state-demo-1 .content-block h4,
-  .scroll-state-demo-2 .article h3 {
+  .scroll-state-demo-2 .article h3,
+  .scroll-state-demo-3 .direction-content h3 {
     font-size: var(--text-lg);
   }
 
@@ -300,7 +389,8 @@
 @media (prefers-reduced-motion: reduce) {
   .scroll-state-demo-1 .header-content,
   .scroll-state-demo-2 .header-text,
-  .scroll-state-demo-2 .back-to-top {
+  .scroll-state-demo-2 .back-to-top,
+  .scroll-state-demo-3 .direction-header-content {
     transition: none;
   }
 
@@ -309,6 +399,13 @@
     .header-text {
       transform: none;
       opacity: 1;
+    }
+  }
+
+  /* Keep direction header visible */
+  @container direction-scroll scroll-state(scrolled: bottom) {
+    .direction-header-content {
+      translate: none;
     }
   }
 }

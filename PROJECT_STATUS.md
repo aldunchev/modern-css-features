@@ -55,7 +55,7 @@
 | 6 | **Anchor Positioning** | 📝 Skeleton only | `anchor-positioning.css` (0 KB) | Chrome 125+, Firefox 145+ |
 | 7 | **Modal Trigger Commands** | 📝 Skeleton only | `modal-trigger.css` (0 KB) | Chrome 114+, Firefox 125+, Safari 17+ |
 | 8 | **Modern Observer APIs** | 📝 Skeleton only | `observers.css` + `observers.js` (both 0 KB) | Chrome 58+, Firefox 55+, Safari 12.1+ |
-| 9 | **scroll-state()** | ✅ Complete | `scroll-state.css` (7.8 KB, 306 lines) | Chrome 133+, Safari 18+ |
+| 9 | **scroll-state()** | ✅ Complete | `scroll-state.css` (10 KB, 411 lines, 3 demos) | Chrome 133+ (scrollable, stuck), 144+ (scrolled) |
 | 10 | **Styleable Select** | 📝 Skeleton only | `styleable-select.css` (0 KB) | Chrome 135+ |
 
 **Tier 2 & 3 Summary:**
