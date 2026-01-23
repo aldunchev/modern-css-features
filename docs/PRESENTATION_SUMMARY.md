@@ -136,25 +136,19 @@ Claude **proactively suggested** Prism.js for syntax highlighting:
 
 **Prompt to use:**
 
+**Enter plan mode with shift + tab**
+
 ```
 Use Explore agent to research CSS scroll-state() function.
 Find 2-3 practical examples that replace JavaScript scroll listeners.
+One of them should be: Scroll Direction Detection - scroll down and the header disappears. Scroll back up and it reappears with `scrolled` - very new
 Focus on header styling and back-to-top buttons.
 Update after that the @PROJECT_STATUS.md
 ```
 
 ### Step 2: Implement (3 min)
 
-**Prompt to use:**
-
-```
-Create css/features/scroll-state.css with two demos:
-1. Header that changes background/shadow when scrolled
-2. Back-to-top button that appears on scroll
-
-Include @supports detection for progressive enhancement.
-Add comments explaining the approach.
-```
+**Review the plan and if OK accept the implementation**
 
 ---
 
