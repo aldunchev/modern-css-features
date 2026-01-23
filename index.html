@@ -1103,54 +1103,68 @@ modal.addEventListener('click', (e) => {
                 <div class="code-example">
                     <h3>Code Example: Animating display</h3>
                     <pre><code class="language-css">/* Element with display animation */
-.box {
-  display: block;
-  opacity: 1;
-  transition:
-    opacity 0.4s ease-out,
-    display 0.4s allow-discrete;
-}
+                            .box {
+                                display: block;
+                                opacity: 1;
+                                transition:
+                                opacity 0.4s ease-out,
+                                display 0.4s allow-discrete;
+                            }
 
-/* Hidden state */
-.box.hidden {
-  display: none;
-  opacity: 0;
-}
+                            /* Hidden state */
+                            .box.hidden {
+                                display: none;
+                                opacity: 0;
+                            }
 
-/* Starting state for entry animation */
-@starting-style {
-  .box {
-    opacity: 0;
-  }
-}</code></pre>
+                            /* Starting state for entry animation */
+                            @starting-style {
+                                .box {
+                                    opacity: 0;
+                                }
+                            }</code></pre>
                 </div>
 
                 <div class="code-example">
                     <h3>Code Example: Smooth Accordion</h3>
                     <pre><code class="language-css">/* Details/Summary accordion */
-details {
-  transition: height 0.3s ease-out;
-}
+                            details {
+                                transition: height 0.3s ease-out;
+                                interpolate-size: allow-keywords;
+                            }
 
-details[open] {
-  height: auto;
-}
+                            details::details-content {
+                                height: 0;
+                                overflow: hidden;
+                                transition:
+                                height 0.3s ease-out,
+                                content-visibility 0.3s ease-out allow-discrete;
+                            }
 
-/* Smooth content reveal */
-details[open] > .content {
-  animation: slideDown 0.3s ease-out;
-}
+                            details[open] {
+                                height: auto;
+                            }
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}</code></pre>
+                            .details[open]::details-content {
+                                /* 3. Set height to auto when opened */
+                                height: auto;
+                            }
+
+                            /* Smooth content reveal */
+                            details[open] > .content {
+                                animation: slideDown 0.3s ease-out;
+                            }
+
+                            @keyframes slideDown {
+                                from {
+                                    opacity: 0;
+                                    transform: translateY(-10px);
+                                }
+                                to {
+                                    opacity: 1;
+                                    transform: translateY(0);
+                                }
+                            }</code></pre>
                 </div>
 
                 <div class="comparison-container">
