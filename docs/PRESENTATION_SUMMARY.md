@@ -139,6 +139,7 @@ Claude **proactively suggested** Prism.js for syntax highlighting:
 ```
 Use Explore agent to research CSS scroll-state() function.
 Find 2-3 practical examples that replace JavaScript scroll listeners.
+One of them should be: Scroll Direction Detection - scroll down and the header disappears. Scroll back up and it reappears with `scrolled` - very new
 Focus on header styling and back-to-top buttons.
 Update after that the @PROJECT_STATUS.md
 ```
@@ -148,9 +149,10 @@ Update after that the @PROJECT_STATUS.md
 **Prompt to use:**
 
 ```
-Create css/features/scroll-state.css with two demos:
+Implement css/features/scroll-state.css with two demos:
 1. Header that changes background/shadow when scrolled
 2. Back-to-top button that appears on scroll
+3. Scroll Direction Detection - scroll down and the header disappears. Scroll back up and it reappears
 
 Include @supports detection for progressive enhancement.
 Add comments explaining the approach.
