@@ -139,7 +139,7 @@ Claude **proactively suggested** Prism.js for syntax highlighting:
 **Enter plan mode with shift + tab**
 
 ```
-Use Explore agent to research CSS scroll-state() function.
+Implement the CSS scroll-state() function.
 Find 2-3 practical examples that replace JavaScript scroll listeners.
 One of them should be: Scroll Direction Detection - scroll down and the header disappears. Scroll back up and it reappears with `scrolled` - very new
 Focus on header styling and back-to-top buttons.

@@ -1,6 +1,6 @@
 ---
 name: modern-css-features
-description: Expert guidance on modern CSS features that replace JavaScript. Provides implementation patterns, browser support info, and code examples for :has() selector, container queries, Popover API, scroll-snap carousels, @starting-style animations, anchor positioning, and more. Use when implementing CSS features, replacing JavaScript with CSS, building modals/dialogs/carousels/galleries, working on forms/validation, animating display/height, or when user mentions "without JavaScript", "pure CSS", "CSS only", or asks about browser support for modern CSS.
+description: Expert guidance on modern CSS features that replace JavaScript. Provides implementation patterns, browser support info, and code examples for :has() selector, container queries, Popover API, scroll-snap carousels, @starting-style animations, scroll-state() queries, anchor positioning, and more. Use when implementing CSS features, replacing JavaScript with CSS, building modals/dialogs/carousels/galleries, sticky headers, scroll detection, back-to-top buttons, working on forms/validation, animating display/height, or when user mentions "without JavaScript", "pure CSS", "CSS only", "scroll-state", "container queries", "stuck detection", or asks about browser support for modern CSS.
 allowed-tools: Read, Grep, Glob, WebSearch, WebFetch
 ---
 
@@ -29,6 +29,10 @@ Claude will automatically use this Skill when you:
 - Want to replace JavaScript with CSS
 - Ask about animating `display` or `height` properties
 - Discuss form validation, parent selectors, or responsive components
+- Implement scroll-state() queries, sticky headers, or scroll detection
+- Work with container queries or scroll-snap
+- Build back-to-top buttons, auto-hiding headers, or sticky navigation
+- Mention "scroll-state", "stuck detection", or "scrollable detection"
 
 ## Capabilities
 
