@@ -7,7 +7,6 @@
 - What We Built
 - The Planning Phase and The Implementation Plan
 - Live demo for implementing a new feature
-- AI Usage details
 - Key takeaways and the Key Mindset Shift
 - 3 free guest passes pitch
 
@@ -314,69 +313,6 @@ Result: Verified support across Chrome, Firefox, Safari in 30 seconds
 
 ---
 
-## 9. Lessons Learned (3 min)
-
-### ✅ What Worked
-
-1. **Planning first** → Prevented false starts
-2. **Parallel execution** → WebSearch saved 10+ minutes
-3. **Explore Agent** → Found better examples than manual search
-4. **Immediate docs** → AI documented while building
-5. **Structured commits** → Bash tool with heredoc
-
-### ⚠️ What to Watch For
-
-1. **Review everything** → AI is ~95% accurate, not 100%
-2. **Be specific** → Vague prompts = poor results
-3. **Use right tool** → Explore for research, not direct prompts
-4. **Browser test** → AI can't replace actual testing
-5. **You're the architect** → AI assists, you decide
-
-### Real Example: Animation Bug
-
-**Issue:** `@starting-style` animation didn't work
-**Root cause:** Had `prefers-reduced-motion` enabled in system settings
-**Lesson:** AI correctly implemented the code, but couldn't test accessibility settings
-
----
-
-## 10. Resources & Next Steps (5 min)
-
-### In This Repository
-
-📁 **Documentation:**
-
-- [AI_WORKFLOW.md](./AI_WORKFLOW.md) - Complete workflow guide (800+ lines)
-- [PLANNING_PHASE.md](./PLANNING_PHASE.md) - How we started
-- [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) - What we planned
-- [CHEAT_SHEET.md](./CHEAT_SHEET.md) - Quick reference for your first task
-- [FEATURES.md](./FEATURES.md) - CSS technical reference
-- [BROWSER_SUPPORT.md](./BROWSER_SUPPORT.md) - Compatibility matrix
-
-📝 **Code:**
-
-- [index.html](../index.html) - Live interactive demos
-- [css/features/](../css/features/) - Implementation patterns
-
----
-
-## Key Takeaways
-
-1. **87% time savings is real** → Git timestamps prove it
-2. **Planning prevents waste** → 15-20 min planning saved hours
-3. **AI is a pair programmer** → You drive, it assists
-4. **Start small** → First task < 1 hour
-5. **Review everything** → AI accelerates, you validate
-
----
-
-## Git Commands Reference
-
-**Show git history:** `git log --oneline --graph --all`
-**Show commit details:** `git show <hash> --stat`
-
----
-
 ## Want to Try Claude Code? 🎮
 
 I have **3 guest passes** available! Here's how to claim one:
@@ -386,8 +322,7 @@ I have **3 guest passes** available! Here's how to claim one:
 Submit a brief pitch (3-5 sentences) describing:
 
 - One modern CSS feature you'd like to implement
-- The problem it would solve in your work
-- Why you're excited to try Claude Code for it
+- The problem it would solve in your work or your personal interest
 
 📧 Send to: [alexander.dunchev@jakala.com] by the end of tomorrow
 🎯 Selection: First 3 submissions that show genuine interest + practical use case
