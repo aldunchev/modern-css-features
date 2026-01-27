@@ -19,7 +19,7 @@
 
 ---
 
-## 1. What We Built (8 min)
+## 1. What We Built
 
 ### Completed Features (60%)
 
@@ -65,13 +65,11 @@
 
 ---
 
-## 2. The Planning Phase (5 min)
+## 2. The Planning Phase
 
 ### How It Started
 
 📄 [INITIAL_PROMPT.md](./INITIAL_PROMPT.md) - Using Claude code planning phase
-
-### Live demo of the planning phase with the [INITIAL_PROMPT.md](./INITIAL_PROMPT.md)
 
 **Dual Purpose:**
 
@@ -104,9 +102,11 @@ Claude **proactively suggested** Prism.js for syntax highlighting:
 
 ---
 
-## 3. The Implementation Plan (2 min)
+## 3. The Implementation Plan
 
 📄 [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md)
+
+- The skill
 
 **6 Phases Planned:**
 
@@ -127,7 +127,7 @@ Claude **proactively suggested** Prism.js for syntax highlighting:
 
 ---
 
-## 4. Live Demo: Implementing scroll-state() (8 min)
+## 4. Live Demo: Implementing scroll-state()
 
 > **Live demonstration of the full workflow from research to commit**
 
@@ -140,8 +140,12 @@ Claude **proactively suggested** Prism.js for syntax highlighting:
 ```
 Implement the CSS scroll-state() function.
 Find 2-3 practical examples that replace JavaScript scroll listeners.
-One of them should be: Scroll Direction Detection - scroll down and the header disappears. Scroll back up and it reappears with `scrolled` - very new
+One of them should be: Scroll Direction Detection - scroll down and the header disappears. Scroll back up and it reappears
+with `scrolled` - very new
 Focus on header styling and back-to-top buttons.
+Check the @.claude/skills/modern-css-features/SKILL.md  and in particular the
+@.claude/skills/modern-css-features/SCROLL_STATE_GOTCHAS.md  for reference implementation
+Rate the implementation success confidence from 0 to 10. If you are not confident ask clarifying questions. I want to have perfect one pass implementation.
 Update after that the @PROJECT_STATUS.md
 ```
 
@@ -151,13 +155,13 @@ Update after that the @PROJECT_STATUS.md
 
 ---
 
-## 5. The PIV Loop (5 min)
+## 5. The PIV Loop
 
 ### Plan → Implement → Validate
 
 This methodology ensures quality AI-assisted development:
 
-#### **PLAN** (15-20 min)
+#### **PLAN**
 
 - Shift + tab to switch to plan mode
 - Ask strategic questions
@@ -199,7 +203,7 @@ This methodology ensures quality AI-assisted development:
 
 ---
 
-## 6. Key Mindset Shifts (5 min)
+## 6. Key Mindset Shifts
 
 📄 **Reference:** [CHEAT_SHEET.md](./CHEAT_SHEET.md) § Key Mindset Shifts
 
@@ -252,7 +256,7 @@ This methodology ensures quality AI-assisted development:
 
 ---
 
-## 7. Exploration Tools Deep Dive (5 min)
+## 7. Exploration Tools Deep Dive
 
 ### How We Used Tools
 
@@ -284,32 +288,6 @@ Result: Verified support across Chrome, Firefox, Safari in 30 seconds
 - Each feature had 9 subtasks
 - Marked complete as we progressed
 - Prevented forgetting steps
-
----
-
-## 8. The Time Savings Breakdown (3 min)
-
-| Task                | Manual          | With Claude Code | Savings |
-| ------------------- | --------------- | ---------------- | ------- |
-| Research 5 features | 2-3 hours       | 15 min           | 88%     |
-| Write 3,500+ lines  | 8-12 hours      | 1.5 hours        | 87%     |
-| Documentation       | 3-5 hours       | 45 min           | 85%     |
-| Browser testing     | 2 hours         | 30 min           | 75%     |
-| **TOTAL**           | **15-22 hours** | **2.75 hours**   | **87%** |
-
-### Why These Savings Matter
-
-**Traditional workflow:**
-
-- Google → Read docs → Trial/error → Debug → Repeat
-- Context switching between tools
-- Documentation backlog grows
-
-**Claude Code workflow:**
-
-- Parallel research → Generate code → Test → Commit
-- AI handles boilerplate and docs
-- Documentation happens during development
 
 ---
 

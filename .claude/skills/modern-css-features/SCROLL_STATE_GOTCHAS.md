@@ -119,9 +119,19 @@
 1. **Named** with `container-name`
 2. **Either sticky positioned OR scrollable** (overflow)
 
+**🚨 CRITICAL FOR STICKY DETECTION:** If detecting `stuck` state, the sticky element with `container-type: scroll-state` MUST be inside a **scrollable parent container** (with `overflow: auto`). Without a scrollable parent, the sticky element never becomes stuck!
+
 #### Pattern A: Sticky Element Detection
 
+**🚨 CRITICAL:** The sticky element must be INSIDE a scrollable parent container!
+
 ```css
+/* PARENT must be scrollable */
+.scrollable-wrapper {
+  overflow: auto; /* REQUIRED: Makes container scrollable */
+  height: 500px;
+}
+
 /* The STICKY ELEMENT is the container */
 .sticky-header {
   position: sticky;
@@ -142,13 +152,28 @@
 
 **Required HTML Structure:**
 ```html
-<div class="sticky-header">
-  <div class="header-content">
-    <!-- Content here gets styled -->
-    <h4>Header Title</h4>
+<!-- PARENT: Must be scrollable -->
+<div class="scrollable-wrapper">
+  <!-- STICKY ELEMENT: Detects stuck state -->
+  <div class="sticky-header">
+    <!-- CHILD: Gets styled -->
+    <div class="header-content">
+      <h4>Header Title</h4>
+    </div>
+  </div>
+
+  <!-- Content that creates scrolling -->
+  <div class="content">
+    <p>Long content that causes the parent to scroll...</p>
   </div>
 </div>
 ```
+
+**Why this structure is required:**
+- Sticky elements only stick when their **scrollable ancestor** scrolls
+- Without a scrollable parent, the sticky element never becomes "stuck"
+- The sticky element itself has `container-type: scroll-state`
+- But it must be INSIDE a scrollable container to detect stuck state
 
 #### Pattern B: Scrollable Container Detection
 
@@ -188,11 +213,14 @@
 
 **Goal:** Header gets a shadow and blue text when it sticks to the top.
 
+**🚨 CRITICAL:** The parent container MUST be scrollable for sticky detection to work!
+
 ```html
+<!-- PARENT: Must be scrollable -->
 <div class="page-container">
-  <!-- The sticky element itself is the container -->
+  <!-- STICKY ELEMENT: Detects its own stuck state -->
   <header class="sticky-header">
-    <!-- Wrapper div gets styled -->
+    <!-- CHILD: Gets styled when header is stuck -->
     <div class="header-content">
       <h1>My Site</h1>
       <nav>...</nav>
@@ -206,6 +234,12 @@
 ```
 
 ```css
+/* Parent must be scrollable */
+.page-container {
+  overflow: auto; /* REQUIRED for sticky detection */
+  height: 100vh;
+}
+
 /* Sticky header setup */
 .sticky-header {
   position: sticky;
@@ -397,7 +431,69 @@ Detects the direction of recent user scrolling.
 
 ---
 
-### Mistake #2: Forgetting to Name the Container
+### Mistake #2: Sticky Element Without Scrollable Parent
+
+**❌ Doesn't Work:**
+```html
+<!-- NO scrollable parent! -->
+<div class="wrapper">
+  <div class="sticky-header">
+    <div class="header-content">Content</div>
+  </div>
+</div>
+```
+
+```css
+.wrapper {
+  /* Missing overflow: auto! */
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  container-type: scroll-state;
+}
+
+/* This will NEVER trigger because sticky element never becomes stuck */
+@container scroll-state(stuck: top) {
+  .header-content { }
+}
+```
+
+**Problem:** Sticky elements only "stick" when a **scrollable ancestor** scrolls. Without a scrollable parent, the sticky element never becomes stuck, so the `stuck: top` state never triggers.
+
+**✅ Solution: Make Parent Scrollable**
+```html
+<!-- Parent is scrollable -->
+<div class="wrapper">
+  <div class="sticky-header">
+    <div class="header-content">Content</div>
+  </div>
+  <div class="content">Long scrolling content...</div>
+</div>
+```
+
+```css
+.wrapper {
+  overflow: auto; /* REQUIRED! */
+  height: 100vh;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  container-type: scroll-state;
+}
+
+/* Now this works! */
+@container scroll-state(stuck: top) {
+  .header-content { }
+}
+```
+
+---
+
+### Mistake #3: Forgetting to Name the Container
 
 **❌ Doesn't Work:**
 ```css
@@ -425,7 +521,7 @@ Detects the direction of recent user scrolling.
 
 ---
 
-### Mistake #3: Using Anchor Links for Internal Scroll
+### Mistake #4: Using Anchor Links for Internal Scroll
 
 **❌ Doesn't Work Well:**
 ```html
@@ -453,7 +549,7 @@ Or use a simple inline script:
 
 ---
 
-### Mistake #4: Wrong Specificity Order
+### Mistake #5: Wrong Specificity Order
 
 **❌ Container Query Gets Overridden:**
 ```css
