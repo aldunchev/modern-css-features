@@ -25,6 +25,24 @@ This is a showcase of 10 modern CSS features that replace JavaScript. Each featu
 - Respect `prefers-reduced-motion` for all animations
 - Use semantic HTML with proper accessibility attributes
 
+### CSS Variables and Transitions
+
+When using CSS variables for transition values, avoid duplicating timing functions:
+
+❌ **Wrong:**
+```css
+transition: transform var(--transition-base) ease;
+/* If --transition-base contains '0.3s ease', this becomes invalid */
+```
+
+✅ **Correct:**
+```css
+transition: transform var(--transition-base);
+/* Let the variable provide the complete duration + timing function */
+```
+
+**Why:** CSS variables for transitions typically include both duration and timing function. Specifying the timing function again creates invalid syntax like `0.3s ease ease`, causing the transition to fail silently with no console errors.
+
 ### Documentation
 - Keep feature documentation in `/docs/FEATURES.md` updated
 - Update browser support information in `/docs/BROWSER_SUPPORT.md` when needed
