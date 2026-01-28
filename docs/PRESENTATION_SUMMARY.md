@@ -1,14 +1,14 @@
 # Modern CSS with Claude Code: A Planning-First Approach
 
----
-
 ## Agenda
 
-- What We Built
+- What we have built
 - The Planning Phase and The Implementation Plan
-- Live demo for implementing a new feature
+- Live demo: implementing a new feature
 - Key takeaways and the Key Mindset Shift
 - 3 free guest passes pitch
+
+**If any questions feel free to interrupt me at any time**
 
 ## Quick Stats
 
@@ -19,7 +19,7 @@
 
 ---
 
-## 1. What We Built
+## 1. What we have built
 
 ### Completed Features (60%)
 
@@ -105,8 +105,6 @@ Claude **proactively suggested** Prism.js for syntax highlighting:
 ## 3. The Implementation Plan
 
 📄 [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md)
-
-- The skill
 
 **6 Phases Planned:**
 
@@ -290,6 +288,10 @@ Result: Verified support across Chrome, Firefox, Safari in 30 seconds
 - Prevented forgetting steps
 
 ---
+
+## 8. The Claude code skill emerged from the development - modern-css-features
+
+[SKILL.md](../.claude/skills/modern-css-features/SKILL.md)
 
 ## Want to Try Claude Code? 🎮
 
