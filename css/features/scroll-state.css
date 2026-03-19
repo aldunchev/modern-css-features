@@ -1,0 +1,501 @@
+/* ========================================
+   CSS scroll-state() Feature Styles
+   ======================================== */
+
+/* ========================================
+   DEMO 1: SCROLL DIRECTION DETECTION
+   Auto-hide header based on scroll direction
+   Browser Support: Chrome 144+ only (scrolled state)
+   ======================================== */
+
+/* Scrollable container with scroll-state detection */
+.scroll-direction-demo {
+  overflow-y: auto;
+  height: 500px;
+  container-type: scroll-state;
+  container-name: page-scroll;
+  position: relative;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  scroll-behavior: smooth;
+}
+
+/* Sticky header that responds to scroll direction */
+.scroll-direction-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  /* Transition on the container for smooth animation */
+  transition: transform var(--transition-base);
+}
+
+/* Header wrapper - gets styled by container queries */
+.header-wrapper {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  padding: var(--space-6);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.header-wrapper h4 {
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+}
+
+.header-wrapper p {
+  margin: 0;
+  font-size: var(--text-sm);
+  opacity: 0.9;
+}
+
+/* Container query: Hide header when scrolling down */
+@container page-scroll scroll-state(scrolled: bottom) {
+  .scroll-direction-header {
+    transform: translateY(-100%);
+  }
+}
+
+/* Container query: Show header when scrolling up */
+@container page-scroll scroll-state(scrolled: top) {
+  .scroll-direction-header {
+    transform: translateY(0);
+  }
+}
+
+/* Content area inside scrollable container */
+.scroll-direction-demo .scroll-content {
+  padding: var(--space-6);
+}
+
+.scroll-direction-demo .scroll-content h4 {
+  margin-top: 0;
+  color: var(--color-primary);
+  font-size: var(--text-2xl);
+}
+
+.scroll-direction-demo .scroll-content p {
+  margin: var(--space-4) 0;
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+}
+
+/* ========================================
+   DEMO 2: BACK-TO-TOP BUTTON
+   Button appears when scrollable upward
+   Browser Support: Chrome 133+, Safari 18+
+   ======================================== */
+
+/* Scrollable container */
+.back-to-top-demo {
+  overflow-y: auto;
+  height: 450px;
+  container-type: scroll-state;
+  container-name: scrollable-area;
+  position: relative;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  scroll-behavior: smooth;
+}
+
+/* Content area */
+.back-to-top-demo .scroll-content {
+  padding: var(--space-6);
+}
+
+.back-to-top-demo .scroll-content h4 {
+  margin-top: 0;
+  color: var(--color-primary);
+  font-size: var(--text-2xl);
+}
+
+.back-to-top-demo .scroll-content p {
+  margin: var(--space-4) 0;
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+}
+
+/* Back-to-top button - hidden by default */
+.back-to-top-button {
+  position: sticky;
+  bottom: var(--space-5);
+  left: calc(100% - 60px);
+  width: 48px;
+  height: 48px;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  /* Hidden by default */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base), transform var(--transition-fast), background var(--transition-fast);
+  z-index: 20;
+}
+
+.back-to-top-button:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.back-to-top-button:active {
+  transform: translateY(0);
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Container query: Show button when user can scroll up */
+@container scrollable-area scroll-state(scrollable: top) {
+  .back-to-top-button {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+
+/* ========================================
+   DEMO 3: STICKY HEADER STYLE CHANGES
+   Header changes style when stuck
+   Browser Support: Chrome 133+, Safari 18+
+   ======================================== */
+
+/* Scrollable wrapper - CRITICAL: Must be scrollable parent */
+.sticky-demo-wrapper {
+  overflow: auto;
+  height: 450px;
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+/* Sticky header with scroll-state detection */
+.sticky-demo-header {
+  position: sticky;
+  top: 0;
+  container-type: scroll-state;
+  container-name: sticky-header;
+  z-index: 10;
+}
+
+/* Header content - styled by container queries */
+.sticky-header-content {
+  background: transparent;
+  color: var(--color-text);
+  padding: var(--space-6);
+  transition: all var(--transition-base);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.sticky-header-content h4 {
+  margin: 0 0 var(--space-2) 0;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+}
+
+.sticky-header-content p {
+  margin: 0;
+  font-size: var(--text-sm);
+  opacity: 0.8;
+}
+
+/* Container query: Enhanced styles when stuck */
+@container sticky-header scroll-state(stuck: top) {
+  .sticky-header-content {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: var(--color-primary);
+    padding: var(--space-4) var(--space-6);
+  }
+
+  .sticky-header-content h4 {
+    font-size: var(--text-lg);
+  }
+
+  .sticky-header-content p {
+    font-size: var(--text-xs);
+  }
+}
+
+/* Content area */
+.sticky-demo-wrapper .scroll-content {
+  padding: var(--space-6);
+  background: white;
+}
+
+.sticky-demo-wrapper .scroll-content h4 {
+  margin-top: 0;
+  color: var(--color-primary);
+  font-size: var(--text-2xl);
+}
+
+.sticky-demo-wrapper .scroll-content p {
+  margin: var(--space-4) 0;
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+}
+
+/* ========================================
+   BROWSER SUPPORT NOTICES
+   ======================================== */
+
+.browser-support-notice {
+  background: var(--color-gray-100);
+  border-left: 4px solid var(--color-warning);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.browser-support-notice.chrome-144 {
+  border-left-color: var(--color-caution);
+}
+
+.browser-support-notice.chrome-safari {
+  border-left-color: var(--color-success);
+}
+
+.browser-support-notice strong {
+  color: var(--color-text);
+  font-weight: var(--font-semibold);
+}
+
+/* ========================================
+   DEMO DESCRIPTIONS
+   ======================================== */
+
+.demo-description {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-4);
+  line-height: var(--leading-normal);
+}
+
+.demo-description code {
+  background: var(--color-gray-100);
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+}
+
+/* ========================================
+   COMPARISON GRID
+   ======================================== */
+
+.comparison-container {
+  margin-top: var(--space-12);
+}
+
+.comparison-container h3 {
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+.comparison-old,
+.comparison-new {
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.comparison-old h4 {
+  color: var(--color-danger);
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+  font-size: var(--text-lg);
+}
+
+.comparison-new h4 {
+  color: var(--color-success);
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+  font-size: var(--text-lg);
+}
+
+.comparison-notes {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--space-4);
+}
+
+.comparison-notes li {
+  padding: var(--space-2) 0;
+  padding-left: var(--space-6);
+  position: relative;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.comparison-notes li::before {
+  content: "•";
+  position: absolute;
+  left: var(--space-2);
+  color: var(--color-text-muted);
+}
+
+.comparison-old .comparison-notes li::before {
+  content: "✗";
+  color: var(--color-danger);
+}
+
+.comparison-new .comparison-notes li::before {
+  content: "✓";
+  color: var(--color-success);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* Stack comparison grid on mobile */
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reduce demo heights on mobile */
+  .scroll-direction-demo,
+  .back-to-top-demo,
+  .sticky-demo-wrapper {
+    height: 350px;
+  }
+
+  /* Adjust padding */
+  .scroll-direction-demo .scroll-content,
+  .back-to-top-demo .scroll-content,
+  .sticky-demo-wrapper .scroll-content {
+    padding: var(--space-4);
+  }
+
+  .header-wrapper,
+  .sticky-header-content {
+    padding: var(--space-4);
+  }
+
+  /* Smaller button on mobile */
+  .back-to-top-button {
+    width: 40px;
+    height: 40px;
+    font-size: var(--text-xl);
+    left: calc(100% - 50px);
+  }
+
+  /* Smaller text on mobile */
+  .scroll-content h4 {
+    font-size: var(--text-xl) !important;
+  }
+
+  .scroll-content p {
+    font-size: var(--text-sm);
+  }
+}
+
+@media (max-width: 640px) {
+  /* Further reduce heights on very small screens */
+  .scroll-direction-demo,
+  .back-to-top-demo,
+  .sticky-demo-wrapper {
+    height: 300px;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-direction-header,
+  .back-to-top-button,
+  .sticky-header-content {
+    transition: none;
+  }
+
+  .scroll-direction-demo,
+  .back-to-top-demo {
+    scroll-behavior: auto;
+  }
+}
+
+/* Focus styles for keyboard navigation */
+.back-to-top-button:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   FEATURE DETECTION & FALLBACKS
+   ======================================== */
+
+/* Provide fallback message for unsupported browsers */
+@supports not (container-type: scroll-state) {
+  .scroll-direction-demo::before,
+  .back-to-top-demo::before,
+  .sticky-demo-wrapper::before {
+    content: "⚠️ Your browser doesn't support scroll-state() container queries. Please use Chrome 133+ or Safari 18+ to view these demos.";
+    display: block;
+    background: var(--color-warning);
+    color: white;
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    text-align: center;
+  }
+
+  /* Adjust container heights to accommodate warning */
+  .scroll-direction-demo,
+  .back-to-top-demo,
+  .sticky-demo-wrapper {
+    height: auto;
+    min-height: 200px;
+  }
+}
+
+/* Show back-to-top button in browsers that don't support scroll-state */
+@supports not (container-type: scroll-state) {
+  .back-to-top-button {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Ensure sticky header has background in unsupported browsers */
+@supports not (container-type: scroll-state) {
+  .sticky-header-content {
+    background: white;
+    box-shadow: var(--shadow-md);
+  }
+}

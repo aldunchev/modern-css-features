@@ -176,4 +176,22 @@
         switchToTab: switchToTab
     };
 
+    // Initialize scroll-state feature back-to-top button
+    initBackToTopButton();
+
+    function initBackToTopButton() {
+        const backToTopButton = document.querySelector('.back-to-top-button');
+        if (!backToTopButton) return;
+
+        backToTopButton.addEventListener('click', () => {
+            const scrollableContainer = backToTopButton.closest('.back-to-top-demo');
+            if (scrollableContainer) {
+                scrollableContainer.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+
 })();
